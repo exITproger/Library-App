@@ -49,7 +49,14 @@ namespace LibraryApp
                 Size = new Size(300, 80),
                 Cursor = Cursors.Hand
             };
-            btnStart.Click += (s, e) => MessageBox.Show("Добро пожаловать!");
+            btnStart.Click += (s, e) =>
+            {
+                MapForm mapForm = new MapForm();
+                Hide();
+                mapForm.ShowDialog();
+                Show();
+            };
+
             AnimateButton(btnStart);
 
             // Кнопка "Выход"
