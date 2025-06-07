@@ -46,7 +46,7 @@ namespace LibraryApp
                 BackColor = Color.FromArgb(76, 175, 80), // Зелёный
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 0 },
-                Size = new Size(300, 80),
+                Size = new Size(400, 120),
                 Cursor = Cursors.Hand
             };
             btnStart.Click += (s, e) =>
@@ -68,7 +68,7 @@ namespace LibraryApp
                 BackColor = Color.FromArgb(244, 67, 54), // Красный
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 0 },
-                Size = new Size(300, 80),
+                Size = new Size(400, 120),
                 Cursor = Cursors.Hand
             };
             btnExit.Click += (s, e) => Application.Exit();
