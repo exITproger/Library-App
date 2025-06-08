@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +88,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
