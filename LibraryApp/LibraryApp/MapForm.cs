@@ -11,6 +11,7 @@ namespace LibraryApp
         private List<PuzzlePiece> pieces = new List<PuzzlePiece>();
         private PuzzlePiece selectedPiece = null;
         private Button backButton;
+        private Button hintButton;
         private Point offset;
         private Bitmap outlineMap;
         private int correctPieces = 0;
@@ -53,18 +54,49 @@ namespace LibraryApp
             // === КНОПКА НАЗАД ===
             backButton = new Button();
             backButton.Text = "← Назад";
-            backButton.Font = new Font("Arial", 12, FontStyle.Bold);
+            backButton.Font = new Font("Arial", 30, FontStyle.Bold);
             backButton.BackColor = Color.LightGray;
             backButton.Location = new Point(20, 20);
             backButton.AutoSize = true;
             backButton.Click += (s, e) => this.Close();
             this.Controls.Add(backButton);
+
+            // === КНОПКА ПОДСКАЗКА ===
+            Button hintButton = new Button();
+            hintButton.Text = "Подсказка";
+            hintButton.Font = new Font("Arial", 25, FontStyle.Regular);
+            hintButton.BackColor = Color.LightGray;
+            hintButton.AutoSize = true;
+            hintButton.Location = new Point(20, backButton.Bottom + 20);
+            hintButton.Click += HintButton_Click;
+            this.Controls.Add(hintButton);
+
+            this.Load += MapForm_Load;
+            
+        }
+        private void MapForm_Load(object sender, EventArgs e)
+        {
+            ShowTaskForm(); // ← Окно появится поверх
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
             CalculateScaleFactor();
             this.Invalidate();
+        }
+        private void HintButton_Click(object sender, EventArgs e)
+        {
+            MapHintForm mapHintForm = new MapHintForm();
+            Hide();
+            mapHintForm.ShowDialog();
+            Show();
+        }
+        private void ShowTaskForm()
+        {
+            using (var taskForm = new TaskForm())
+            {
+                taskForm.ShowDialog(this);
+            }
         }
 
         private void CalculateScaleFactor(bool initial = false)
@@ -360,7 +392,7 @@ namespace LibraryApp
                     if (correctPieces == 8)
                     {
                         TimeSpan timeTaken = DateTime.Now - startTime;
-                        MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
+                        //MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
                     }
                 }
 
