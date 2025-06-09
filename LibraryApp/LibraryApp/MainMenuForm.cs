@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace LibraryApp
 {
-    public partial class MainMenu : Form
+    public partial class MainMenuForm : Form
     {
         private Button btnStart;
         private Button btnExit;
 
-        public MainMenu()
+        public MainMenuForm()
         {
             InitializeComponent();
             InitializeUI();

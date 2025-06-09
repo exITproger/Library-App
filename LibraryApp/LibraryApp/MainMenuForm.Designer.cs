@@ -1,6 +1,6 @@
 ﻿namespace LibraryApp
 {
-    partial class MainMenu
+    partial class MainMenuForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.

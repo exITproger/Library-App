@@ -71,6 +71,16 @@ namespace LibraryApp
             hintButton.Click += HintButton_Click;
             this.Controls.Add(hintButton);
 
+            // === КНОПКА "ПРОПУСТИТЬ" ===
+            Button skipButton = new Button();
+            skipButton.Text = "Пропустить";
+            skipButton.Font = new Font("Arial", 25, FontStyle.Regular);
+            skipButton.BackColor = Color.LightGray;
+            skipButton.AutoSize = true;
+            skipButton.Location = new Point(20, hintButton.Bottom + 20);
+            skipButton.Click += SkipButton_Click;
+            this.Controls.Add(skipButton);
+
             this.Load += MapForm_Load;
             
         }
@@ -98,6 +108,14 @@ namespace LibraryApp
                 taskForm.ShowDialog(this);
             }
         }
+        private void SkipButton_Click(object sender, EventArgs e)
+        {
+            RegionMapForm regionMapForm = new RegionMapForm();
+            this.Hide();
+            regionMapForm.ShowDialog();
+            this.Show();
+        }
+
 
         private void CalculateScaleFactor(bool initial = false)
         {
@@ -393,6 +411,12 @@ namespace LibraryApp
                     {
                         TimeSpan timeTaken = DateTime.Now - startTime;
                         //MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
+
+                        // Показ формы с кликабельными регионами
+                        RegionMapForm regionMapForm = new RegionMapForm();
+                        this.Hide();
+                        regionMapForm.ShowDialog();
+                        this.Show();
                     }
                 }
 
