@@ -126,6 +126,12 @@
     <Compile Include="VolgaMainForm.Designer.cs">
       <DependentUpon>VolgaMainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CentralMainForm.resx">
+      <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FareastenMainForm.resx">
+      <DependentUpon>FareastenMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MapHintForm.resx">
       <DependentUpon>MapHintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianMainForm.resx">
+      <DependentUpon>NorthcaucasianMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternMainForm.resx">
+      <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,8 +160,20 @@
     <EmbeddedResource Include="RegionMapForm.resx">
       <DependentUpon>RegionMapForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SiberianMainForm.resx">
+      <DependentUpon>SiberianMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SouthernMainForm.resx">
+      <DependentUpon>SouthernMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralMainForm.resx">
+      <DependentUpon>UralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolgaMainForm.resx">
+      <DependentUpon>VolgaMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

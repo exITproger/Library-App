@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryApp
@@ -395,7 +396,7 @@ namespace LibraryApp
         }
 
 
-        protected override void OnMouseUp(MouseEventArgs e)
+        protected override async void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
 
@@ -411,7 +412,7 @@ namespace LibraryApp
                     {
                         TimeSpan timeTaken = DateTime.Now - startTime;
                         //MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
-
+                        await Task.Delay(3000); // Задержка 3 секунды
                         // Показ формы с кликабельными регионами
                         RegionMapForm regionMapForm = new RegionMapForm();
                         this.Hide();
