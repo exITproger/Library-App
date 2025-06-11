@@ -179,14 +179,16 @@ namespace LibraryApp
 
         private void CalculateScaleFactor()
         {
-            // Рассчитываем отдельные коэффициенты масштабирования по ширине и высоте
-            scaleFactors = new SizeF(
-                this.ClientSize.Width / (float)backgroundMap.Width,
-                this.ClientSize.Height / (float)backgroundMap.Height);
+            float widthScale = this.ClientSize.Width / (float)backgroundMap.Width;
 
-            // Смещение оставляем нулевым — рисуем с (0,0)
-            basePosition = new PointF(0, 0);
+            scaleFactors = new SizeF(widthScale, widthScale);
+
+            float scaledHeight = backgroundMap.Height * scaleFactors.Height;
+            float offsetY = (this.ClientSize.Height - scaledHeight) / 2;
+
+            basePosition = new PointF(0, offsetY);
         }
+
 
 
         protected override void OnPaint(PaintEventArgs e)
