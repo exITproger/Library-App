@@ -114,6 +114,18 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestCentralForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm1.Designer.cs">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCentralForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm2.Designer.cs">
+      <DependentUpon>TestCentralForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +160,7 @@
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -168,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCentralForm1.resx">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCentralForm2.resx">
+      <DependentUpon>TestCentralForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UralMainForm.resx">
       <DependentUpon>UralMainForm.cs</DependentUpon>
@@ -195,6 +213,7 @@
     <None Include="Resources\fareasten.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\flag-rus.webp" />
     <None Include="Resources\map-background1.png" />
   </ItemGroup>
   <ItemGroup>
