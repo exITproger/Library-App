@@ -26,7 +26,7 @@ namespace LibraryApp
             this.BackColor = Color.White;
             this.MouseClick += RegionMapForm_MouseClick;
             LoadImages();
-            /*
+
             // Создаём кнопку выхода
             exitButton = new Button();
             exitButton.Text = "Выход";
@@ -34,66 +34,16 @@ namespace LibraryApp
             exitButton.BackColor = Color.LightGray;
             exitButton.AutoSize = true;
             exitButton.Location = new Point(20, 20);
-            */
-            // Общие настройки для кнопок (если ещё не объявлены)
-            Font commonFontBold = new Font("Segoe UI", 16, FontStyle.Bold);
-            Color buttonBackColor = Color.FromArgb(240, 240, 240);
-            Color buttonHoverColor = Color.FromArgb(210, 210, 210);
-            Color buttonTextColor = Color.FromArgb(30, 30, 30);
-            int buttonWidth = 140;
-            int buttonHeight = 50;
-
-            // Функция создания кнопки с закруглёнными углами и эффектом наведения
-            Button CreateStyledButton(string text, Font font, Point location, EventHandler onClick)
-            {
-                var btn = new Button();
-                btn.Text = text;
-                btn.Font = font;
-                btn.BackColor = buttonBackColor;
-                btn.ForeColor = buttonTextColor;
-                btn.Size = new Size(buttonWidth, buttonHeight);
-                btn.Location = location;
-                btn.FlatStyle = FlatStyle.Flat;
-                btn.FlatAppearance.BorderSize = 0;
-                btn.Cursor = Cursors.Hand;
-                btn.AutoSize = false;
-                btn.Click += onClick;
-
-                btn.MouseEnter += (s, e) => { btn.BackColor = buttonHoverColor; };
-                btn.MouseLeave += (s, e) => { btn.BackColor = buttonBackColor; };
-
-                // Закругляем углы
-                System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-                int radius = 12;
-                path.AddArc(0, 0, radius, radius, 180, 90);
-                path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-                path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-                path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-                path.CloseAllFigures();
-                btn.Region = new Region(path);
-
-                return btn;
-            }
-
-            // Создаём кнопку выхода в том же стиле
-            exitButton = CreateStyledButton("Выход", commonFontBold, new Point(20, 20), (s, e) => Application.Exit());
-            this.Controls.Add(exitButton);
-            
             exitButton.Click += (s, e) =>
             {
-                // Создаём копию списка форм, которые нужно закрыть
-                var formsToClose = Application.OpenForms
-                                    .OfType<Form>()
-                                    .Where(form => !(form is MainMenuForm))
-                                    .ToList();
-
-                // Закрываем формы из списка
-                foreach (var form in formsToClose)
+                // Закрыть все формы кроме главной, если она у вас есть в списке открытых
+                foreach (Form form in Application.OpenForms)
                 {
-                    form.Close();
+                    if (!(form is MainMenuForm))
+                        form.Close();
                 }
 
-                // Проверяем, есть ли главное меню
+                // Проверим, открыто ли главное меню
                 var mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
                 if (mainMenu == null)
                 {
@@ -105,9 +55,8 @@ namespace LibraryApp
                     mainMenu.BringToFront();
                 }
 
-                Close();
+                this.Close();
             };
-
 
 
             this.Controls.Add(exitButton);
@@ -254,19 +203,12 @@ namespace LibraryApp
                 backgroundMap.Width * scaleFactors.Width,
                 backgroundMap.Height * scaleFactors.Height);
 
-            string[] regionNames = {
-        "Северо-Западный", "Центральный", "Поволжье", "Южный",
-        "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный"
-    };
+            string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный", "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
 
-            // Базовый размер шрифта, масштабируем
-            float baseFontSize = 16f;
-            float fontScale = (scaleFactors.Width + scaleFactors.Height) / 2f;
-            float scaledFontSize = baseFontSize * fontScale;
-
-            using (Font font = new Font("Arial", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
+            using (Font font = new Font("Arial", 16, FontStyle.Bold))
             using (Brush textBrush = new SolidBrush(Color.Aqua))
-            using (Pen outlinePen = new Pen(Color.Black, 3 * fontScale)) // масштабируемая обводка
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(150, 0, 0, 0))) // полупрозрачная тень
+            using (Pen outlinePen = new Pen(Color.Black, 4))
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {
@@ -275,6 +217,7 @@ namespace LibraryApp
 
                     float x = basePosition.X + pos.X * scaleFactors.Width;
                     float y = basePosition.Y + pos.Y * scaleFactors.Height;
+
                     float w = img.Width * scaleFactors.Width;
                     float h = img.Height * scaleFactors.Height;
 
@@ -291,37 +234,19 @@ namespace LibraryApp
                     float textX = centerX - textSize.Width / 2;
                     float textY = centerY - textSize.Height / 2;
 
-                    // Дополнительный сдвиг "Центральный" влево
-                    if (text == "Центральный")
-                    {
-                        textX -= 80 * fontScale; // увеличенный сдвиг
-                    }
-                    if (text == "Поволжье")
-                    {
-                        textX -= 50 * fontScale; // увеличенный сдвиг
-                    }
-                    if (text == "Северо-Западный")
-                    {
-                        textY += 100 * fontScale; // увеличенный сдвиг
-                    }
-                    if (text == "Дальневосточный")
-                    {
-                        textX -= 80 * fontScale; // увеличенный сдвиг
-                    }
-                    // Контур + заливка (один вызов)
+                    // Рисуем тень чуть смещённую вниз и вправо
+                    g.DrawString(text, font, shadowBrush, textX + 2, textY + 2);
+
+                    // Контур текста через GraphicsPath
                     using (var path = new System.Drawing.Drawing2D.GraphicsPath())
                     {
-                        path.AddString(text, font.FontFamily, (int)font.Style,
-                            g.DpiY * font.Size / 72, new PointF(textX, textY), StringFormat.GenericDefault);
-
+                        path.AddString(text, font.FontFamily, (int)font.Style, g.DpiY * font.Size / 72, new PointF(textX, textY), StringFormat.GenericDefault);
                         g.DrawPath(outlinePen, path);
                         g.FillPath(textBrush, path);
                     }
                 }
             }
         }
-
-
 
     }
 }
