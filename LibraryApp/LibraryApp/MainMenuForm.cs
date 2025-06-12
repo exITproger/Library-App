@@ -51,11 +51,13 @@ namespace LibraryApp
             };
             btnStart.Click += (s, e) =>
             {
-                MapForm mapForm = new MapForm();
-                Hide();
+                this.Hide();  // скрываем главное меню
+                var mapForm = new MapForm();
                 mapForm.ShowDialog();
-                Show();
+                this.Show();  // показываем главное меню после закрытия mapForm
             };
+
+
 
             AnimateButton(btnStart);
 
@@ -137,6 +139,12 @@ namespace LibraryApp
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }

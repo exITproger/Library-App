@@ -23,6 +23,13 @@ namespace LibraryApp
         private const float MapScale = 0.8f;
         private const float PixelTolerance = 0.15f;
 
+
+        private string[] regionNames = new string[]
+        {
+            "Северо-Западный", "Центральный", "Приволжский", "Южный",
+            "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный"
+        };
+
         private Bitmap[] districtImages;
 
         private Point[] districtCenters = new Point[]
@@ -51,7 +58,7 @@ namespace LibraryApp
             CalculateScaleFactor(true);
 
             startTime = DateTime.Now;
-
+            /*
             // === КНОПКА НАЗАД ===
             backButton = new Button();
             backButton.Text = "← Назад";
@@ -80,6 +87,57 @@ namespace LibraryApp
             skipButton.AutoSize = true;
             skipButton.Location = new Point(20, hintButton.Bottom + 20);
             skipButton.Click += SkipButton_Click;
+            this.Controls.Add(skipButton);
+            */
+            // Универсальный стиль кнопок
+            Color buttonBackColor = Color.FromArgb(240, 240, 240);
+            Color buttonHoverColor = Color.FromArgb(210, 210, 210);
+            Color buttonTextColor = Color.FromArgb(30, 30, 30);
+            int buttonWidth = 180;
+            int buttonHeight = 60;
+            Font buttonFontBold = new Font("Segoe UI", 20, FontStyle.Bold);
+            Font buttonFontRegular = new Font("Segoe UI", 18, FontStyle.Regular);
+
+            // Метод для создания кнопки с заданными параметрами
+            Button CreateStyledButton(string text, Font font, Point location, EventHandler onClick)
+            {
+                var btn = new Button();
+                btn.Text = text;
+                btn.Font = font;
+                btn.BackColor = buttonBackColor;
+                btn.ForeColor = buttonTextColor;
+                btn.Size = new Size(buttonWidth, buttonHeight);
+                btn.Location = location;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Cursor = Cursors.Hand;
+                btn.AutoSize = false;
+                btn.Click += onClick;
+
+                btn.MouseEnter += (s, e) => { btn.BackColor = buttonHoverColor; };
+                btn.MouseLeave += (s, e) => { btn.BackColor = buttonBackColor; };
+
+                // Закругляем углы через Region
+                System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+                int radius = 12;
+                path.AddArc(0, 0, radius, radius, 180, 90);
+                path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
+                path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
+                path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
+                path.CloseAllFigures();
+                btn.Region = new Region(path);
+
+                return btn;
+            }
+
+            // Создаём кнопки с новым стилем
+            backButton = CreateStyledButton("← Назад", buttonFontBold, new Point(20, 20), (s, e) => this.Close());
+            this.Controls.Add(backButton);
+
+            Button hintButton = CreateStyledButton("Подсказка", buttonFontRegular, new Point(20, backButton.Bottom + 20), HintButton_Click);
+            this.Controls.Add(hintButton);
+
+            Button skipButton = CreateStyledButton("Пропустить", buttonFontRegular, new Point(20, hintButton.Bottom + 20), SkipButton_Click);
             this.Controls.Add(skipButton);
 
             this.Load += MapForm_Load;
@@ -115,6 +173,7 @@ namespace LibraryApp
             this.Hide();
             regionMapForm.ShowDialog();
             this.Show();
+
         }
 
 
@@ -319,8 +378,35 @@ namespace LibraryApp
                 new RectangleF(0, 0, piece.Image.Width, piece.Image.Height),
                 GraphicsUnit.Pixel);
 
-            // Убраны обводка и цифра
+            if (piece.IsCorrectlyPlaced)
+            {
+                string label = regionNames[piece.Number - 1];
+
+                float baseFontSize = 16f;
+                float scaledFontSize = baseFontSize * scaleFactor;
+
+                using (Font font = new Font("Segoe UI", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
+                {
+                    SizeF textSize = g.MeasureString(label, font);
+
+                    float textX = destRect.X + (destRect.Width - textSize.Width) / 2;
+                    float textY = destRect.Y + (destRect.Height - textSize.Height) / 2;
+
+                    // Сдвиг влево, если подпись — "Центральный"
+                    if (label.Trim().Equals("Центральный", StringComparison.OrdinalIgnoreCase))
+                    {
+                        textX -= 60 * scaleFactor; // на 60 пикселей влево (можно подправить)
+                    }
+
+                    using (Brush textBrush = new SolidBrush(Color.Black))
+                    {
+                        g.DrawString(label, font, textBrush, textX, textY);
+                    }
+                }
+            }
         }
+
+
 
         private void DrawInfo(Graphics g)
         {
