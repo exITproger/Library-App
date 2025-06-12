@@ -204,11 +204,15 @@ namespace LibraryApp
                 backgroundMap.Height * scaleFactors.Height);
 
             string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный", "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
+            
 
-            using (Font font = new Font("Arial", 16, FontStyle.Bold))
+            // Базовый размер шрифта, масштабируем
+            float baseFontSize = 16f;
+            float fontScale = (scaleFactors.Width + scaleFactors.Height) / 2f;
+            float scaledFontSize = baseFontSize * fontScale;
             using (Brush textBrush = new SolidBrush(Color.Aqua))
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(150, 0, 0, 0))) // полупрозрачная тень
-            using (Pen outlinePen = new Pen(Color.Black, 4))
+            using (Font font = new Font("Arial", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
+            using (Pen outlinePen = new Pen(Color.Black, 3 * fontScale)) // масштабируемая обвод
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {
@@ -234,8 +238,23 @@ namespace LibraryApp
                     float textX = centerX - textSize.Width / 2;
                     float textY = centerY - textSize.Height / 2;
 
-                    // Рисуем тень чуть смещённую вниз и вправо
-                    g.DrawString(text, font, shadowBrush, textX + 2, textY + 2);
+                    // Дополнительный сдвиг "Центральный" влево
+                    if (text == "Центральный")
+                    {
+                        textX -= 80 * fontScale; // увеличенный сдвиг
+                    }
+                    if (text == "Поволжье")
+                    {
+                        textX -= 50 * fontScale; // увеличенный сдвиг
+                    }
+                    if (text == "Северо-Западный")
+                    {
+                        textY += 100 * fontScale; // увеличенный сдвиг
+                    }
+                    if (text == "Дальневосточный")
+                    {
+                        textX -= 80 * fontScale; // увеличенный сдвиг
+                    }
 
                     // Контур текста через GraphicsPath
                     using (var path = new System.Drawing.Drawing2D.GraphicsPath())

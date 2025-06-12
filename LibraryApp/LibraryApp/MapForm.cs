@@ -22,7 +22,11 @@ namespace LibraryApp
         private PointF baseOutlinePosition = new PointF(400, 50);
         private const float MapScale = 0.8f;
         private const float PixelTolerance = 0.15f;
-
+        private string[] regionNames = new string[]
+        {
+            "Северо-Западный", "Центральный", "Приволжский", "Южный",
+            "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный"
+        };
         private Bitmap[] districtImages;
 
         private Point[] districtCenters = new Point[]
@@ -320,6 +324,32 @@ namespace LibraryApp
                 GraphicsUnit.Pixel);
 
             // Убраны обводка и цифра
+            if (piece.IsCorrectlyPlaced)
+            {
+                string label = regionNames[piece.Number - 1];
+
+                float baseFontSize = 16f;
+                float scaledFontSize = baseFontSize * scaleFactor;
+
+                using (Font font = new Font("Segoe UI", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
+                {
+                    SizeF textSize = g.MeasureString(label, font);
+
+                    float textX = destRect.X + (destRect.Width - textSize.Width) / 2;
+                    float textY = destRect.Y + (destRect.Height - textSize.Height) / 2;
+
+                    // Сдвиг влево, если подпись — "Центральный"
+                    if (label.Trim().Equals("Центральный", StringComparison.OrdinalIgnoreCase))
+                    {
+                        textX -= 60 * scaleFactor; // на 60 пикселей влево (можно подправить)
+                    }
+
+                    using (Brush textBrush = new SolidBrush(Color.Black))
+                    {
+                        g.DrawString(label, font, textBrush, textX, textY);
+                    }
+                }
+            }
         }
 
         private void DrawInfo(Graphics g)
