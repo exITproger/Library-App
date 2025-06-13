@@ -46,28 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CentralCharacterForm.cs">
+    <Compile Include="Central\CentralCharacterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentralCharacterForm.Designer.cs">
+    <Compile Include="Central\CentralCharacterForm.Designer.cs">
       <DependentUpon>CentralCharacterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CentralMainForm.cs">
+    <Compile Include="Central\CentralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentralMainForm.Designer.cs">
+    <Compile Include="Central\CentralMainForm.Designer.cs">
       <DependentUpon>CentralMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CentralOmensForm.cs">
+    <Compile Include="Central\CentralOmensForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentralOmensForm.Designer.cs">
+    <Compile Include="Central\CentralOmensForm.Designer.cs">
       <DependentUpon>CentralOmensForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CentralTraditionsForm.cs">
+    <Compile Include="Central\CentralTraditionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentralTraditionsForm.Designer.cs">
+    <Compile Include="Central\CentralTraditionsForm.Designer.cs">
       <DependentUpon>CentralTraditionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FareastenMainForm.cs">
@@ -88,16 +88,16 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapForm.cs">
+    <Compile Include="Task1\MapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MapForm.Designer.cs">
+    <Compile Include="Task1\MapForm.Designer.cs">
       <DependentUpon>MapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapHintForm.cs">
+    <Compile Include="Task1\MapHintForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MapHintForm.Designer.cs">
+    <Compile Include="Task1\MapHintForm.Designer.cs">
       <DependentUpon>MapHintForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NorthcaucasianMainForm.cs">
@@ -143,40 +143,40 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestCentralForm1.cs">
+    <Compile Include="TestsRegions\TestCentralForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestCentralForm1.Designer.cs">
+    <Compile Include="TestsRegions\TestCentralForm1.Designer.cs">
       <DependentUpon>TestCentralForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestCentralForm2.cs">
+    <Compile Include="TestsRegions\TestCentralForm2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestCentralForm2.Designer.cs">
+    <Compile Include="TestsRegions\TestCentralForm2.Designer.cs">
       <DependentUpon>TestCentralForm2.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestUralForm1.cs">
+    <Compile Include="TestsRegions\TestUralForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestUralForm1.Designer.cs">
+    <Compile Include="TestsRegions\TestUralForm1.Designer.cs">
       <DependentUpon>TestUralForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestUralForm2.cs">
+    <Compile Include="TestsRegions\TestUralForm2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestUralForm2.Designer.cs">
+    <Compile Include="TestsRegions\TestUralForm2.Designer.cs">
       <DependentUpon>TestUralForm2.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestVolgaForm1.cs">
+    <Compile Include="TestsRegions\TestVolgaForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestVolgaForm1.Designer.cs">
+    <Compile Include="TestsRegions\TestVolgaForm1.Designer.cs">
       <DependentUpon>TestVolgaForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestVolgaForm2.cs">
+    <Compile Include="TestsRegions\TestVolgaForm2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestVolgaForm2.Designer.cs">
+    <Compile Include="TestsRegions\TestVolgaForm2.Designer.cs">
       <DependentUpon>TestVolgaForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="UralMainForm.cs">
@@ -191,7 +191,7 @@
     <Compile Include="VolgaMainForm.Designer.cs">
       <DependentUpon>VolgaMainForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CentralMainForm.resx">
+    <EmbeddedResource Include="Central\CentralMainForm.resx">
       <DependentUpon>CentralMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FareastenMainForm.resx">
@@ -203,10 +203,10 @@
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MapForm.resx">
+    <EmbeddedResource Include="Task1\MapForm.resx">
       <DependentUpon>MapForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MapHintForm.resx">
+    <EmbeddedResource Include="Task1\MapHintForm.resx">
       <DependentUpon>MapHintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NorthcaucasianMainForm.resx">
