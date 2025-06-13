@@ -268,7 +268,12 @@ namespace LibraryApp
                 pieces[i].Position = positions[i];
             }
         }
-        
+
+
+
+
+
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
