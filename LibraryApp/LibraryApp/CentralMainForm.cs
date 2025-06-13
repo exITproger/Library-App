@@ -27,7 +27,7 @@ namespace LibraryApp
             this.FormBorderStyle = FormBorderStyle.None; // Убираем рамку окна
             this.StartPosition = FormStartPosition.Manual;
             this.Bounds = Screen.PrimaryScreen.Bounds; // Открытие на весь экран
-
+            DoubleBuffered = true;
             InitializeCustomUI();
             this.Resize += CentralMainForm_Resize;
 

@@ -12,7 +12,7 @@ namespace LibraryApp
         public CentralOmensForm()
         {
             InitializeComponent();
-
+            DoubleBuffered = true;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             this.StartPosition = FormStartPosition.Manual;
@@ -128,14 +128,6 @@ namespace LibraryApp
         BackColor = Color.Transparent,
         Location = new Point(7, 7)
     };
-    closePictureBox.Click += (sender, e) =>
-    {
-        this.Hide(); // Скрываем текущую форму
-        CentralMainForm centralMainForm = new CentralMainForm(); // Создаём новую форму
-        centralMainForm.Show(); // Показываем
-        this.Close(); // Закрываем текущую форму
-    };
-    this.Controls.Add(closePictureBox);
     closePictureBox.Click += (sender, e) => this.Close();
     this.Controls.Add(closePictureBox);
 

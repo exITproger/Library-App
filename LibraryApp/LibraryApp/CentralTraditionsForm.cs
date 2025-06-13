@@ -20,7 +20,7 @@ namespace LibraryApp
         public CentralTraditionsForm()
         {
             InitializeComponent();
-
+            DoubleBuffered = true;
             // Настройка формы на полноэкранный режим
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None; // Убираем рамку окна
