@@ -22,7 +22,7 @@ namespace LibraryApp.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LibraryApp.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LibraryApp.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace LibraryApp.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,77 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap central {
+        internal static System.Drawing.Bitmap Armenians {
+            get {
+                object obj = ResourceManager.GetObject("Armenians", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackButton {
+            get {
+                object obj = ResourceManager.GetObject("BackButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Baranki {
+            get {
+                object obj = ResourceManager.GetObject("Baranki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Barrel {
+            get {
+                object obj = ResourceManager.GetObject("Barrel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bashkirs {
+            get {
+                object obj = ResourceManager.GetObject("Bashkirs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bereza {
+            get {
+                object obj = ResourceManager.GetObject("Bereza", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Buryats {
+            get {
+                object obj = ResourceManager.GetObject("Buryats", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap central {
             get {
                 object obj = ResourceManager.GetObject("central", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +143,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap central_m {
+        internal static System.Drawing.Bitmap central_m {
             get {
                 object obj = ResourceManager.GetObject("central_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +153,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap central_w {
+        internal static System.Drawing.Bitmap central_w {
             get {
                 object obj = ResourceManager.GetObject("central_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +163,47 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap fareasten {
+        internal static System.Drawing.Bitmap CentralBackground {
+            get {
+                object obj = ResourceManager.GetObject("CentralBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CentralMapForm {
+            get {
+                object obj = ResourceManager.GetObject("CentralMapForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Chechens {
+            get {
+                object obj = ResourceManager.GetObject("Chechens", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EasterBasket {
+            get {
+                object obj = ResourceManager.GetObject("EasterBasket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fareasten {
             get {
                 object obj = ResourceManager.GetObject("fareasten", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +213,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap fareasten_m {
+        internal static System.Drawing.Bitmap fareasten_m {
             get {
                 object obj = ResourceManager.GetObject("fareasten_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +223,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap fareasten_w {
+        internal static System.Drawing.Bitmap fareasten_w {
             get {
                 object obj = ResourceManager.GetObject("fareasten_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +233,27 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap map_background1 {
+        internal static System.Drawing.Bitmap House {
+            get {
+                object obj = ResourceManager.GetObject("House", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Komi {
+            get {
+                object obj = ResourceManager.GetObject("Komi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap map_background1 {
             get {
                 object obj = ResourceManager.GetObject("map-background1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +263,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap map_background2 {
+        internal static System.Drawing.Bitmap map_background2 {
             get {
                 object obj = ResourceManager.GetObject("map-background2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +273,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap map_full {
+        internal static System.Drawing.Bitmap map_full {
             get {
                 object obj = ResourceManager.GetObject("map-full", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +283,37 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northcaucasian {
+        internal static System.Drawing.Bitmap Matryoshka {
+            get {
+                object obj = ResourceManager.GetObject("Matryoshka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mirror {
+            get {
+                object obj = ResourceManager.GetObject("Mirror", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NextButton {
+            get {
+                object obj = ResourceManager.GetObject("NextButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap northcaucasian {
             get {
                 object obj = ResourceManager.GetObject("northcaucasian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +323,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northcaucasian_m {
+        internal static System.Drawing.Bitmap northcaucasian_m {
             get {
                 object obj = ResourceManager.GetObject("northcaucasian_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +333,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northcaucasian_w {
+        internal static System.Drawing.Bitmap northcaucasian_w {
             get {
                 object obj = ResourceManager.GetObject("northcaucasian_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +343,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northwestern {
+        internal static System.Drawing.Bitmap northwestern {
             get {
                 object obj = ResourceManager.GetObject("northwestern", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +353,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northwestern_m {
+        internal static System.Drawing.Bitmap northwestern_m {
             get {
                 object obj = ResourceManager.GetObject("northwestern_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +363,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap northwestern_w {
+        internal static System.Drawing.Bitmap northwestern_w {
             get {
                 object obj = ResourceManager.GetObject("northwestern_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +373,37 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap siberian {
+        internal static System.Drawing.Bitmap Russian {
+            get {
+                object obj = ResourceManager.GetObject("Russian", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Samovar {
+            get {
+                object obj = ResourceManager.GetObject("Samovar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Scarecrow {
+            get {
+                object obj = ResourceManager.GetObject("Scarecrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siberian {
             get {
                 object obj = ResourceManager.GetObject("siberian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +413,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap siberian_m {
+        internal static System.Drawing.Bitmap siberian_m {
             get {
                 object obj = ResourceManager.GetObject("siberian_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +423,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap siberian_w {
+        internal static System.Drawing.Bitmap siberian_w {
             get {
                 object obj = ResourceManager.GetObject("siberian_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +433,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap southern {
+        internal static System.Drawing.Bitmap southern {
             get {
                 object obj = ResourceManager.GetObject("southern", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +443,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap southern_m {
+        internal static System.Drawing.Bitmap southern_m {
             get {
                 object obj = ResourceManager.GetObject("southern_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +453,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap southern_w {
+        internal static System.Drawing.Bitmap southern_w {
             get {
                 object obj = ResourceManager.GetObject("southern_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +463,37 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ural {
+        internal static System.Drawing.Bitmap Spider {
+            get {
+                object obj = ResourceManager.GetObject("Spider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Swallow {
+            get {
+                object obj = ResourceManager.GetObject("Swallow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tatars {
+            get {
+                object obj = ResourceManager.GetObject("Tatars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ural {
             get {
                 object obj = ResourceManager.GetObject("ural", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +503,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ural_m {
+        internal static System.Drawing.Bitmap ural_m {
             get {
                 object obj = ResourceManager.GetObject("ural_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +513,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ural_w {
+        internal static System.Drawing.Bitmap ural_w {
             get {
                 object obj = ResourceManager.GetObject("ural_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +523,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap volga {
+        internal static System.Drawing.Bitmap volga {
             get {
                 object obj = ResourceManager.GetObject("volga", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +533,7 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap volga_m {
+        internal static System.Drawing.Bitmap volga_m {
             get {
                 object obj = ResourceManager.GetObject("volga_m", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,9 +543,19 @@ namespace LibraryApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap volga_w {
+        internal static System.Drawing.Bitmap volga_w {
             get {
                 object obj = ResourceManager.GetObject("volga_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yakuts {
+            get {
+                object obj = ResourceManager.GetObject("Yakuts", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
