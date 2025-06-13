@@ -20,7 +20,7 @@ namespace LibraryApp
         private void button1_Click(object sender, EventArgs e)
         {
             VolgaSecondForm cc = new VolgaSecondForm();
-            Close();
+            Hide();
             cc.ShowDialog();
             Show();
         }

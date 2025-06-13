@@ -19,10 +19,7 @@ namespace LibraryApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            VolgaMainForm cc = new VolgaMainForm();
             Close();
-            cc.ShowDialog();
-            Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
