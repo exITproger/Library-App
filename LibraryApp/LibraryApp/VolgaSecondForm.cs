@@ -10,16 +10,24 @@ using System.Windows.Forms;
 
 namespace LibraryApp
 {
-    public partial class VolgaMainForm : Form
+    public partial class VolgaSecondForm : Form
     {
-        public VolgaMainForm()
+        public VolgaSecondForm()
         {
             InitializeComponent();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VolgaMainForm cc = new VolgaMainForm();
+            Close();
+            cc.ShowDialog();
+            Show();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            VolgaSecondForm cc = new VolgaSecondForm();
+            TestTatarForm1 cc = new TestTatarForm1();
             Close();
             cc.ShowDialog();
             Show();
