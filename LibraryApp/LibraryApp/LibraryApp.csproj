@@ -58,6 +58,12 @@
     <Compile Include="FareastenMainForm.Designer.cs">
       <DependentUpon>FareastenMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinalTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalTestForm.Designer.cs">
+      <DependentUpon>FinalTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FareastenMainForm.resx">
       <DependentUpon>FareastenMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalTestForm.resx">
+      <DependentUpon>FinalTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
@@ -220,6 +229,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\volga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central_w.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

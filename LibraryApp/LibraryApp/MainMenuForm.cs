@@ -49,14 +49,20 @@ namespace LibraryApp
                 Size = new Size(400, 120),
                 Cursor = Cursors.Hand
             };
-            btnStart.Click += (s, e) =>
+            /*btnStart.Click += (s, e) =>
             {
                 MapForm mapForm = new MapForm();
                 Hide();
                 mapForm.ShowDialog();
                 Show();
+            };*/
+            btnStart.Click += (s, e) =>
+            {
+                FinalTestForm mapForm = new FinalTestForm();
+                Hide();
+                mapForm.ShowDialog();
+                Show();
             };
-
             AnimateButton(btnStart);
 
             // Кнопка "Выход"
