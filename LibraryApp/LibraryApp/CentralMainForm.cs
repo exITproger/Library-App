@@ -16,5 +16,13 @@ namespace LibraryApp
         {
             InitializeComponent();
         }
+
+        private void btbTestCentral_Click(object sender, EventArgs e)
+        {
+            TestCentralForm1 cc = new TestCentralForm1();
+            Hide();
+            cc.ShowDialog();
+            Show();
+        }
     }
 }

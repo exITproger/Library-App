@@ -120,6 +120,18 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestCentralForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm1.Designer.cs">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCentralForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm2.Designer.cs">
+      <DependentUpon>TestCentralForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
