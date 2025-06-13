@@ -229,7 +229,6 @@
     <Resource Include="Resources\northwestern.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\RuFont.ttf" />
     <Resource Include="Resources\siberian.png" />
   </ItemGroup>
   <ItemGroup>
