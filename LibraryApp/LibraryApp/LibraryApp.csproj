@@ -160,7 +160,7 @@
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -213,7 +213,6 @@
     <None Include="Resources\fareasten.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\flag-rus.webp" />
     <None Include="Resources\map-background1.png" />
   </ItemGroup>
   <ItemGroup>
