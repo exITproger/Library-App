@@ -1,18 +1,13 @@
-﻿using System.Windows.Forms;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace LibraryApp
 {
-    partial class CentralMainForm
+    public partial class CentralOmensForm : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,13 +17,11 @@ namespace LibraryApp
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
             this.SuspendLayout();
             // 
-            // CentralMainForm
+            // CentralOmensForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -38,11 +31,9 @@ namespace LibraryApp
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "CentralMainForm";
+            this.Name = "CentralOmensForm";
             this.Text = "Центральный федеральный округ";
             this.ResumeLayout(false);
         }
-
-        #endregion
     }
 }

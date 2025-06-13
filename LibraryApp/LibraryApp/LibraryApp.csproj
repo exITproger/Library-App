@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CentralCharacterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralCharacterForm.Designer.cs">
+      <DependentUpon>CentralCharacterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CentralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CentralMainForm.Designer.cs">
       <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralOmensForm.Designer.cs">
+      <DependentUpon>CentralOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.Designer.cs">
+      <DependentUpon>CentralTraditionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FareastenMainForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +109,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RegionMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,14 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="RegionMapForm.resx">
       <DependentUpon>RegionMapForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,37 +208,104 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\central.png" />
+    <Resource Include="Resources\central.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fareasten.png" />
+    <Resource Include="Resources\fareasten.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\map-background1.png" />
+    <Resource Include="Resources\map-background1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\map-background2.png" />
+    <Resource Include="Resources\map-background2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\map-full.png" />
+    <Resource Include="Resources\map-full.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\northcaucasian.png" />
+    <Resource Include="Resources\northcaucasian.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\northwestern.png" />
+    <Resource Include="Resources\northwestern.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\siberian.png" />
+    <Resource Include="Resources\RuFont.ttf" />
+    <Resource Include="Resources\siberian.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\southern.png" />
+    <Resource Include="Resources\southern.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ural.png" />
+    <Resource Include="Resources\ural.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\volga.png" />
+    <Resource Include="Resources\volga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CentralBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NextButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Spider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Swallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mirror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CentralMapForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Baranki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bereza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\House.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Samovar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EasterBasket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Matryoshka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Scarecrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Barrel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Armenians.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bashkirs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Buryats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Chechens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Komi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Yakuts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tatars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

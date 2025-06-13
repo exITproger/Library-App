@@ -36,11 +36,15 @@ namespace LibraryApp
             exitButton.Location = new Point(20, 20);
             exitButton.Click += (s, e) =>
             {
-                // Закрыть все формы кроме главной, если она у вас есть в списке открытых
-                foreach (Form form in Application.OpenForms)
+                // Создаем список форм для закрытия
+                var formsToClose = Application.OpenForms.Cast<Form>()
+                    .Where(f => !(f is MainMenuForm))
+                    .ToList();
+
+                // Закрываем формы из списка
+                foreach (Form form in formsToClose)
                 {
-                    if (!(form is MainMenuForm))
-                        form.Close();
+                    form.Close();
                 }
 
                 // Проверим, открыто ли главное меню
