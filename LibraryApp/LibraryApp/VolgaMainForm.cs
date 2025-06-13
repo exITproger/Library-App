@@ -16,5 +16,13 @@ namespace LibraryApp
         {
             InitializeComponent();
         }
+
+        private void btnTextOpen_Click(object sender, EventArgs e)
+        {
+            TestVolgaForm1 testVolgaForm1 = new TestVolgaForm1();
+            Hide();
+            testVolgaForm1.ShowDialog();
+            Show();
+        }
     }
 }
