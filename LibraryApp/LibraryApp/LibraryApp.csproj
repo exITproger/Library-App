@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CentralCharacterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralCharacterForm.Designer.cs">
+      <DependentUpon>CentralCharacterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CentralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CentralMainForm.Designer.cs">
       <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralOmensForm.Designer.cs">
+      <DependentUpon>CentralOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.Designer.cs">
+      <DependentUpon>CentralTraditionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FareastenMainForm.cs">
       <SubType>Form</SubType>
@@ -210,6 +229,7 @@
     <None Include="Resources\northwestern.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\RuFont.ttf" />
     <None Include="Resources\siberian.png" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +240,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\volga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mirror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralMapForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baranki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bereza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\House.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kapa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samovar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shershulya.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EasterBasket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Matryoshka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scarecrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barrel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
