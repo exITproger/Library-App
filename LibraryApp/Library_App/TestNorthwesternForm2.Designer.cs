@@ -39,7 +39,7 @@ namespace Library_App
             this.lblAsk1.Name = "lblAsk1";
             this.lblAsk1.Size = new System.Drawing.Size(1523, 100);
             this.lblAsk1.TabIndex = 1;
-            this.lblAsk1.Text = "Дополните примету центрального округа «Если куры рано ложатся спать, …»";
+            this.lblAsk1.Text = "Дополните примету округа «Если куры рано ложатся спать, …»";
             this.lblAsk1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
