@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestVolgaForm1 testVolgaForm1 = new TestVolgaForm1();
-            Hide();
+
             testVolgaForm1.ShowDialog();
-            Show();
+
         }
     }
 }

@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestUralForm1 testUralForm1 = new TestUralForm1();
-            Hide();
+
             testUralForm1.ShowDialog();
-            Show();
+
         }
     }
 }

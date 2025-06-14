@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             NorthcaucasianOmensForm open = new NorthcaucasianOmensForm();
-            Hide();
+
             open.ShowDialog();
-            Show();
+
         }
     }
 }

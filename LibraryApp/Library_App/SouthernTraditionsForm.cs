@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestSouthernForm1 testSouthernForm1 = new TestSouthernForm1();
-            Hide();
+
             testSouthernForm1.ShowDialog();
-            Show();
+
         }
     }
 }

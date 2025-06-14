@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             NorthwesternOmesForm northwesternOmesForm = new NorthwesternOmesForm();
-            Hide();
+
             northwesternOmesForm.ShowDialog();
-            Show();
+
         }
     }
 }

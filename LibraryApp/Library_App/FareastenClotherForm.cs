@@ -140,9 +140,7 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             FareastenOmensForm open = new FareastenOmensForm();
-            Hide();
             open.ShowDialog();
-            Show();
         }
     }
 }

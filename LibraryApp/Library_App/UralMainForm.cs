@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             UralClothesForm uralClothesForm = new UralClothesForm();
-            Hide();
+
             uralClothesForm.ShowDialog();
-            Show();
+
         }
     }
 }

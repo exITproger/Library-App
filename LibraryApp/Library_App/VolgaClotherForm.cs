@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             VolgaOmensForm open = new VolgaOmensForm();
-            Hide();
+
             open.ShowDialog();
-            Show();
+
         }
     }
 }

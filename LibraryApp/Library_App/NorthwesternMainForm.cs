@@ -140,9 +140,8 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             NorthwesternClothesForm northwesternClothesForm = new NorthwesternClothesForm();
-            Hide();
+
             northwesternClothesForm.ShowDialog();
-            Show();
         }
     }
 }

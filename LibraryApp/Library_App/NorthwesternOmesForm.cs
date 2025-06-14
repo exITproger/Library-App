@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             NorthwesternTraditionsForm northwesternTraditionsForm = new NorthwesternTraditionsForm();
-            Hide();
+
             northwesternTraditionsForm.ShowDialog();
-            Show();
+
         }
     }
 }

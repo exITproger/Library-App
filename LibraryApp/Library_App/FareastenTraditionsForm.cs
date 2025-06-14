@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestFareastenForm1 testFareastenForm1 = new TestFareastenForm1();
-            Hide();
+
             testFareastenForm1.ShowDialog();
-            Show();
+
         }
     }
 }

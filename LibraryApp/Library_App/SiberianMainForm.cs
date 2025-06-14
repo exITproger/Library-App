@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             SiberianClotherForm open = new SiberianClotherForm();
-            Hide();
+
             open.ShowDialog();
-            Show();
+
         }
     }
 }

@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             SiberianTraditionsForm open = new SiberianTraditionsForm();
-            Hide();
+
             open.ShowDialog();
-            Show();
+
         }
     }
 }
