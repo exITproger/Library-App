@@ -14,7 +14,7 @@ namespace Library_App
         private Point[] regionPositions;
         private float scaleFactor = 1.0f;
         private PointF basePosition;
-        private Button exitButton;
+        private PictureBox exitPictureBox;
 
         private Bitmap[] draggableImages;
         private Point[] draggablePositions;
@@ -39,14 +39,18 @@ namespace Library_App
             LoadImages();
 
             // Создаём кнопку выхода
-            exitButton = new Button();
-            exitButton.Text = "Выход";
-            exitButton.Font = new Font("Arial", 16, FontStyle.Bold);
-            exitButton.BackColor = Color.LightGray;
-            exitButton.AutoSize = true;
-            exitButton.Location = new Point(20, 20);
-            exitButton.Click += (s, e) =>
+            // Создаём PictureBox для выхода вместо кнопки
+            exitPictureBox = new PictureBox();
+            exitPictureBox.Image = Properties.Resources.назад; // Предполагается, что у вас есть ресурс с иконкой
+            exitPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            exitPictureBox.Size = new Size(200, 100); // Размер иконки
+            exitPictureBox.BackColor = Color.Transparent; // Прозрачный фон
+            exitPictureBox.Location = new Point(20, 20);
+            exitPictureBox.Cursor = Cursors.Hand; // Курсор-рука при наведении
+            exitPictureBox.Click += (s, e) =>
             {
+                Close();
+                /*
                 // Закрыть все формы кроме главной, если она у вас есть в списке открытых
                 foreach (Form form in Application.OpenForms)
                 {
@@ -67,13 +71,14 @@ namespace Library_App
                 }
 
                 this.Close();
+                */
             };
 
             isCorrectlyPlaced = new bool[draggableImages.Length];
             for (int i = 0; i < isCorrectlyPlaced.Length; i++)
                 isCorrectlyPlaced[i] = false;
 
-            this.Controls.Add(exitButton);
+            this.Controls.Add(exitPictureBox);
             this.MouseDown += FinalTestForm_MouseDown;
             this.MouseMove += FinalTestForm_MouseMove;
             this.MouseUp += FinalTestForm_MouseUp;
@@ -417,9 +422,24 @@ namespace Library_App
 
                     float textX = centerX - textSize.Width / 2;
                     float textY = centerY - textSize.Height / 2;
-
-                    // Рисуем тень чуть смещённую вниз и вправо
-                    g.DrawString(text, font, shadowBrush, textX + 2, textY + 2);
+                    // Дополнительный сдвиг "Центральный" влево
+                    if (text == "Центральный")
+                    {
+                        textX -= 80 * scaleFactor; // увеличенный сдвиг
+                    }
+                    if (text == "Поволжье")
+                    {
+                        textX -= 50 * scaleFactor; // увеличенный сдвиг
+                    }
+                    if (text == "Северо-Западный")
+                    {
+                        textY += 100 * scaleFactor; // увеличенный сдвиг
+                    }
+                    if (text == "Дальневосточный")
+                    {
+                        textX -= 80 * scaleFactor; // увеличенный сдвиг
+                    }
+                    
 
                     // Контур текста через GraphicsPath
                     using (var path = new System.Drawing.Drawing2D.GraphicsPath())

@@ -14,7 +14,7 @@ namespace Library_App
         private float scaleFactor = 1.0f;
         private PointF basePosition;
         private PictureBox exitButton;
-
+        private PictureBox rightTopButton; // Новая кнопка в правом верхнем углу
         private SizeF scaleFactors;
         // Добавляем в начало класса новые константы
         private const float HoverScaleFactor = 1.1f; // Увеличение при наведении (10%)
@@ -25,74 +25,91 @@ namespace Library_App
         private const int ReferenceScreenWidth = 2560;
         private const int ReferenceButtonWidth = 200;
         private const float ButtonAspectRatio = 0.4f; // Соотношение высоты к ширине
+        private void CloseForm()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (!(form is MainMenuForm))
+                    form.Close();
+            }
+
+            var mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
+            if (mainMenu == null)
+            {
+                mainMenu = new MainMenuForm();
+                mainMenu.Show();
+            }
+            else
+            {
+                mainMenu.BringToFront();
+            }
+
+            this.Close();
+        }
         public RegionMapForm()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+
+            // Инициализация таймера ДО его использования
+            animationTimer = new System.Windows.Forms.Timer();
+            animationTimer.Interval = 16; // ~60 FPS
+            animationTimer.Tick += (s, e) => UpdateButtonAnimation();
 
             this.WindowState = FormWindowState.Maximized;
             this.Text = "Карта регионов";
             this.BackColor = Color.White;
             this.MouseClick += RegionMapForm_MouseClick;
             LoadImages();
-            /*
-            // Создаём кнопку выхода
-            exitButton = new Button();
-            exitButton.Text = "Выход";
-            exitButton.Font = new Font("Arial", 16, FontStyle.Bold);
-            exitButton.BackColor = Color.LightGray;
-            exitButton.AutoSize = true;
-            exitButton.Location = new Point(20, 20);
-            */
-            // Создаем кнопку выхода как PictureBox
+
+            // Кнопка выхода
             exitButton = new PictureBox();
-            exitButton.Image = Properties.Resources.выход; // Ваше изображение кнопки
+            exitButton.Image = Properties.Resources.выход;
             exitButton.SizeMode = PictureBoxSizeMode.StretchImage;
             exitButton.BackColor = Color.Transparent;
             exitButton.Cursor = Cursors.Hand;
-            exitButton.Click += (s, e) =>
+            exitButton.Click += (s, e) => CloseForm();
+
+            // Новая кнопка в правом верхнем углу
+            rightTopButton = new PictureBox();
+            rightTopButton.Image = Properties.Resources.пройти_тест; 
+            rightTopButton.SizeMode = PictureBoxSizeMode.StretchImage;
+            rightTopButton.BackColor = Color.Transparent;
+            rightTopButton.Cursor = Cursors.Hand;
+            rightTopButton.Click += (s, e) =>
             {
-                // Закрыть все формы кроме главной, если она у вас есть в списке открытых
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (!(form is MainMenuForm))
-                        form.Close();
-                }
+                FinalTestForm finalTestForm = new FinalTestForm();
+                Hide();
+                finalTestForm.ShowDialog();
+                Show();
+            };
 
-                // Проверим, открыто ли главное меню
-                var mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
-                if (mainMenu == null)
-                {
-                    mainMenu = new MainMenuForm();
-                    mainMenu.Show();
-                }
-                else
-                {
-                    mainMenu.BringToFront();
-                }
-
-                this.Close();
-            };
-            // В конструкторе после создания exitButton добавляем:
-            exitButton.MouseEnter += (s, e) => {
-                targetButtonScale = HoverScaleFactor;
-                StartButtonAnimation();
-            };
-            exitButton.MouseLeave += (s, e) => {
-                targetButtonScale = 1.0f;
-                StartButtonAnimation();
-            };
-            // Инициализируем таймер в конструкторе
-            animationTimer = new System.Windows.Forms.Timer();
-            animationTimer.Interval = 16; // ~60 FPS
-            animationTimer.Tick += (s, e) => UpdateButtonAnimation();
+            // Настройка анимации для обеих кнопок
+            SetupButtonHoverEffects(exitButton);
+            SetupButtonHoverEffects(rightTopButton);
 
             this.Controls.Add(exitButton);
+            this.Controls.Add(rightTopButton);
 
             this.Resize += RegionMapForm_Resize;
 
             CalculateScaleFactor();
-            UpdateExitButtonSizeAndPosition();
+            UpdateButtonsSizeAndPosition();
+        }
+
+        private void SetupButtonHoverEffects(PictureBox button)
+        {
+            button.MouseEnter += (s, e) =>
+            {
+                targetButtonScale = HoverScaleFactor;
+                StartButtonAnimation();
+            };
+
+            button.MouseLeave += (s, e) =>
+            {
+                targetButtonScale = 1.0f;
+                StartButtonAnimation();
+            };
         }
         // Новые методы для анимации
         private void StartButtonAnimation()
@@ -108,39 +125,42 @@ namespace Library_App
             const float animationSpeed = 0.2f;
             currentButtonScale += (targetButtonScale - currentButtonScale) * animationSpeed;
 
-            // Если почти достигли целевого масштаба, останавливаем анимацию
             if (Math.Abs(currentButtonScale - targetButtonScale) < 0.01f)
             {
                 currentButtonScale = targetButtonScale;
                 animationTimer.Stop();
             }
 
-            UpdateExitButtonSizeAndPosition();
+            UpdateButtonsSizeAndPosition();
         }
         // Модифицируем метод UpdateExitButtonSizeAndPosition
-        private void UpdateExitButtonSizeAndPosition()
+        private void UpdateButtonsSizeAndPosition()
         {
-            if (exitButton != null && exitButton.Image != null)
+            if (exitButton != null && exitButton.Image != null &&
+                rightTopButton != null && rightTopButton.Image != null)
             {
-                // Рассчитываем базовую ширину кнопки пропорционально ширине экрана
                 float scale = (float)this.ClientSize.Width / ReferenceScreenWidth;
                 int baseButtonWidth = (int)(ReferenceButtonWidth * scale);
-
-                // Ограничиваем минимальный и максимальный размер
                 baseButtonWidth = Math.Max(80, Math.Min(baseButtonWidth, 250));
 
-                // Применяем текущий масштаб анимации
                 int buttonWidth = (int)(baseButtonWidth * currentButtonScale);
                 int buttonHeight = (int)(buttonWidth * ButtonAspectRatio);
 
+                // Размеры кнопок
                 exitButton.Size = new Size(buttonWidth, buttonHeight);
+                rightTopButton.Size = new Size(buttonWidth, buttonHeight);
 
-                // Позиционируем в верхнем левом углу с отступом 2% от ширины экрана
+                // Позиционирование кнопки выхода
                 int margin = (int)(this.ClientSize.Width * 0.02);
-                // Корректируем позицию с учетом увеличения, чтобы кнопка не смещалась
                 int offsetX = (int)((baseButtonWidth - buttonWidth) / 2);
                 int offsetY = (int)((baseButtonWidth * ButtonAspectRatio - buttonHeight) / 2);
                 exitButton.Location = new Point(margin + offsetX, margin + offsetY);
+
+                // Позиционирование правой верхней кнопки
+                int rightMargin = (int)(this.ClientSize.Width * 0.02);
+                rightTopButton.Location = new Point(
+                    this.ClientSize.Width - rightMargin - buttonWidth - offsetX,
+                    margin + offsetY);
             }
         }
         public static bool IsPointInPolygon(PointF[] polygon, PointF point)
@@ -254,7 +274,7 @@ namespace Library_App
         private void RegionMapForm_Resize(object sender, EventArgs e)
         {
             CalculateScaleFactor();
-            UpdateExitButtonSizeAndPosition();
+            UpdateButtonsSizeAndPosition();
             this.Invalidate();
         }
 
