@@ -26,7 +26,7 @@ namespace Library_App
 
             try
             {
-                this.BackgroundImage = Properties.Resources.пропустить;
+                this.BackgroundImage = Properties.Resources.CentralMain;
                 this.BackgroundImageLayout = ImageLayout.Zoom;
             }
             catch (Exception ex)
