@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Library_App
 {
-    public partial class NorthwesternMainForm : Form
+    public partial class NorthwesternTraditionsForm : Form
     {
         private PictureBox btnBack;
         private PictureBox btnForward;
@@ -15,7 +15,7 @@ namespace Library_App
         private readonly Point btnForwardOriginalLocation = new Point(1720, 50);
         private readonly Size btnOriginalSize = new Size(150, 150);
 
-        public NorthwesternMainForm()
+        public NorthwesternTraditionsForm()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -26,7 +26,7 @@ namespace Library_App
 
             try
             {
-                this.BackgroundImage = Properties.Resources.komi_main;
+                this.BackgroundImage = Properties.Resources.komi_traditions;
                 this.BackgroundImageLayout = ImageLayout.Zoom;
             }
             catch (Exception ex)
@@ -139,9 +139,9 @@ namespace Library_App
         private void BtnForward_Click(object sender, EventArgs e)
         {
             // Действие для кнопки "Вперед"
-            NorthwesternClothesForm northwesternClothesForm = new NorthwesternClothesForm();
+            TestNorthwesternForm1 testNorthwesternForm1 = new TestNorthwesternForm1();
             Hide();
-            northwesternClothesForm.ShowDialog();
+            testNorthwesternForm1.ShowDialog();
             Show();
         }
     }

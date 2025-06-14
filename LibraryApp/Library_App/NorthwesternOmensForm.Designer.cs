@@ -1,6 +1,6 @@
 ﻿namespace Library_App
 {
-    partial class NorthwesternMainForm
+    partial class NorthwesternOmensForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // NorthwesternMainForm
+            // NorthwesternOmensForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NorthwesternMainForm";
-            this.Text = "я";
+            this.Name = "NorthwesternOmensForm";
+            this.Text = "NorthwesternOmensForm";
             this.ResumeLayout(false);
 
         }

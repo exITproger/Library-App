@@ -198,7 +198,9 @@ namespace Library_App
                         }
 
                         if (regionForm != null)
+                            Hide();
                             regionForm.ShowDialog();
+                            Show();
 
                         break;
                     }
