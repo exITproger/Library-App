@@ -771,9 +771,6 @@
     <None Include="Resources\NorthCaucasusMain.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\VolgaregionOmens.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\VolgaregionCharacter.png" />
   </ItemGroup>
   <ItemGroup>
@@ -793,6 +790,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SibireanCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionOmens.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

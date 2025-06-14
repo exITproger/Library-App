@@ -241,6 +241,9 @@
   <data name="VolgaregionCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VolgaregionCharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SibireanMain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SibireanMain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="southern_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\southern_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,8 +259,8 @@
   <data name="central" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\central.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VolgaregionOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VolgaregionOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dv_clothes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dv_clothes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mirror" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mirror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -270,6 +273,9 @@
   </data>
   <data name="fareasten_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fareasten_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dv_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dv_main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="northcaucasian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\northcaucasian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -309,6 +315,9 @@
   </data>
   <data name="komi_clothes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\komi_clothes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SibireanCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SibireanCharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Komi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Komi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,8 +361,17 @@
   <data name="Yakuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yakuts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dv_omes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dv_omes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SibireanOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SibireanOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="siberian_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\siberian_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dv_traditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dv_traditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="northwestern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\northwestern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -364,16 +382,10 @@
   <data name="fareasten_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fareasten_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SibireanOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SibireanOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SibireanTraditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SibireanTraditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SibireanMain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SibireanMain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SibireanCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SibireanCharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="VolgaregionOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VolgaregionOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
