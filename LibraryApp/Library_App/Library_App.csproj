@@ -106,9 +106,7 @@
     <Compile Include="NorthcaucasianMainForm.Designer.cs">
       <DependentUpon>NorthcaucasianMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NorthwesternMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="NorthwesternMainForm.cs" />
     <Compile Include="NorthwesternMainForm.Designer.cs">
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </Compile>
@@ -502,6 +500,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\пропустить.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_traditions.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

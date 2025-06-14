@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOpenTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnOpenTest
-            // 
-            this.btnOpenTest.Location = new System.Drawing.Point(554, 119);
-            this.btnOpenTest.Name = "btnOpenTest";
-            this.btnOpenTest.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenTest.TabIndex = 0;
-            this.btnOpenTest.Text = "button1";
-            this.btnOpenTest.UseVisualStyleBackColor = true;
-            this.btnOpenTest.Click += new System.EventHandler(this.btnOpenTest_Click);
             // 
             // NorthwesternMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.btnOpenTest);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NorthwesternMainForm";
             this.Text = "NorthwesternMainForm";
             this.ResumeLayout(false);
@@ -54,7 +43,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOpenTest;
     }
 }

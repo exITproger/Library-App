@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Mirror" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mirror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Подсказка" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Подсказка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="вперёд" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\вперёд.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CentralMapForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CentralMapForm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -127,14 +136,11 @@
   <data name="siberian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\siberian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BackButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BackButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="siberian_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\siberian_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="northwestern_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\northwestern_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Armenians" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Armenians.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Spider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,6 +154,9 @@
   <data name="southern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\southern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CentralBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CentralBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="volga_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\volga_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,14 +166,17 @@
   <data name="map-background2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-background2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="пропустить" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\пропустить.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Scarecrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Scarecrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="siberian_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\siberian_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ural" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ural.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="назад" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\назад.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="southern_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\southern_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,14 +205,20 @@
   <data name="Bereza" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bereza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="volga_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volga_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="House" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="выход" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\выход.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Russian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ural_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ural_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BackButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Начать" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Начать.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bashkirs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bashkirs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,11 +238,11 @@
   <data name="northcaucasian_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\northcaucasian_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="пройти_тест" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\пройти_тест.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Matryoshka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Matryoshka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="central_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\central_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Baranki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Baranki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,61 +250,55 @@
   <data name="northwestern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\northwestern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CentralBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CentralBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ural_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ural_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NextButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NextButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="northcaucasian_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\northcaucasian_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Mirror" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mirror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Armenians" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Armenians.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tatars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tatars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Chechens" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Chechens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="northwestern" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\northwestern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="southern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\southern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NextButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fareasten" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fareasten.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="House" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\House.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ural_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ural_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="central_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\central_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chechens" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chechens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="volga_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\volga_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="southern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\southern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="northcaucasian_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\northcaucasian_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ural_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ural_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="central" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\central.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="вперёд" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\вперёд.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="northwestern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\northwestern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="выход" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\выход.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="komi_clothes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\komi_clothes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="назад" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\назад.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="komi_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\komi_main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Начать" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Начать.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="komi_omes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\komi_omes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Подсказка" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Подсказка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="пройти_тест" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\пройти_тест.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="пропустить" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\пропустить.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="komi_traditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\komi_traditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
