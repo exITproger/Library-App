@@ -170,15 +170,15 @@ namespace Library_App
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);
 
-            using (var choiceForm = new ChoiceForm())
+            using (var choiceForm = new ChoiceFormV())
             {
                 choiceForm.ShowDialog();
 
-                if (choiceForm.Result == ChoiceForm.ChoiceResult.ReturnToDistrict)
+                if (choiceForm.Result == ChoiceFormV.ChoiceResult.ReturnToDistrict)
                 {
                     ReturnToDistrict();
                 }
-                else if (choiceForm.Result == ChoiceForm.ChoiceResult.ReturnToRussiaMap)
+                else if (choiceForm.Result == ChoiceFormV.ChoiceResult.ReturnToRussiaMap)
                 {
                     ReturnToRussiaMap();
                 }
@@ -250,6 +250,80 @@ namespace Library_App
                 state.TargetColor = color;
             }
             btn.BackColor = color;
+        }
+    }
+    public class ChoiceFormV : Form
+    {
+        public enum ChoiceResult
+        {
+            None,
+            ReturnToDistrict,
+            ReturnToRussiaMap
+        }
+
+        public ChoiceResult Result { get; private set; } = ChoiceResult.None;
+
+        public ChoiceFormV()
+        {
+            // Размеры - 30% от экрана
+            var screen = Screen.PrimaryScreen.WorkingArea;
+            this.Size = new Size((int)(screen.Width * 0.3), (int)(screen.Height * 0.3));
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Text = "Выбор действия";
+
+            // Метка с текстом
+            var label = new Label()
+            {
+                Text = "Выберите действие:",
+                AutoSize = false,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Top,
+                Height = this.ClientSize.Height / 2,
+                Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold)
+            };
+            this.Controls.Add(label);
+
+            // Панель для кнопок
+            var panel = new Panel()
+            {
+                Dock = DockStyle.Bottom,
+                Height = 50,
+                Padding = new Padding(10)
+            };
+            this.Controls.Add(panel);
+
+            var btnDistrict = new Button()
+            {
+                Text = "Вернуться к округу",
+                DialogResult = DialogResult.OK,
+                Dock = DockStyle.Left,
+                Width = this.ClientSize.Width / 2 - 15,
+                Margin = new Padding(5)
+            };
+            btnDistrict.Click += (s, e) =>
+            {
+                Result = ChoiceResult.ReturnToDistrict;
+                this.Close();
+            };
+            panel.Controls.Add(btnDistrict);
+
+            var btnRussia = new Button()
+            {
+                Text = "Вернуться к карте России",
+                DialogResult = DialogResult.Cancel,
+                Dock = DockStyle.Right,
+                Width = this.ClientSize.Width / 2 - 15,
+                Margin = new Padding(5)
+            };
+            btnRussia.Click += (s, e) =>
+            {
+                Result = ChoiceResult.ReturnToRussiaMap;
+                this.Close();
+            };
+            panel.Controls.Add(btnRussia);
         }
     }
 }
