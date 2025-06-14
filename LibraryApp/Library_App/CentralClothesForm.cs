@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             CentralOmensForm centralOmensForm = new CentralOmensForm();
-            Hide();
+            
             centralOmensForm.ShowDialog();
-            Show();
+            
         }
     }
 }

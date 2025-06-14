@@ -140,9 +140,7 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestCentralForm1 testCentralForm1 = new TestCentralForm1();
-            Hide();
             testCentralForm1.ShowDialog();
-            Show();
         }
     }
 }
