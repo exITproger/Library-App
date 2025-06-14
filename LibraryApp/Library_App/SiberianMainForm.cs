@@ -16,5 +16,13 @@ namespace Library_App
         {
             InitializeComponent();
         }
+
+        private void btnOpenTest_Click(object sender, EventArgs e)
+        {
+            TestSiberianForm1 testSiberianForm1 = new TestSiberianForm1();
+            Hide();
+            testSiberianForm1.ShowDialog();
+            Show();
+        }
     }
 }

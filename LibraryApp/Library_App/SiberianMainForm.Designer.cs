@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnOpenTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnOpenTest
+            // 
+            this.btnOpenTest.Location = new System.Drawing.Point(574, 225);
+            this.btnOpenTest.Name = "btnOpenTest";
+            this.btnOpenTest.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenTest.TabIndex = 0;
+            this.btnOpenTest.Text = "button1";
+            this.btnOpenTest.UseVisualStyleBackColor = true;
+            this.btnOpenTest.Click += new System.EventHandler(this.btnOpenTest_Click);
             // 
             // SiberianMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.btnOpenTest);
             this.Name = "SiberianMainForm";
             this.Text = "SiberianMainForm";
             this.ResumeLayout(false);
@@ -42,5 +54,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnOpenTest;
     }
 }

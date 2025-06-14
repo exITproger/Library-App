@@ -249,8 +249,14 @@
     <EmbeddedResource Include="CentralOmensForm.resx">
       <DependentUpon>CentralOmensForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FareastenMainForm.resx">
+      <DependentUpon>FareastenMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianMainForm.resx">
+      <DependentUpon>NorthcaucasianMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NorthwesternMainForm.resx">
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
@@ -265,8 +271,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SiberianMainForm.resx">
+      <DependentUpon>SiberianMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SouthernMainForm.resx">
       <DependentUpon>SouthernMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCentralForm1.resx">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestNorthwesternForm1.resx">
       <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
@@ -279,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestSouthernForm2.resx">
       <DependentUpon>TestSouthernForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralMainForm.resx">
+      <DependentUpon>UralMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

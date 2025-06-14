@@ -16,5 +16,13 @@ namespace Library_App
         {
             InitializeComponent();
         }
+
+        private void btnOpenTest_Click(object sender, EventArgs e)
+        {
+            TestUralForm1 testUralForm1 = new TestUralForm1();
+            Hide();
+            testUralForm1.ShowDialog();
+            Show();
+        }
     }
 }
