@@ -150,6 +150,66 @@
     <Compile Include="TestCentralForm2.Designer.cs">
       <DependentUpon>TestCentralForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestFareastenForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestFareastenForm1.Designer.cs">
+      <DependentUpon>TestFareastenForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestFareastenForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestFareastenForm2.Designer.cs">
+      <DependentUpon>TestFareastenForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm1.Designer.cs">
+      <DependentUpon>TestNorthcaucasianForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm2.Designer.cs">
+      <DependentUpon>TestNorthcaucasianForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthwesternForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthwesternForm1.Designer.cs">
+      <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthwesternForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthwesternForm2.Designer.cs">
+      <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSiberianForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSiberianForm1.Designer.cs">
+      <DependentUpon>TestSiberianForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSiberianForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSiberianForm2.Designer.cs">
+      <DependentUpon>TestSiberianForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSouthernForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSouthernForm1.Designer.cs">
+      <DependentUpon>TestSouthernForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSouthernForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSouthernForm2.Designer.cs">
+      <DependentUpon>TestSouthernForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestUralForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +252,9 @@
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternMainForm.resx">
+      <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -202,6 +265,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TestNorthwesternForm1.resx">
+      <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthwesternForm2.resx">
+      <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

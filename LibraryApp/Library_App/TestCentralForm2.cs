@@ -176,15 +176,15 @@ namespace Library_App
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);
 
-            using (var choiceForm = new ChoiceForm())
+            using (var choiceForm = new ChoiceFormC())
             {
                 choiceForm.ShowDialog();
 
-                if (choiceForm.Result == ChoiceForm.ChoiceResult.ReturnToDistrict)
+                if (choiceForm.Result == ChoiceFormC.ChoiceResult.ReturnToDistrict)
                 {
                     ReturnToDistrict();
                 }
-                else if (choiceForm.Result == ChoiceForm.ChoiceResult.ReturnToRussiaMap)
+                else if (choiceForm.Result == ChoiceFormC.ChoiceResult.ReturnToRussiaMap)
                 {
                     ReturnToRussiaMap();
                 }
@@ -260,7 +260,7 @@ namespace Library_App
 
 
     }
-    public class ChoiceForm : Form
+    public class ChoiceFormC : Form
     {
         public enum ChoiceResult
         {
@@ -271,7 +271,7 @@ namespace Library_App
 
         public ChoiceResult Result { get; private set; } = ChoiceResult.None;
 
-        public ChoiceForm()
+        public ChoiceFormC()
         {
             // Размеры - 30% от экрана
             var screen = Screen.PrimaryScreen.WorkingArea;

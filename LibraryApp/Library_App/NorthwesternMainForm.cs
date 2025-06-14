@@ -16,5 +16,13 @@ namespace Library_App
         {
             InitializeComponent();
         }
+
+        private void btnOpenTest_Click(object sender, EventArgs e)
+        {
+            TestNorthwesternForm1 testNorthwesternForm1 = new TestNorthwesternForm1();
+            Hide();
+            testNorthwesternForm1.ShowDialog();
+            Show();
+        }
     }
 }
