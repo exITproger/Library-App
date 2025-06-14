@@ -223,6 +223,16 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CentralClother {
+            get {
+                object obj = ResourceManager.GetObject("CentralClother", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CentralMain {
             get {
                 object obj = ResourceManager.GetObject("CentralMain", resourceCulture);
@@ -463,6 +473,46 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NorthCaucasusClother {
+            get {
+                object obj = ResourceManager.GetObject("NorthCaucasusClother", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NorthCaucasusMain {
+            get {
+                object obj = ResourceManager.GetObject("NorthCaucasusMain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NorthCaucasusOmens {
+            get {
+                object obj = ResourceManager.GetObject("NorthCaucasusOmens", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NorthCaucasusTraditions {
+            get {
+                object obj = ResourceManager.GetObject("NorthCaucasusTraditions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap northwestern {
             get {
                 object obj = ResourceManager.GetObject("northwestern", resourceCulture);
@@ -553,6 +603,16 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SouthClother {
+            get {
+                object obj = ResourceManager.GetObject("SouthClother", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap southern {
             get {
                 object obj = ResourceManager.GetObject("southern", resourceCulture);
@@ -576,6 +636,36 @@ namespace Library_App.Properties {
         internal static System.Drawing.Bitmap southern_w {
             get {
                 object obj = ResourceManager.GetObject("southern_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SouthMain {
+            get {
+                object obj = ResourceManager.GetObject("SouthMain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SouthOmens {
+            get {
+                object obj = ResourceManager.GetObject("SouthOmens", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SouthTraditions {
+            get {
+                object obj = ResourceManager.GetObject("SouthTraditions", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -666,6 +756,46 @@ namespace Library_App.Properties {
         internal static System.Drawing.Bitmap volga_w {
             get {
                 object obj = ResourceManager.GetObject("volga_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolgaregionCharacter {
+            get {
+                object obj = ResourceManager.GetObject("VolgaregionCharacter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolgaregionMain {
+            get {
+                object obj = ResourceManager.GetObject("VolgaregionMain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolgaregionOmens {
+            get {
+                object obj = ResourceManager.GetObject("VolgaregionOmens", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolgaregionTraditions {
+            get {
+                object obj = ResourceManager.GetObject("VolgaregionTraditions", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
