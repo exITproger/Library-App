@@ -118,11 +118,11 @@
     <Compile Include="NorthwesternMainForm.Designer.cs">
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NorthwesternOmensForm.cs">
+    <Compile Include="NorthwesternOmesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NorthwesternOmensForm.Designer.cs">
-      <DependentUpon>NorthwesternOmensForm.cs</DependentUpon>
+    <Compile Include="NorthwesternOmesForm.Designer.cs">
+      <DependentUpon>NorthwesternOmesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NorthwesternTraditionsForm.cs">
       <SubType>Form</SubType>
@@ -132,6 +132,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RegionMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,11 +257,29 @@
     <Compile Include="TestVolgaForm2.Designer.cs">
       <DependentUpon>TestVolgaForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="UralClothesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralClothesForm.Designer.cs">
+      <DependentUpon>UralClothesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UralMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UralMainForm.Designer.cs">
       <DependentUpon>UralMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralOmesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralOmesForm.Designer.cs">
+      <DependentUpon>UralOmesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralTraditionsForm.Designer.cs">
+      <DependentUpon>UralTraditionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VolgaMainForm.cs">
       <SubType>Form</SubType>
@@ -282,22 +305,17 @@
     <EmbeddedResource Include="NorthwesternMainForm.resx">
       <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NorthwesternOmensForm.resx">
-      <DependentUpon>NorthwesternOmensForm.cs</DependentUpon>
+    <EmbeddedResource Include="NorthwesternOmesForm.resx">
+      <DependentUpon>NorthwesternOmesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NorthwesternTraditionsForm.resx">
       <DependentUpon>NorthwesternTraditionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SiberianMainForm.resx">
       <DependentUpon>SiberianMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,8 +361,17 @@
     <EmbeddedResource Include="TestUralForm2.resx">
       <DependentUpon>TestUralForm2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UralClothesForm.resx">
+      <DependentUpon>UralClothesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UralMainForm.resx">
       <DependentUpon>UralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralOmesForm.resx">
+      <DependentUpon>UralOmesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralTraditionsForm.resx">
+      <DependentUpon>UralTraditionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -541,6 +568,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\komi_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_traditions.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

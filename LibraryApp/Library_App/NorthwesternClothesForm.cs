@@ -139,9 +139,9 @@ namespace Library_App
         private void BtnForward_Click(object sender, EventArgs e)
         {
             // Действие для кнопки "Вперед"
-            NorthwesternOmensForm northwesternClothesForm = new NorthwesternOmensForm();
+            NorthwesternOmesForm northwesternOmesForm = new NorthwesternOmesForm();
             Hide();
-            northwesternClothesForm.ShowDialog();
+            northwesternOmesForm.ShowDialog();
             Show();
         }
     }
