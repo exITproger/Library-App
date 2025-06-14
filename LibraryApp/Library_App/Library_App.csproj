@@ -782,5 +782,17 @@
   <ItemGroup>
     <None Include="Resources\VolgaregionMain.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanCharacter.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
