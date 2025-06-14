@@ -183,9 +183,19 @@ namespace Library_App
             btn.BackColor = color;
         }
 
-        private async void lblVar3_Click(object sender, EventArgs e)
+        private void lblVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Green);
+            SetButtonColor(btnVar3, Color.Red);
+        }
+
+        private void lblVar1_Click(object sender, EventArgs e)
+        {
+            SetButtonColor(btnVar1, Color.Red);
+        }
+
+        private async void lblVar2_Click(object sender, EventArgs e)
+        {
+            SetButtonColor(btnVar2, Color.Green);
 
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);
@@ -194,16 +204,6 @@ namespace Library_App
             Hide();
             ask2.ShowDialog();
             Show();
-        }
-
-        private void lblVar1_Click(object sender, EventArgs e)
-        {
-            SetButtonColor(btnVar1, Color.Red);
-        }
-
-        private void lblVar2_Click(object sender, EventArgs e)
-        {
-            SetButtonColor(btnVar2, Color.Red);
         }
     }
 

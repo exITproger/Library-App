@@ -167,9 +167,18 @@ namespace Library_App
 
 
 
-        private void lblVar4_Click(object sender, EventArgs e)
+        private async void lblVar4_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar4, Color.Red);
+            SetButtonColor(btnVar4, Color.Green);
+
+            // Задержка 1.0 секунды (1000 миллисекунд)
+            await System.Threading.Tasks.Task.Delay(1000);
+
+            TestSiberianForm2 ask2 = new TestSiberianForm2();
+            Hide();
+            ask2.ShowDialog();
+            Show();
+            
         }
 
         // Общий метод установки цвета с обновлением анимации
@@ -185,15 +194,7 @@ namespace Library_App
 
         private async void lblVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Green);
-
-            // Задержка 1.0 секунды (1000 миллисекунд)
-            await System.Threading.Tasks.Task.Delay(1000);
-
-            TestSiberianForm2 ask2 = new TestSiberianForm2();
-            Hide();
-            ask2.ShowDialog();
-            Show();
+            SetButtonColor(btnVar3, Color.Red);
         }
 
         private void lblVar1_Click(object sender, EventArgs e)

@@ -170,25 +170,9 @@ namespace Library_App
             SetButtonColor(btnVar1, Color.Red);
         }
 
-        private async void btnVar2_Click(object sender, EventArgs e)
+        private  void btnVar2_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar2, Color.Green);
-            // Задержка 1.0 секунды (1000 миллисекунд)
-            await System.Threading.Tasks.Task.Delay(1000);
-
-            using (var choiceForm = new ChoiceFormSib())
-            {
-                choiceForm.ShowDialog();
-
-                if (choiceForm.Result == ChoiceFormSib.ChoiceResult.ReturnToDistrict)
-                {
-                    ReturnToDistrict();
-                }
-                else if (choiceForm.Result == ChoiceFormSib.ChoiceResult.ReturnToRussiaMap)
-                {
-                    ReturnToRussiaMap();
-                }
-            }
+            SetButtonColor(btnVar2, Color.Red);
         }
         private void ReturnToDistrict()
         {
@@ -237,9 +221,25 @@ namespace Library_App
             this.Close();
         }
 
-        private void btnVar3_Click(object sender, EventArgs e)
+        private async void btnVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Red);
+            SetButtonColor(btnVar3, Color.Green);
+            // Задержка 1.0 секунды (1000 миллисекунд)
+            await System.Threading.Tasks.Task.Delay(1000);
+
+            using (var choiceForm = new ChoiceFormSib())
+            {
+                choiceForm.ShowDialog();
+
+                if (choiceForm.Result == ChoiceFormSib.ChoiceResult.ReturnToDistrict)
+                {
+                    ReturnToDistrict();
+                }
+                else if (choiceForm.Result == ChoiceFormSib.ChoiceResult.ReturnToRussiaMap)
+                {
+                    ReturnToRussiaMap();
+                }
+            }
         }
 
         private void btnVar4_Click(object sender, EventArgs e)

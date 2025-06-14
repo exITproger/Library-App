@@ -50,7 +50,7 @@ namespace Library_App
             this.lblAsk1.Name = "lblAsk1";
             this.lblAsk1.Size = new System.Drawing.Size(1117, 100);
             this.lblAsk1.TabIndex = 1;
-            this.lblAsk1.Text = "Как описывают Армян в детских книжках?";
+            this.lblAsk1.Text = "Какие украшения носят бурятские красавицы?";
             this.lblAsk1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
@@ -86,7 +86,7 @@ namespace Library_App
             this.btnVar1.Name = "btnVar1";
             this.btnVar1.Size = new System.Drawing.Size(518, 255);
             this.btnVar1.TabIndex = 0;
-            this.btnVar1.Text = "Горные сказочники";
+            this.btnVar1.Text = "Только кольца";
             this.btnVar1.UseVisualStyleBackColor = false;
             this.btnVar1.Click += new System.EventHandler(this.lblVar1_Click);
             // 
@@ -103,7 +103,7 @@ namespace Library_App
             this.btnVar2.Name = "btnVar2";
             this.btnVar2.Size = new System.Drawing.Size(518, 256);
             this.btnVar2.TabIndex = 1;
-            this.btnVar2.Text = "Повелители холода";
+            this.btnVar2.Text = "Только браслеты";
             this.btnVar2.UseVisualStyleBackColor = false;
             this.btnVar2.Click += new System.EventHandler(this.lblVar2_Click);
             // 
@@ -120,7 +120,7 @@ namespace Library_App
             this.btnVar3.Name = "btnVar3";
             this.btnVar3.Size = new System.Drawing.Size(519, 255);
             this.btnVar3.TabIndex = 2;
-            this.btnVar3.Text = "Повелители морей";
+            this.btnVar3.Text = "Серьги и платки";
             this.btnVar3.UseVisualStyleBackColor = false;
             this.btnVar3.Click += new System.EventHandler(this.lblVar3_Click);
             // 
@@ -137,17 +137,17 @@ namespace Library_App
             this.btnVar4.Name = "btnVar4";
             this.btnVar4.Size = new System.Drawing.Size(519, 256);
             this.btnVar4.TabIndex = 3;
-            this.btnVar4.Text = "Лесные волшебники";
+            this.btnVar4.Text = "Кольца, ожерелья (гуу) и браслеты (бээлэй)";
             this.btnVar4.UseVisualStyleBackColor = false;
             this.btnVar4.Click += new System.EventHandler(this.lblVar4_Click);
             // 
-            // TestSouthernForm1
+            // TestSiberianForm1
             // 
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1117, 691);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblAsk1);
-            this.Name = "TestSouthernForm1";
+            this.Name = "TestSiberianForm1";
             this.Text = "Вопрос";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);

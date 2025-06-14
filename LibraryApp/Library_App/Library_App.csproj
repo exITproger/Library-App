@@ -280,17 +280,41 @@
     <EmbeddedResource Include="TestCentralForm1.resx">
       <DependentUpon>TestCentralForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestFareastenForm1.resx">
+      <DependentUpon>TestFareastenForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestFareastenForm2.resx">
+      <DependentUpon>TestFareastenForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthcaucasianForm1.resx">
+      <DependentUpon>TestNorthcaucasianForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthcaucasianForm2.resx">
+      <DependentUpon>TestNorthcaucasianForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestNorthwesternForm1.resx">
       <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestNorthwesternForm2.resx">
       <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestSiberianForm1.resx">
+      <DependentUpon>TestSiberianForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSiberianForm2.resx">
+      <DependentUpon>TestSiberianForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestSouthernForm1.resx">
       <DependentUpon>TestSouthernForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestSouthernForm2.resx">
       <DependentUpon>TestSouthernForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUralForm1.resx">
+      <DependentUpon>TestUralForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUralForm2.resx">
+      <DependentUpon>TestUralForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UralMainForm.resx">
       <DependentUpon>UralMainForm.cs</DependentUpon>

@@ -196,6 +196,10 @@ namespace Library_App
             if (btnHint != null)
                 btnHint.Location = new Point(paddingL, btnBack.Bottom + paddingH);
 
+
+
+
+
             if (btnSkip != null)
                 btnSkip.Location = new Point(paddingL, btnHint.Bottom + paddingH);
         }
