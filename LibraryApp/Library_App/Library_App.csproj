@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CentralCharacterForm.cs">
+    <Compile Include="CentralClothesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentralCharacterForm.Designer.cs">
-      <DependentUpon>CentralCharacterForm.cs</DependentUpon>
+    <Compile Include="CentralClothesForm.Designer.cs">
+      <DependentUpon>CentralClothesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CentralMainForm.cs">
       <SubType>Form</SubType>
@@ -287,6 +287,9 @@
     <Compile Include="VolgaMainForm.Designer.cs">
       <DependentUpon>VolgaMainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CentralMainForm.resx">
+      <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CentralOmensForm.resx">
       <DependentUpon>CentralOmensForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -580,6 +583,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bashkiri_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralMain.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

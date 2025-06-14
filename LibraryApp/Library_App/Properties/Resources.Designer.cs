@@ -213,9 +213,49 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CentralCharacter {
+            get {
+                object obj = ResourceManager.GetObject("CentralCharacter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CentralMain {
+            get {
+                object obj = ResourceManager.GetObject("CentralMain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CentralMapForm {
             get {
                 object obj = ResourceManager.GetObject("CentralMapForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CentralOmens {
+            get {
+                object obj = ResourceManager.GetObject("CentralOmens", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CentralTraditions {
+            get {
+                object obj = ResourceManager.GetObject("CentralTraditions", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,17 +30,18 @@ namespace Library_App
             // 
             // CentralMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2539, 1281);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CentralMainForm";
             this.Text = "Центральный федеральный округ";
             this.ResumeLayout(false);
+
         }
 
         #endregion

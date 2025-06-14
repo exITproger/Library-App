@@ -1,6 +1,4 @@
-﻿using Library_App;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,210 +6,143 @@ namespace Library_App
 {
     public partial class CentralTraditionsForm : Form
     {
-        private Label titleLabel; // Заголовок
-        private Label descriptionLabel; // Описание
+        private PictureBox btnBack;
+        private PictureBox btnForward;
 
-        private Size baseFormSize = new Size(1000, 700);
-        private float baseFontSize = 14f;
-
-        private PictureBox closePictureBox; // Кнопка "Назад"
-        private PictureBox nextPictureBox; // Кнопка "Вперед"
-        private List<PictureBox> imageBoxes = new List<PictureBox>(); // Список для дополнительных изображений
+        private const int DesignWidth = 1920;
+        private const int DesignHeight = 1080;
+        private readonly Point btnBackOriginalLocation = new Point(50, 50);
+        private readonly Point btnForwardOriginalLocation = new Point(1720, 50);
+        private readonly Size btnOriginalSize = new Size(150, 150);
 
         public CentralTraditionsForm()
         {
             InitializeComponent();
-            DoubleBuffered = true;
-            // Настройка формы на полноэкранный режим
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.DoubleBuffered = true;
+
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None; // Убираем рамку окна
-            this.StartPosition = FormStartPosition.Manual;
-            this.Bounds = Screen.PrimaryScreen.Bounds; // Открытие на весь экран
+            this.FormBorderStyle = FormBorderStyle.None;
 
-            InitializeCustomUI();
-            this.Resize += CentralMainForm_Resize;
+            try
+            {
+                this.BackgroundImage = Properties.Resources.CentralTraditions;
+                this.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки фонового изображения:\n{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BackColor = Color.Black;
+            }
 
-            this.PerformLayout();
-            this.CentralMainForm_Resize(null, EventArgs.Empty); // Инициализируем расположение кнопок
+            InitializeButtons();
+            LoadButtonImages();
+
+            this.Load += Form_Load;
+            this.Resize += Form_Resize;
         }
 
-        private void InitializeCustomUI()
+        private void InitializeButtons()
         {
-            this.Text = "Центральный округ";
-            this.BackgroundImage = Properties.Resources.CentralBackground; // Красный фон с узорами
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-
-            titleLabel = new Label
+            btnBack = new PictureBox
             {
-                Text = "Центральный округ\nТрадиции и обычаи",
-                Font = new Font("Comic Sans MS", 36f, FontStyle.Bold | FontStyle.Italic),
-                ForeColor = Color.White,
-                BackColor = Color.Transparent,
-                AutoSize = true,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            this.Controls.Add(titleLabel);
-
-            // Обновляем позицию заголовка после добавления
-            titleLabel.Location = new Point((this.ClientSize.Width - titleLabel.Width) / 2, 50);
-
-            // --- Label для описания ---
-            descriptionLabel = new Label();
-            descriptionLabel.BackColor = Color.Transparent;
-            descriptionLabel.ForeColor = Color.White;
-            descriptionLabel.Text = "Семейные ценности – почитание старших, крепкие родственные связи.\n\n" +
-                                    "Православные праздники – Рождество (колядки), Пасха (красные яйца, куличи), Масленица (блины, сжигание чучела).\n\n" +
-                                    "Свадьба – выкуп невесты, каравай, крики «Горько!» (чтобы молодые поцеловались).\n\n" +
-                                    "Баня – обязательное использование веников, обливание холодной водой.\n\n" +
-                                    "Народные промыслы – хохлома, гжель, дымковская игрушка.\n\n" +
-                                    "Интересный обычай: На Троицу дома украшают березовыми ветками – символом жизни.";
-            descriptionLabel.Font = new Font("Comic Sans MS", 16f, FontStyle.Regular);
-            descriptionLabel.AutoSize = false;
-            descriptionLabel.TextAlign = ContentAlignment.MiddleCenter; // Выравнивание по центру
-            descriptionLabel.Size = new Size(this.ClientSize.Width / 2, this.ClientSize.Height);
-
-            // --- Кнопка "Назад" сверху слева ---
-            closePictureBox = new PictureBox();
-            closePictureBox.Name = "closePictureBox";
-            closePictureBox.Image = Properties.Resources.BackButton;
-            closePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            closePictureBox.Size = new Size(250, 250);
-            closePictureBox.Cursor = Cursors.Hand;
-            closePictureBox.BackColor = Color.Transparent;
-            closePictureBox.Click += (sender, e) => this.Close();
-
-            // --- Кнопка "Вперед" сверху справа ---
-            nextPictureBox = new PictureBox();
-            nextPictureBox.Name = "nextPictureBox";
-            nextPictureBox.Image = Properties.Resources.NextButton;
-            nextPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            nextPictureBox.Size = new Size(250, 250);
-            nextPictureBox.Cursor = Cursors.Hand;
-            nextPictureBox.BackColor = Color.Transparent;
-            nextPictureBox.Click += (sender, e) =>
-            {
-                /*RegionMapForm regionMapForm = new RegionMapForm();
-                this.Hide();
-                regionMapForm.ShowDialog();
-                this.Show();*/
-                TestCentralForm1 testCentralForm1 = new TestCentralForm1();
-                Hide();
-                testCentralForm1.ShowDialog();
-                Show();
-            };
-
-            // --- Добавление иконок слева и справа от текста ---
-            PictureBox leftIconTop = new PictureBox
-            {
-                Image = Properties.Resources.Scarecrow,
-                BackColor = Color.Transparent,
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Size = new Size(400, 400),
-                Location = new Point(50, 250),
-                Tag = new Point(50, 250)
-            };
-            this.Controls.Add(leftIconTop);
-            imageBoxes.Add(leftIconTop);
-
-            PictureBox rightIconTop = new PictureBox
-            {
-                Image = Properties.Resources.Barrel,
+                Size = btnOriginalSize,
+                Location = btnBackOriginalLocation,
                 BackColor = Color.Transparent,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Size = new Size(400, 400),
-                Location = new Point(this.ClientSize.Width - 420, 250),
-                Tag = new Point(this.ClientSize.Width - 420, 250)
+                BackgroundImageLayout = ImageLayout.None,
+                Cursor = Cursors.Hand
             };
-            this.Controls.Add(rightIconTop);
-            imageBoxes.Add(rightIconTop);
 
-            PictureBox leftIconBottom = new PictureBox
+            btnBack.Click += BtnBack_Click;
+
+            btnForward = new PictureBox
             {
-                Image = Properties.Resources.EasterBasket,
-                BackColor = Color.Transparent,
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Size = new Size(400, 400),
-                Location = new Point(20, this.ClientSize.Height - 650),
-                Tag = new Point(20, this.ClientSize.Height - 650)
-            };
-            this.Controls.Add(leftIconBottom);
-            imageBoxes.Add(leftIconBottom);
-
-            PictureBox rightIconBottom = new PictureBox
-            {
-                Image = Properties.Resources.Matryoshka,
+                Size = btnOriginalSize,
+                Location = btnForwardOriginalLocation,
                 BackColor = Color.Transparent,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Size = new Size(350, 350),
-                Location = new Point(this.ClientSize.Width - 350, this.ClientSize.Height - 700),
-                Tag = new Point(this.ClientSize.Width - 350, this.ClientSize.Height - 700)
+                BackgroundImageLayout = ImageLayout.None,
+                Cursor = Cursors.Hand
             };
-            this.Controls.Add(rightIconBottom);
-            imageBoxes.Add(rightIconBottom);
 
-            // --- Добавление элементов на форму ---
-            this.Controls.Add(descriptionLabel); // Теперь добавляем напрямую
+            btnForward.Click += BtnForward_Click;
 
-            this.Controls.Add(closePictureBox);
-            this.Controls.Add(nextPictureBox);
-            this.Controls.Add(titleLabel);
-
-            // --- Вывод кнопок и текста поверх всего ---
-            titleLabel.BringToFront();
-            closePictureBox.BringToFront();
-            nextPictureBox.BringToFront();
-
-            // Вызов обновления расположения
-            CentralMainForm_Resize(null, EventArgs.Empty);
+            this.Controls.Add(btnBack);
+            this.Controls.Add(btnForward);
+            btnBack.BringToFront();
+            btnForward.BringToFront();
         }
 
-        private void CentralMainForm_Resize(object sender, EventArgs e)
+        private void LoadButtonImages()
         {
+            try
+            {
+                btnBack.Image = Properties.Resources.назад;
+                btnForward.Image = Properties.Resources.вперёд;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки изображений кнопок:\n{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            float scaleX = (float)this.Width / baseFormSize.Width;
-            float scaleY = (float)this.Height / baseFormSize.Height;
+        private void UpdateControlsSizeAndPosition()
+        {
+            if (this.ClientSize.Width <= 0 || this.ClientSize.Height <= 0) return;
+
+            float scaleX = (float)this.ClientSize.Width / DesignWidth;
+            float scaleY = (float)this.ClientSize.Height / DesignHeight;
             float scale = Math.Min(scaleX, scaleY);
 
-            float newTitleFontSize = Math.Max(10, Math.Min(baseFontSize * scale * 2, 48));
-            float newDescriptionFontSize = Math.Max(10, Math.Min(baseFontSize * scale, 36));
+            UpdateButtonPositions(scale);
+        }
 
-            descriptionLabel.Font = new Font(descriptionLabel.Font.FontFamily, newDescriptionFontSize, descriptionLabel.Font.Style);
+        private void UpdateButtonPositions(float scale)
+        {
+            UpdateSingleButtonPosition(btnBack, btnBackOriginalLocation, scale);
+            UpdateSingleButtonPosition(btnForward, btnForwardOriginalLocation, scale);
+        }
 
+        private void UpdateSingleButtonPosition(PictureBox button, Point originalLocation, float scale)
+        {
+            if (button == null) return;
 
-            // Размеры и расположение описания
-            descriptionLabel.Width = this.ClientSize.Width / 2;
-            descriptionLabel.Height = this.ClientSize.Height;
+            int newWidth = (int)(btnOriginalSize.Width * scale);
+            int newHeight = (int)(btnOriginalSize.Height * scale);
+            button.Size = new Size(newWidth, newHeight);
 
-            // Центрирование текста по горизонтали
-            int offsetX = (this.ClientSize.Width - descriptionLabel.Width) / 2;
-            int offsetY = 0; // Уменьшаем offsetY для поднятия текста выше
+            int newX = (int)(originalLocation.X * scale);
+            int newY = (int)(originalLocation.Y * scale);
+            button.Location = new Point(newX, newY);
+        }
 
-            descriptionLabel.Location = new Point(
-                offsetX,
-                offsetY
-            );
+        private void Form_Load(object sender, EventArgs e)
+        {
+            LoadButtonImages();
+            UpdateControlsSizeAndPosition();
+        }
 
-            // Расположение кнопок
-            int marginFromTop = -20;
-            int marginFromRight = 10;
-            int marginFromLeft = 10;
+        private void Form_Resize(object sender, EventArgs e)
+        {
+            UpdateControlsSizeAndPosition();
+        }
 
-            if (nextPictureBox != null)
-            {
-                nextPictureBox.Location = new Point(
-                    this.ClientSize.Width - nextPictureBox.Width - marginFromRight,
-                    marginFromTop
-                );
-            }
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            // Действие для кнопки "Назад"
+            Close();
+        }
 
-            if (closePictureBox != null)
-            {
-                closePictureBox.Location = new Point(
-                    marginFromLeft,
-                    marginFromTop
-                );
-            }
+        private void BtnForward_Click(object sender, EventArgs e)
+        {
+            // Действие для кнопки "Вперед"
+            TestCentralForm1 testCentralForm1 = new TestCentralForm1();
+            Hide();
+            testCentralForm1.ShowDialog();
+            Show();
         }
     }
 }
