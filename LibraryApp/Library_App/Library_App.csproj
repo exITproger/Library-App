@@ -233,6 +233,12 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaskFormFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskFormFinal.Designer.cs">
+      <DependentUpon>TaskFormFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestCentralForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FareastenTraditionsForm.resx">
       <DependentUpon>FareastenTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalTestForm.resx">
+      <DependentUpon>FinalTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>

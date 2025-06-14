@@ -10,7 +10,7 @@ namespace Library_App
         private int secondsRemaining = 10;
 
         private Label timerLabel;
-        private Button backButton;
+        private PictureBox backPictureBox; // Изменено с Button на PictureBox
         private PictureBox mapPictureBox;
 
         public MapHintForm()
@@ -36,18 +36,18 @@ namespace Library_App
             };
             this.Controls.Add(timerLabel);
 
-            // === Кнопка Назад ===
-            backButton = new Button
+            // === PictureBox вместо кнопки Назад ===
+            backPictureBox = new PictureBox
             {
-                Text = "← Назад",
-                Font = new Font("Arial", 30, FontStyle.Bold),
-                BackColor = Color.LightGray,
-                AutoSize = true,
-                Anchor = AnchorStyles.Top | AnchorStyles.Left,
-                Location = new Point(20, 70)
+                Image = Properties.Resources.назад, // Ваша иконка "назад"
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BackColor = Color.Transparent,
+                Size = new Size(200, 100),
+                Location = new Point(20, 70),
+                Cursor = Cursors.Hand // Меняем курсор при наведении
             };
-            backButton.Click += (s, e) => this.Close();
-            this.Controls.Add(backButton);
+            backPictureBox.Click += (s, e) => this.Close();
+            this.Controls.Add(backPictureBox);
 
             // === Картинка MapFull ===
             mapPictureBox = new PictureBox

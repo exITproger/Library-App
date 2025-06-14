@@ -88,6 +88,8 @@ namespace Library_App
             CalculateScaleFactor();
         }
 
+        
+
         private List<int> GetDrawOrderIndices()
         {
             return Enumerable.Range(0, draggableImages.Length)
@@ -236,16 +238,231 @@ namespace Library_App
                 draggingIndex = -1;
 
                 this.Invalidate(); // Обновить форму для отрисовки счётчика
+
+                // Проверяем, все ли регионы размещены правильно
+                if (correctPlacementsCount == 8)
+                {
+                    // Запускаем таймер, который откроет форму поздравления через секунду
+                    Timer timer = new Timer();
+                    timer.Interval = 1000; // 1 секунда
+                    timer.Tick += (s, args) =>
+                    {
+                        timer.Stop();
+                        ShowCongratulationsForm();
+                    };
+                    timer.Start();
+                }
             }
         }
 
+        private void ShowCongratulationsForm()
+        {
+            // Определяем размеры формы в зависимости от разрешения экрана
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int formWidth, formHeight;
 
+            if (screenWidth > 3500)
+            {
+                formWidth = 2000;
+                formHeight = 1500;
+            }
+            else if (screenWidth > 2500)
+            {
+                formWidth = 1200;
+                formHeight = 900;
+            }
+            else if (screenWidth > 1900)
+            {
+                formWidth = 800;
+                formHeight = 600;
+            }
+            else
+            {
+                formWidth = 600;
+                formHeight = 400;
+            }
 
+            // Создаем форму
+            Form congratsForm = new Form()
+            {
+                Text = "Поздравляем!",
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                ClientSize = new Size(formWidth, formHeight),
+                BackColor = Color.LightSkyBlue,
+                Padding = new Padding(20)
+            };
 
+            // Определяем размер шрифта
+            int fontSize;
+            if (formWidth > 3500)
+                fontSize = 32;
+            else if (formWidth > 2500)
+                fontSize = 28;
+            else if (formWidth > 1900)
+                fontSize = 24;
+            else if (formWidth > 1200)
+                fontSize = 20;
+            else if (formWidth > 800)
+                fontSize = 18;
+            else
+                fontSize = 14;
 
+            // Текст поздравления
+            Label label = new Label()
+            {
+                Text = "Вы успешно разместили все регионы России!",
+                Font = new Font("Arial", fontSize, FontStyle.Bold),
+                ForeColor = Color.DarkBlue,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
 
+            // Размер кнопок
+            Size buttonSize = new Size((int)(formWidth * 0.3), (int)(formHeight * 0.1));
 
+            // Кнопка "На карту регионов"
+            Button btnReturn = new Button()
+            {
+                Text = "На карту регионов",
+                DialogResult = DialogResult.Retry,
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightGreen,
+                FlatStyle = FlatStyle.Flat
+            };
 
+            // Кнопка "Выйти"
+            Button btnExit = new Button()
+            {
+                Text = "Выйти",
+                DialogResult = DialogResult.Cancel,
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightCoral,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            // Основной контейнер
+            TableLayoutPanel mainPanel = new TableLayoutPanel()
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3
+            };
+
+            // Настройка строк
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 60));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30));
+
+            // Контейнер для кнопок (используем Panel вместо FlowLayoutPanel для лучшей совместимости)
+            Panel buttonContainer = new Panel()
+            {
+                Dock = DockStyle.Fill
+            };
+
+            // Позиционируем кнопки вручную
+            btnReturn.Location = new Point(
+                (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
+                (buttonContainer.Height - btnReturn.Height) / 2);
+
+            btnExit.Location = new Point(
+                btnReturn.Right + formWidth / 20,
+                btnReturn.Top);
+
+            // Обработчик изменения размера для правильного позиционирования кнопок
+            buttonContainer.Resize += (sender, e) =>
+            {
+                btnReturn.Location = new Point(
+                    (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
+                    (buttonContainer.Height - btnReturn.Height) / 2);
+
+                btnExit.Location = new Point(
+                    btnReturn.Right + formWidth / 20,
+                    btnReturn.Top);
+            };
+
+            // Добавляем кнопки в контейнер
+            buttonContainer.Controls.Add(btnReturn);
+            buttonContainer.Controls.Add(btnExit);
+
+            // Добавляем элементы в основной контейнер
+            mainPanel.Controls.Add(label, 0, 0);
+            mainPanel.Controls.Add(new Panel(), 0, 1); // Разделитель
+            mainPanel.Controls.Add(buttonContainer, 0, 2);
+
+            // Добавляем основной контейнер на форму
+            congratsForm.Controls.Add(mainPanel);
+
+            // Обработка результатов
+            DialogResult result = congratsForm.ShowDialog(this);
+
+            if (result == DialogResult.Retry)
+            {
+                ReturnToRussiaMap();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                // Закрыть все формы кроме главной (совместимый способ)
+                Form[] openForms = Application.OpenForms.Cast<Form>().ToArray();
+                foreach (Form form in openForms)
+                {
+                    if (form.GetType() != typeof(MainMenuForm))
+                        form.Close();
+                }
+
+                // Находим главное меню
+                MainMenuForm mainMenu = null;
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form is MainMenuForm)
+                    {
+                        mainMenu = (MainMenuForm)form;
+                        break;
+                    }
+                }
+
+                if (mainMenu == null)
+                {
+                    mainMenu = new MainMenuForm();
+                    mainMenu.Show();
+                }
+                else
+                {
+                    mainMenu.BringToFront();
+                }
+
+                this.Close();
+            }
+        }
+
+        private void ReturnToRussiaMap()
+        {
+            // Закрыть все формы кроме главной, если она у вас есть в списке открытых
+            foreach (Form form in Application.OpenForms)
+            {
+                if (!(form is RegionMapForm || form is MainMenuForm || form is MapForm))
+                    form.Close();
+            }
+
+            // Проверим, открыто ли главное меню
+            var open = Application.OpenForms.OfType<RegionMapForm>().FirstOrDefault();
+            if (open == null)
+            {
+                open = new RegionMapForm();
+                open.Show();
+            }
+            else
+            {
+                open.BringToFront();
+            }
+
+            this.Close();
+        }
 
 
 
@@ -480,5 +697,17 @@ namespace Library_App
 
         }
 
+        private void FinalTestForm_Load(object sender, EventArgs e)
+        {
+            ShowTaskForm(); // ← Окно появится поверх
+        }
+        private void ShowTaskForm()
+        {
+            using (var taskForm = new TaskFormFinal())
+            {
+                taskForm.ShowDialog(this);
+            }
+        }
     }
+
 }
