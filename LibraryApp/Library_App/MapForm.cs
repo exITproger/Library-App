@@ -28,6 +28,16 @@ namespace Library_App
             "Северо-Западный", "Центральный", "Приволжский", "Южный",
             "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный"
         };
+
+        private PictureBox btnBack;
+        private PictureBox btnHint;
+        private PictureBox btnSkip;
+        Size backButtonOriginalSize = new Size(1300, 520);
+        Size otherButtonsOriginalSize = new Size(1509, 520);
+
+        private Size currentButtonSize;
+        private float buttonWidthRatio = 100f / 1520f; // примерное соотношение кнопки к ширине карты
+
         private Bitmap[] districtImages;
 
         private Point[] districtCenters = new Point[]
@@ -50,13 +60,14 @@ namespace Library_App
             this.Text = "Собери карту России - Федеральные округа";
             this.BackColor = Color.White;
             this.Resize += MainForm_Resize;
-
+            
             LoadImages();
 
             CalculateScaleFactor(true);
-
+            // Инициализация кнопок (вместо старых Button)
+            InitializeButtons();
             startTime = DateTime.Now;
-
+            /*
             // === КНОПКА НАЗАД ===
             backButton = new Button();
             backButton.Text = "← Назад";
@@ -86,10 +97,130 @@ namespace Library_App
             skipButton.Location = new Point(20, hintButton.Bottom + 20);
             skipButton.Click += SkipButton_Click;
             this.Controls.Add(skipButton);
+            */
+            
 
             this.Load += MapForm_Load;
 
         }
+        private void InitializeButtons()
+        {
+            CalculateButtonSize();
+
+            // Создаём кнопки с изображениями из ресурсов (нужно добавить эти картинки в ресурсы)
+            btnBack = CreateImageButton(Properties.Resources.назад);   // например, стрелка назад
+            btnHint = CreateImageButton(Properties.Resources.Подсказка);    // иконка подсказки
+            btnSkip = CreateImageButton(Properties.Resources.пропустить);    // иконка пропустить
+
+            btnBack.Click += (s, e) => this.Close();
+            btnHint.Click += HintButton_Click;
+            btnSkip.Click += SkipButton_Click;
+
+            this.Controls.Add(btnBack);
+            this.Controls.Add(btnHint);
+            this.Controls.Add(btnSkip);
+
+            UpdateButtonPositions();
+
+            // Обновляем размеры и позиции при изменении размера формы
+            this.Resize += (s, e) =>
+            {
+                CalculateButtonSize();
+                UpdateButtonSizes();
+                UpdateButtonPositions();
+            };
+        }
+
+        private PictureBox CreateImageButton(Image image)
+        {
+            var button = new PictureBox
+            {
+                Image = image,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BackColor = Color.Transparent,
+                Size = currentButtonSize,
+                Cursor = Cursors.Hand
+            };
+
+            button.MouseEnter += (s, e) => ScaleButton(button, 1.05f);
+            button.MouseLeave += (s, e) => ScaleButton(button, 1.0f);
+            button.MouseDown += (s, e) => ScaleButton(button, 0.95f);
+            button.MouseUp += (s, e) => ScaleButton(button, 1.05f);
+
+            return button;
+        }
+
+        private void CalculateButtonSize()
+        {
+            int buttonWidth = (int)(this.ClientSize.Width * buttonWidthRatio);
+            int buttonHeight = buttonWidth; // квадратные кнопки, можно менять
+            currentButtonSize = new Size(buttonWidth, buttonHeight);
+        }
+
+        private void UpdateButtonSizes()
+        {
+            if (btnBack != null)
+                btnBack.Size = currentButtonSize;
+
+            if (btnHint != null)
+                btnHint.Size = new Size(
+                    (int)(currentButtonSize.Width * 1.1f),
+                    (int)(currentButtonSize.Height * 1.15f));
+
+            if (btnSkip != null)
+                btnSkip.Size = new Size(
+                    (int)(currentButtonSize.Width * 1.1f),
+                    (int)(currentButtonSize.Height * 1.15f));
+        }
+
+        private void UpdateButtonPositions()
+        {
+            // Базовые значения отступов для 2K (2560x1440)
+            const int referencePaddingL = 10;    // Левый отступ
+            const int referencePaddingH = -50;  // Вертикальный отступ между кнопками
+            const int referencePadding1 = -20;  // Верхний отступ
+
+            // Вычисляем масштабный коэффициент
+            float scaleX = (float)this.ClientSize.Width / 2560f;
+            float scaleY = (float)this.ClientSize.Height / 1440f;
+            float scale = Math.Min(scaleX, scaleY); // Берем минимальный масштаб
+
+            // Масштабируем отступы
+            int paddingL = (int)(referencePaddingL * scale);
+            int paddingH = (int)(referencePaddingH * scale);
+            int padding1 = (int)(referencePadding1 * scale);
+
+            if (btnBack != null)
+                btnBack.Location = new Point(paddingL, padding1);
+
+            if (btnHint != null)
+                btnHint.Location = new Point(paddingL, btnBack.Bottom + paddingH);
+
+            if (btnSkip != null)
+                btnSkip.Location = new Point(paddingL, btnHint.Bottom + paddingH);
+        }
+
+        private void ScaleButton(PictureBox button, float scale)
+        {
+            int newWidth = (int)(currentButtonSize.Width * scale*1);
+            int newHeight = (int)(currentButtonSize.Height * scale);
+
+            // Центрируем кнопку при изменении размера (чтобы она не сдвигала соседей)
+            int deltaX = (newWidth - button.Width) / 2;
+            int deltaY = (newHeight - button.Height) / 2;
+
+            button.SuspendLayout();
+
+            // Смещаем позицию, чтобы сохранить центр в том же месте
+            button.Location = new Point(button.Location.X - deltaX, button.Location.Y - deltaY);
+
+
+
+            button.Size = new Size(newWidth, newHeight);
+
+            button.ResumeLayout();
+        }
+
         private void MapForm_Load(object sender, EventArgs e)
         {
             ShowTaskForm(); // ← Окно появится поверх

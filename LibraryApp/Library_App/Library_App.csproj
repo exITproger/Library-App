@@ -458,5 +458,26 @@
   <ItemGroup>
     <None Include="Resources\central_w.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\вперёд.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\выход.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\назад.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Начать.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Подсказка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пройти_тест.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пропустить.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
