@@ -265,11 +265,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SouthernMainForm.resx">
+      <DependentUpon>SouthernMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestNorthwesternForm1.resx">
       <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestNorthwesternForm2.resx">
       <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSouthernForm1.resx">
+      <DependentUpon>TestSouthernForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSouthernForm2.resx">
+      <DependentUpon>TestSouthernForm2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
