@@ -175,9 +175,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestVolgaForm2 form2 = new TestVolgaForm2();
-            Hide();
+
             form2.ShowDialog();
-            Show();
+
         }
 
 

@@ -79,9 +79,7 @@ namespace Library_App
             rightTopButton.Click += (s, e) =>
             {
                 FinalTestForm finalTestForm = new FinalTestForm();
-                Hide();
                 finalTestForm.ShowDialog();
-                Show();
             };
 
             // Настройка анимации для обеих кнопок
@@ -218,9 +216,7 @@ namespace Library_App
                         }
 
                         if (regionForm != null)
-                            Hide();
                             regionForm.ShowDialog();
-                            Show();
 
                         break;
                     }

@@ -191,9 +191,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestNorthcaucasianForm2 ask2 = new TestNorthcaucasianForm2();
-            Hide();
+
             ask2.ShowDialog();
-            Show();
+
         }
 
         private void lblVar1_Click(object sender, EventArgs e)

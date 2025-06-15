@@ -238,9 +238,9 @@ namespace Library_App
         private void HintButton_Click(object sender, EventArgs e)
         {
             MapHintForm mapHintForm = new MapHintForm();
-            Hide();
+
             mapHintForm.ShowDialog();
-            Show();
+
         }
         private void ShowTaskForm()
         {
@@ -252,9 +252,9 @@ namespace Library_App
         private void SkipButton_Click(object sender, EventArgs e)
         {
             RegionMapForm regionMapForm = new RegionMapForm();
-            this.Hide();
+
             regionMapForm.ShowDialog();
-            this.Show();
+
         }
 
 

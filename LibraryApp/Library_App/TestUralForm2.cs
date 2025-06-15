@@ -273,65 +273,126 @@ namespace Library_App
 
         public ChoiceFormU()
         {
-            // Размеры - 30% от экрана
+            // Определяем размеры формы в зависимости от разрешения экрана
             var screen = Screen.PrimaryScreen.WorkingArea;
-            this.Size = new Size((int)(screen.Width * 0.3), (int)(screen.Height * 0.3));
+            int formWidth, formHeight, fontSize;
+
+            if (screen.Width > 3500)
+            {
+                formWidth = 1200;
+                formHeight = 800;
+                fontSize = 28;
+            }
+            else if (screen.Width > 2500)
+            {
+                formWidth = 1000;
+                formHeight = 700;
+                fontSize = 24;
+            }
+            else if (screen.Width > 1900)
+            {
+                formWidth = 800;
+                formHeight = 600;
+                fontSize = 20;
+            }
+            else
+            {
+                formWidth = 600;
+                formHeight = 400;
+                fontSize = 16;
+            }
+
+            this.ClientSize = new Size(formWidth, formHeight);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Text = "Выбор действия";
+            this.BackColor = Color.WhiteSmoke;
+            this.Padding = new Padding(20);
 
-            // Метка с текстом
+            // Основной контейнер
+            var mainPanel = new TableLayoutPanel()
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3
+            };
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+
+            // Заголовок
             var label = new Label()
             {
                 Text = "Выберите действие:",
-                AutoSize = false,
+                Font = new Font("Arial", fontSize, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Top,
-                Height = this.ClientSize.Height / 2,
-                Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold)
+                Dock = DockStyle.Fill,
+                ForeColor = Color.DarkSlateBlue
             };
-            this.Controls.Add(label);
+            mainPanel.Controls.Add(label, 0, 0);
 
-            // Панель для кнопок
-            var panel = new Panel()
+            // Разделитель
+            mainPanel.Controls.Add(new Panel(), 0, 1);
+
+            // Контейнер для кнопок
+            var buttonPanel = new Panel()
             {
-                Dock = DockStyle.Bottom,
-                Height = 50,
-                Padding = new Padding(10)
+                Dock = DockStyle.Fill
             };
-            this.Controls.Add(panel);
+
+            // Размер кнопок
+            Size buttonSize = new Size((int)(formWidth * 0.35), (int)(formHeight * 0.2));
 
             var btnDistrict = new Button()
             {
                 Text = "Вернуться к округу",
                 DialogResult = DialogResult.OK,
-                Dock = DockStyle.Left,
-                Width = this.ClientSize.Width / 2 - 15,
-                Margin = new Padding(5)
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightSteelBlue,
+                FlatStyle = FlatStyle.Flat
             };
             btnDistrict.Click += (s, e) =>
             {
                 Result = ChoiceResult.ReturnToDistrict;
-                this.Close();
+
             };
-            panel.Controls.Add(btnDistrict);
 
             var btnRussia = new Button()
             {
                 Text = "Вернуться к карте России",
                 DialogResult = DialogResult.Cancel,
-                Dock = DockStyle.Right,
-                Width = this.ClientSize.Width / 2 - 15,
-                Margin = new Padding(5)
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightSkyBlue,
+                FlatStyle = FlatStyle.Flat
             };
             btnRussia.Click += (s, e) =>
             {
                 Result = ChoiceResult.ReturnToRussiaMap;
                 this.Close();
             };
-            panel.Controls.Add(btnRussia);
+
+            // Расположение кнопок при изменении размера
+            buttonPanel.Resize += (s, e) =>
+            {
+                int spacing = formWidth / 20;
+                int totalWidth = btnDistrict.Width + btnRussia.Width + spacing;
+
+                int xStart = (buttonPanel.Width - totalWidth) / 2;
+                int yStart = (buttonPanel.Height - btnDistrict.Height) / 2;
+
+                btnDistrict.Location = new Point(xStart, yStart);
+                btnRussia.Location = new Point(xStart + btnDistrict.Width + spacing, yStart);
+            };
+
+            buttonPanel.Controls.Add(btnDistrict);
+            buttonPanel.Controls.Add(btnRussia);
+
+            mainPanel.Controls.Add(buttonPanel, 0, 2);
+            this.Controls.Add(mainPanel);
         }
     }
 
