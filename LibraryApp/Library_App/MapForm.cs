@@ -10,6 +10,7 @@ namespace Library_App
 {
     public partial class MapForm : Form
     {
+        private System.Windows.Forms.Timer timer;
         private List<PuzzlePiece> pieces = new List<PuzzlePiece>();
         private PuzzlePiece selectedPiece = null;
         private Button backButton;
@@ -60,7 +61,13 @@ namespace Library_App
             this.Text = "Собери карту России - Федеральные округа";
             this.BackColor = Color.White;
             this.Resize += MainForm_Resize;
-            
+
+            // Инициализация таймера
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000; // Обновление каждую секунду
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
             LoadImages();
 
             CalculateScaleFactor(true);
@@ -102,6 +109,11 @@ namespace Library_App
 
             this.Load += MapForm_Load;
 
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Просто вызываем перерисовку, чтобы обновить время
+            this.Invalidate();
         }
         private void InitializeButtons()
         {
@@ -368,9 +380,18 @@ namespace Library_App
             int w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
 
+            // Calculate the left margin (20% of screen width)
+            int leftMargin = (int)(w * 0.2);
+
+            // Adjust available width
+            int availableWidth = w - leftMargin - padding;
+
             List<PointF> positions = new List<PointF>();
-            int[] sides = new int[] { 0, 0, 1, 1, 2, 2, 3, 3 }; // 0=Top, 1=Bottom, 2=Left, 3=Right
-            sides = sides.OrderBy(x => rand.Next()).ToArray(); // перемешиваем стороны
+
+            // We'll use 4 sides (top, bottom, right, and left-but-only-the-right-part)
+            // Since we're leaving left 20% empty, we'll adjust the left side spawn
+            int[] sides = new int[] { 0, 0, 1, 1, 2, 3, 3, 3 }; // 0=Top, 1=Bottom, 2=Right, 3=Left (adjusted)
+            sides = sides.OrderBy(x => rand.Next()).ToArray();
 
             foreach (int side in sides)
             {
@@ -378,23 +399,27 @@ namespace Library_App
 
                 switch (side)
                 {
-                    case 0: // Верх
-                        x = rand.Next(padding, (int)(w - pieceWidth - padding));
+                    case 0: // Top (within right 80%)
+                        x = rand.Next(leftMargin + padding, (int)(leftMargin + availableWidth - pieceWidth - padding));
                         y = padding;
                         break;
-                    case 1: // Низ
-                        x = rand.Next(padding, (int)(w - pieceWidth - padding));
+                    case 1: // Bottom (within right 80%)
+                        x = rand.Next(leftMargin + padding, (int)(leftMargin + availableWidth - pieceWidth - padding));
                         y = h - pieceHeight - padding;
                         break;
-                    case 2: // Лево
-                        x = padding;
-                        y = rand.Next(padding, (int)(h - pieceHeight - padding));
-                        break;
-                    case 3: // Право
+                    case 2: // Right edge
                         x = w - pieceWidth - padding;
                         y = rand.Next(padding, (int)(h - pieceHeight - padding));
                         break;
+                    case 3: // Left side (but only the part after 20%)
+                        x = leftMargin + padding;
+                        y = rand.Next(padding, (int)(h - pieceHeight - padding));
+                        break;
                 }
+
+                // Double-check bounds
+                x = Math.Max(leftMargin + padding, Math.Min(w - pieceWidth - padding, x));
+                y = Math.Max(padding, Math.Min(h - pieceHeight - padding, y));
 
                 positions.Add(new PointF(x, y));
             }
@@ -509,7 +534,12 @@ namespace Library_App
             g.DrawString(info, font, Brushes.Black, x + 20, y + 10);
             g.DrawString(timeInfo, new Font("Arial", 14 * scaleFactor), Brushes.DarkBlue, x + 20, y + 10 + infoSize.Height + 5);
         }
-
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            timer.Stop();
+            timer.Dispose();
+        }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -576,6 +606,7 @@ namespace Library_App
 
                     if (correctPieces == 8)
                     {
+                        timer.Stop();
                         TimeSpan timeTaken = DateTime.Now - startTime;
                         //MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
                         await Task.Delay(3000); // Задержка 3 секунды
