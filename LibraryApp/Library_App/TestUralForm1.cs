@@ -253,8 +253,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestUralForm2 ask2 = new TestUralForm2();
-
+            Hide();
             ask2.ShowDialog();
+            Show();
 
         }
     }

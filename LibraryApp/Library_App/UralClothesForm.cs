@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             UralOmesForm uralOmesForm = new UralOmesForm();
-
+            Hide();
             uralOmesForm.ShowDialog();
-
+            Show();
         }
     }
 }

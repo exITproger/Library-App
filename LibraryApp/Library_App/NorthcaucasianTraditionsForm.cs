@@ -140,8 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestNorthcaucasianForm1 testNorthcaucasianForm1 = new TestNorthcaucasianForm1();
-
+            Hide();
             testNorthcaucasianForm1.ShowDialog();
+            Show();
 
         }
     }

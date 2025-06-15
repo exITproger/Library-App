@@ -249,8 +249,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestFareastenForm2 ask2 = new TestFareastenForm2();
-
+            Hide();
             ask2.ShowDialog();
+            Show();
 
         }
 

@@ -86,7 +86,6 @@ namespace Library_App
                 this.Close();
             }
         }
-
         private void UpdateTimerLabel()
         {
             timerLabel.Text = $"Подсказка исчезнет через: {secondsRemaining} сек";

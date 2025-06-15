@@ -22,7 +22,7 @@ namespace Library_App
         private float scaleFactor = 1.0f;
         private float previousScaleFactor = 1.0f;
         private PointF baseOutlinePosition = new PointF(400, 50);
-        private const float MapScale = 0.8f;
+        private const float MapScale = 0.95f;
         private const float PixelTolerance = 0.15f;
         private string[] regionNames = new string[]
         {
@@ -250,8 +250,9 @@ namespace Library_App
         private void HintButton_Click(object sender, EventArgs e)
         {
             MapHintForm mapHintForm = new MapHintForm();
-
+            Hide();
             mapHintForm.ShowDialog();
+            Show();
 
         }
         private void ShowTaskForm()
@@ -264,8 +265,9 @@ namespace Library_App
         private void SkipButton_Click(object sender, EventArgs e)
         {
             RegionMapForm regionMapForm = new RegionMapForm();
-
+            Hide();
             regionMapForm.ShowDialog();
+            Show();
 
         }
 

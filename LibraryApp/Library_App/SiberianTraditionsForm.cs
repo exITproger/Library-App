@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestSiberianForm1 testSiberianForm1 = new TestSiberianForm1();
-
+            Hide();
             testSiberianForm1.ShowDialog();
-
+            Show();
         }
     }
 }

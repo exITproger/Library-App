@@ -477,9 +477,6 @@ namespace Library_App
             this.Close();
         }
 
-
-
-
         private void LoadImages()
         {
             backgroundMap = Properties.Resources.map_background2;

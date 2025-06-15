@@ -227,10 +227,10 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestSiberianForm2 ask2 = new TestSiberianForm2();
-
+            Hide();
             ask2.ShowDialog();
+            Show();
 
-            
         }
 
         // Общий метод установки цвета с обновлением анимации

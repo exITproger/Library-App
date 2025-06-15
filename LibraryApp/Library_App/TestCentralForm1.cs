@@ -243,7 +243,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestCentralForm2 ask2 = new TestCentralForm2();
+            Hide();
             ask2.ShowDialog();
+            Show();
         }
 
         private void lblVar1_Click(object sender, EventArgs e)

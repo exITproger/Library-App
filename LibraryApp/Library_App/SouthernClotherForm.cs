@@ -140,8 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             SouthernOmensForm open = new SouthernOmensForm();
-
+            Hide();
             open.ShowDialog();
+            Show();
 
         }
     }

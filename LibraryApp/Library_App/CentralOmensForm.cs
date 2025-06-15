@@ -140,8 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             CentralTraditionsForm centralTraditionsForm = new CentralTraditionsForm();
-            
+            Hide();
             centralTraditionsForm.ShowDialog();
+            Show();
         }
     }
 }

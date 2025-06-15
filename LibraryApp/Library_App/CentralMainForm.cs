@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             CentralClothesForm centralClothesForm = new CentralClothesForm();
-            
+            Hide();
             centralClothesForm.ShowDialog();
-
+            Show();
         }
     }
 }

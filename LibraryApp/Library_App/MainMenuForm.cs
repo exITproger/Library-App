@@ -170,6 +170,7 @@ namespace Library_App
                 Application.Exit();
                 return true;
             }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }

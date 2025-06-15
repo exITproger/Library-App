@@ -17,6 +17,7 @@ namespace Library_App
 
         public SouthernTraditionsForm()
         {
+
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             this.DoubleBuffered = true;
@@ -140,8 +141,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             TestSouthernForm1 testSouthernForm1 = new TestSouthernForm1();
-
+            Hide();
             testSouthernForm1.ShowDialog();
+            Show();
 
         }
     }

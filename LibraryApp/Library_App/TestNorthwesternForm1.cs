@@ -228,8 +228,9 @@ namespace Library_App
             await System.Threading.Tasks.Task.Delay(1000);
 
             TestNorthwesternForm2 ask2 = new TestNorthwesternForm2();
-
+            Hide();
             ask2.ShowDialog();
+            Show();
 
         }
 

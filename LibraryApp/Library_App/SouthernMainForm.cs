@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             SouthernClotherForm southernClothesForm = new SouthernClotherForm();
-
+            Hide();
             southernClothesForm.ShowDialog();
-
+            Show();
         }
     }
 }

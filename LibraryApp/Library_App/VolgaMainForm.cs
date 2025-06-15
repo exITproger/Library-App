@@ -140,8 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             VolgaClotherForm open = new VolgaClotherForm();
-
+            Hide();
             open.ShowDialog();
+            Show();
 
         }
     }

@@ -140,9 +140,9 @@ namespace Library_App
         {
             // Действие для кнопки "Вперед"
             UralTraditionsForm uralTraditionsForm = new UralTraditionsForm();
-
+            Hide();
             uralTraditionsForm.ShowDialog();
-
+            Show();
         }
     }
 }
