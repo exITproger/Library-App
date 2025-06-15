@@ -508,6 +508,9 @@
     <EmbeddedResource Include="TestUralForm2.resx">
       <DependentUpon>TestUralForm2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestVolgaForm1.resx">
+      <DependentUpon>TestVolgaForm1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UralClothesForm.resx">
       <DependentUpon>UralClothesForm.cs</DependentUpon>
     </EmbeddedResource>

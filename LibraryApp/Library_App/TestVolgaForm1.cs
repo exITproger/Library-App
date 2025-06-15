@@ -58,50 +58,54 @@ namespace Library_App
 
         private void AdjustLayout()
         {
-            // Заголовок — масштабируем шрифт
             lblAsk1.Dock = DockStyle.None;
             lblAsk1.TextAlign = ContentAlignment.MiddleCenter;
             lblAsk1.Height = 80;
-            float headerFontSize = Math.Min(lblAsk1.Height * 0.7f, 36f);
+            float headerFontSize = Math.Min(lblAsk1.Height * 0.7f, 24f);
             lblAsk1.Font = new Font("Microsoft Sans Serif", headerFontSize, FontStyle.Bold);
 
-            // Размер таблицы — 50% ширины и 50% высоты формы
-            int tableWidth = this.ClientSize.Width / 2;
-            int tableHeight = this.ClientSize.Height / 2;
-            tableLayoutPanel1.Size = new Size(tableWidth, tableHeight);
+            // Вычисляем ширину таблицы пропорционально ширине окна
+            int targetWidth = (int)(this.ClientSize.Width * 1200f / 2560f);
+            // Высота по фиксированному соотношению 3:2
+            int targetHeight = (int)(targetWidth * 800f / 1200f);
 
-            // Считаем общее "высота заголовка + таблицы"
+            tableLayoutPanel1.Size = new Size(targetWidth, targetHeight);
+
+            // Центрируем по горизонтали и вертикали
             int totalHeight = lblAsk1.Height + tableLayoutPanel1.Height;
-
-            // Вычисляем верхний отступ для вертикального центрирования композиции
             int topOffset = (this.ClientSize.Height - totalHeight) / 2;
+            int centerX = (this.ClientSize.Width - tableLayoutPanel1.Width) / 2;
 
-            // Центруем таблицу и заголовок
-            int tableX = (this.ClientSize.Width - tableLayoutPanel1.Width) / 2;
-            int lblX = (this.ClientSize.Width - lblAsk1.Width) / 2;
+            lblAsk1.Width = tableLayoutPanel1.Width;
+            lblAsk1.Location = new Point(centerX, topOffset);
+            tableLayoutPanel1.Location = new Point(centerX, lblAsk1.Bottom);
 
-            lblAsk1.Width = tableWidth;
-            lblAsk1.Location = new Point(tableX, topOffset);
-            tableLayoutPanel1.Location = new Point(tableX, lblAsk1.Bottom);
-
-            // Подгонка шрифтов кнопок
+            // Размер одной ячейки
             int cellWidth = tableLayoutPanel1.ClientSize.Width / tableLayoutPanel1.ColumnCount;
             int cellHeight = tableLayoutPanel1.ClientSize.Height / tableLayoutPanel1.RowCount;
 
             foreach (Button btn in new Button[] { btnVar1, btnVar2, btnVar3, btnVar4 })
             {
+                btn.TextAlign = ContentAlignment.MiddleCenter;
+                btn.AutoSize = false;
+                btn.AutoEllipsis = false;
+                btn.FlatStyle = FlatStyle.Standard;
+
+                // Вставляем переносы по словам, чтобы текст не выходил за ширину кнопки
+                btn.Text = InsertLineBreaks(btn.Text, cellWidth);
+
+                // Подбираем шрифт, чтобы текст помещался по высоте с учётом переноса строк
                 float fontSize = 24f;
-                Size textSize;
                 using (Graphics g = btn.CreateGraphics())
                 {
                     while (fontSize > 6f)
                     {
-                        using (Font testFont = new Font("Microsoft Sans Serif", fontSize, FontStyle.Regular))
+                        using (Font testFont = new Font("Microsoft Sans Serif", fontSize))
                         {
-                            textSize = Size.Ceiling(g.MeasureString(btn.Text, testFont));
-                            if (textSize.Width <= cellWidth * 0.9 && textSize.Height <= cellHeight * 0.9)
+                            SizeF textSize = g.MeasureString(btn.Text, testFont, cellWidth);
+                            if (textSize.Height <= cellHeight * 0.9f)
                             {
-                                btn.Font = new Font("Microsoft Sans Serif", fontSize, FontStyle.Regular);
+                                btn.Font = new Font("Microsoft Sans Serif", fontSize);
                                 break;
                             }
                         }
@@ -110,6 +114,39 @@ namespace Library_App
                 }
             }
         }
+
+
+        private string InsertLineBreaks(string text, int maxWidth)
+        {
+            // Грубая разбивка на строки по пробелам для переноса, можно улучшить
+            string[] words = text.Split(' ');
+            List<string> lines = new List<string>();
+            string currentLine = "";
+
+            using (Graphics g = this.CreateGraphics())
+            {
+                foreach (string word in words)
+                {
+                    string testLine = string.IsNullOrEmpty(currentLine) ? word : currentLine + " " + word;
+                    SizeF size = g.MeasureString(testLine, this.Font);
+                    if (size.Width > maxWidth * 0.9f)
+                    {
+                        if (!string.IsNullOrEmpty(currentLine))
+                            lines.Add(currentLine);
+                        currentLine = word;
+                    }
+                    else
+                    {
+                        currentLine = testLine;
+                    }
+                }
+                if (!string.IsNullOrEmpty(currentLine))
+                    lines.Add(currentLine);
+            }
+
+            return string.Join("\n", lines);
+        }
+
 
         private void Btn_MouseEnter(object sender, EventArgs e)
         {
