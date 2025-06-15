@@ -1,8 +1,6 @@
-﻿using System.Drawing;
-
-namespace Library_App
+﻿namespace Library_App
 {
-    partial class RegionMapForm
+    partial class TaskRegionMapForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +28,10 @@ namespace Library_App
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // RegionMapForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RegionMapForm";
-            this.Text = "RegionMapForm";
-            this.Load += new System.EventHandler(this.RegionMapForm_Load);
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "TaskRegionMapForm";
         }
 
         #endregion

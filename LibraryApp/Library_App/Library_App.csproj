@@ -239,6 +239,12 @@
     <Compile Include="TaskFormFinal.Designer.cs">
       <DependentUpon>TaskFormFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaskRegionMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskRegionMapForm.Designer.cs">
+      <DependentUpon>TaskRegionMapForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestCentralForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +441,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegionMapForm.resx">
+      <DependentUpon>RegionMapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SiberianClotherForm.resx">
       <DependentUpon>SiberianClotherForm.cs</DependentUpon>

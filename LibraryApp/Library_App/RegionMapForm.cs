@@ -364,5 +364,16 @@ namespace Library_App
             }
         }
 
+        private void RegionMapForm_Load(object sender, EventArgs e)
+        {
+            ShowHintForm(); // ← Окно появится поверх
+        }
+        private void ShowHintForm()
+        {
+            using (var taskForm = new TaskRegionMapForm())
+            {
+                taskForm.ShowDialog(this);
+            }
+        }
     }
 }
