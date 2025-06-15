@@ -13,11 +13,18 @@ namespace Library_App
         // Цвета для анимации (изменяй под себя)
         private Color normalColor = SystemColors.Control;
         private Color hoverColor = Color.LightBlue;
-
+        private PictureBox backgroundImage;
         public TestNorthwesternForm1()
         {
+            // Создаем PictureBox и задаем фоновое изображение
+            backgroundImage = new PictureBox();
+            backgroundImage.Dock = DockStyle.Fill;
+            backgroundImage.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundImage.Image = Properties.Resources.fon_komi;
+            this.Controls.Add(backgroundImage);
             InitializeComponent();
-
+            // Отправляем картинку на задний план
+            backgroundImage.SendToBack();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -27,7 +34,7 @@ namespace Library_App
             lblAsk1.Height = 80;
             lblAsk1.Dock = DockStyle.Top;
             lblAsk1.TextAlign = ContentAlignment.MiddleCenter;
-
+            lblAsk1.BackColor = Color.Transparent;
             // Снимаем Dock у таблицы, чтобы вручную позиционировать и задавать размер
             tableLayoutPanel1.Dock = DockStyle.None;
 
@@ -55,24 +62,33 @@ namespace Library_App
 
         private void AdjustLayout()
         {
-            // Заголовок - масштабируем шрифт по высоте
+            // Заголовок — масштабируем шрифт
+            lblAsk1.Dock = DockStyle.None;
+            lblAsk1.TextAlign = ContentAlignment.MiddleCenter;
+            lblAsk1.Height = 80;
             float headerFontSize = Math.Min(lblAsk1.Height * 0.7f, 36f);
             lblAsk1.Font = new Font("Microsoft Sans Serif", headerFontSize, FontStyle.Bold);
 
-            // Размер таблицы — 50% ширины и 50% высоты формы (без учета заголовка)
-            int availableHeight = this.ClientSize.Height - lblAsk1.Height;
+            // Размер таблицы — 50% ширины и 50% высоты формы
             int tableWidth = this.ClientSize.Width / 2;
-            int tableHeight = availableHeight / 2;
-
+            int tableHeight = this.ClientSize.Height / 2;
             tableLayoutPanel1.Size = new Size(tableWidth, tableHeight);
 
-            // Позиционируем таблицу по центру по ширине и по вертикали — под заголовком, с отступом сверху
-            int tableX = (this.ClientSize.Width - tableWidth) / 2;
-            int tableY = lblAsk1.Bottom + (availableHeight - tableHeight) / 2;
+            // Считаем общее "высота заголовка + таблицы"
+            int totalHeight = lblAsk1.Height + tableLayoutPanel1.Height;
 
-            tableLayoutPanel1.Location = new Point(tableX, tableY);
+            // Вычисляем верхний отступ для вертикального центрирования композиции
+            int topOffset = (this.ClientSize.Height - totalHeight) / 2;
 
-            // Подгоняем шрифты кнопок под размер ячейки
+            // Центруем таблицу и заголовок
+            int tableX = (this.ClientSize.Width - tableLayoutPanel1.Width) / 2;
+            int lblX = (this.ClientSize.Width - lblAsk1.Width) / 2;
+
+            lblAsk1.Width = tableWidth;
+            lblAsk1.Location = new Point(tableX, topOffset);
+            tableLayoutPanel1.Location = new Point(tableX, lblAsk1.Bottom);
+
+            // Подгонка шрифтов кнопок
             int cellWidth = tableLayoutPanel1.ClientSize.Width / tableLayoutPanel1.ColumnCount;
             int cellHeight = tableLayoutPanel1.ClientSize.Height / tableLayoutPanel1.RowCount;
 
@@ -98,6 +114,7 @@ namespace Library_App
                 }
             }
         }
+
         private void Btn_MouseEnter(object sender, System.EventArgs e)
         {
             Button btn = sender as Button;

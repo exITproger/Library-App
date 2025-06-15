@@ -78,8 +78,9 @@ namespace Library_App
             btnStart.Click += (s, e) =>
             {
                 MapForm mapForm = new MapForm();
-
+                Hide();
                 mapForm.ShowDialog();
+                Show();
             };
 
             // Кнопка "Выход"

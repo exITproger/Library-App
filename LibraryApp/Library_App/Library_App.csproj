@@ -815,5 +815,14 @@
   <ItemGroup>
     <None Include="Resources\VolgaregionOmens.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_bashkiri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_komi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_yakuti.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
