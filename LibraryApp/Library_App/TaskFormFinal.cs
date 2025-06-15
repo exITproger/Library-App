@@ -52,7 +52,7 @@ namespace Library_App
             // Метка с инструкцией
             Label label = new Label()
             {
-                Text = "Рсположи людей разных,\n национальностей на \n соотвествующие регионы.",
+                Text = "Рсположи людей разных \n национальностей на \n соотвествующие регионы.",
                 Font = new Font("Arial", fontSize, FontStyle.Regular),
                 AutoSize = false,
                 TextAlign = ContentAlignment.MiddleCenter,

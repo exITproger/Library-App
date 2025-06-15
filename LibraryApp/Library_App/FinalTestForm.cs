@@ -31,8 +31,11 @@ namespace Library_App
         public FinalTestForm()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
 
+            this.DoubleBuffered = true;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+             ControlStyles.AllPaintingInWmPaint |
+             ControlStyles.UserPaint, true);
             this.WindowState = FormWindowState.Maximized;
             this.Text = "Карта регионов";
             this.BackColor = Color.White;
