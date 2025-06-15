@@ -14,11 +14,18 @@ namespace Library_App
         // Цвета для анимации (изменяй под себя)
         private Color normalColor = SystemColors.Control;
         private Color hoverColor = Color.LightBlue;
-
+        private PictureBox backgroundImage;
         public TestNorthwesternForm2()
         {
+            // Создаем PictureBox и задаем фоновое изображение
+            backgroundImage = new PictureBox();
+            backgroundImage.Dock = DockStyle.Fill;
+            backgroundImage.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundImage.Image = Properties.Resources.fon_komi;
+            this.Controls.Add(backgroundImage);
             InitializeComponent();
-
+            // Отправляем картинку на задний план
+            backgroundImage.SendToBack();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 

@@ -14,7 +14,7 @@ namespace Library_App
         // Цвета для анимации (изменяй под себя)
         private Color normalColor = SystemColors.Control;
         private Color hoverColor = Color.LightBlue;
-
+        private PictureBox backgroundImage;
         public TestNorthcaucasianForm2()
         {
             InitializeComponent();

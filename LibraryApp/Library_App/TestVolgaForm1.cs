@@ -12,7 +12,7 @@ namespace Library_App
         private Dictionary<Button, AnimationState> buttonStates = new Dictionary<Button, AnimationState>();
         private Color normalColor = SystemColors.Control;
         private Color hoverColor = Color.LightBlue;
-
+        private PictureBox backgroundImage;
         public TestVolgaForm1()
         {
             InitializeComponent();
