@@ -28,6 +28,8 @@ namespace Library_App
 
         private SizeF scaleFactors;
 
+        private float iconScale = 0.25f; // Базовый масштаб для ширины 2560
+        private const int BaseScreenWidth = 2560; // Базовое разрешение
         public FinalTestForm()
         {
             InitializeComponent();
@@ -89,9 +91,18 @@ namespace Library_App
             this.Resize += RegionMapForm_Resize;
 
             CalculateScaleFactor();
+            // Рассчитываем масштаб при создании формы
+            CalculateIconScale();
         }
 
-        
+        private void CalculateIconScale()
+        {
+            // Рассчитываем масштаб пропорционально базовому разрешению
+            iconScale = 0.25f * (this.ClientSize.Width / (float)BaseScreenWidth);
+
+            // Ограничиваем масштаб минимальным и максимальным значениями
+            iconScale = Math.Max(0.15f, Math.Min(0.4f, iconScale));
+        }
 
         private List<int> GetDrawOrderIndices()
         {
@@ -104,12 +115,11 @@ namespace Library_App
         private void FinalTestForm_MouseDown(object sender, MouseEventArgs e)
         {
             var drawOrder = GetDrawOrderIndices();
-            // Перебираем в обратном порядке — от верхней иконки к нижней
             for (int idx = drawOrder.Count - 1; idx >= 0; idx--)
             {
                 int i = drawOrder[idx];
-                int scaledWidth = (int)(draggableImages[i].Width * 0.25);
-                int scaledHeight = (int)(draggableImages[i].Height * 0.25);
+                int scaledWidth = (int)(draggableImages[i].Width * iconScale);
+                int scaledHeight = (int)(draggableImages[i].Height * iconScale);
                 var rect = new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight));
                 if (rect.Contains(e.Location))
                 {
@@ -141,8 +151,8 @@ namespace Library_App
         {
             if (draggingIndex != -1)
             {
-                int iconWidth = (int)(draggableImages[draggingIndex].Width * 0.25);
-                int iconHeight = (int)(draggableImages[draggingIndex].Height * 0.25);
+                int iconWidth = (int)(draggableImages[draggingIndex].Width * iconScale);
+                int iconHeight = (int)(draggableImages[draggingIndex].Height * iconScale);
                 Point iconPos = draggablePositions[draggingIndex];
 
                 int lowerPartHeight = (int)(iconHeight * 0.15);
@@ -508,23 +518,50 @@ namespace Library_App
                 Properties.Resources.siberian_w,
                 Properties.Resources.fareasten_w,
             };
+            // Определяем количество столбцов в зависимости от ширины экрана
+            int columns = this.ClientSize.Width < 1920 ? 4 : 8; // Для узких экранов - 2 ряда по 4
 
-            isDragging = new bool[draggableImages.Length];
+            // Вычисляем размер иконок с учетом ширины экрана
+            float dynamicIconScale = Math.Min(0.25f, 0.15f + (this.ClientSize.Width / 3840f));
+            iconScale = dynamicIconScale;
 
-            // Задаём минимальное расстояние между иконками
-            int minDistance = 60;
-
-            // Область для спавна (горизонтально)
-            int spawnY = this.ClientSize.Height - 300;
+            // Область для спавна - на 3/5 высоты экрана на больших, иначе 1/3
+            int spawnY;
+            if (columns == 8) spawnY = this.ClientSize.Height * 3 / 5;
+            else spawnY = this.ClientSize.Height * 1 / 3;
             int leftBound = 50;
-            int rightBound = this.ClientSize.Width - 150; // оставим запас справа
+            int rightBound = this.ClientSize.Width - 50; // Уменьшаем отступы для узких экранов
+
+            // Распределяем иконки по строкам
+            int iconsPerRow = columns;
+            int rowCount = (int)Math.Ceiling(draggableImages.Length / (float)iconsPerRow);
 
             var rand = new Random();
             draggablePositions = new Point[draggableImages.Length];
 
             for (int i = 0; i < draggableImages.Length; i++)
             {
-                int iconWidth = (int)(draggableImages[i].Width * 0.25);
+                int row = i / iconsPerRow;
+                int col = i % iconsPerRow;
+
+                int iconWidth = (int)(draggableImages[i].Width * iconScale);
+                int iconHeight = (int)(draggableImages[i].Height * iconScale);
+
+                // Равномерное распределение по ширине
+                int x = leftBound + col * (rightBound - leftBound) / iconsPerRow;
+                int y = spawnY + row * (iconHeight + 20); // 20 - отступ между строками
+
+                draggablePositions[i] = new Point(x, y);
+            }
+            isDragging = new bool[draggableImages.Length];
+            // Задаём минимальное расстояние между иконками
+            int minDistance = 60;
+            
+            draggablePositions = new Point[draggableImages.Length];
+
+            for (int i = 0; i < draggableImages.Length; i++)
+            {
+                int iconWidth = (int)(draggableImages[i].Width * iconScale);
 
                 Point pos;
                 bool intersects;
@@ -534,7 +571,6 @@ namespace Library_App
                     attempts++;
                     if (attempts > 1000)
                     {
-                        // Если не удаётся найти позицию (маленькая область), просто ставим подряд
                         pos = new Point(leftBound + i * (iconWidth + minDistance), spawnY);
                         break;
                     }
@@ -545,9 +581,9 @@ namespace Library_App
                     intersects = false;
                     for (int j = 0; j < i; j++)
                     {
-                        int otherIconWidth = (int)(draggableImages[j].Width * 0.25);
-                        var rect1 = new Rectangle(pos, new Size(iconWidth, draggableImages[i].Height / 4));
-                        var rect2 = new Rectangle(draggablePositions[j], new Size(otherIconWidth, draggableImages[j].Height / 4));
+                        int otherIconWidth = (int)(draggableImages[j].Width * iconScale);
+                        var rect1 = new Rectangle(pos, new Size(iconWidth, (int)(draggableImages[i].Height * iconScale * 0.25)));
+                        var rect2 = new Rectangle(draggablePositions[j], new Size(otherIconWidth, (int)(draggableImages[j].Height * iconScale * 0.25)));
 
                         if (rect1.IntersectsWith(rect2) || Distance(pos, draggablePositions[j]) < minDistance)
                         {
@@ -555,7 +591,6 @@ namespace Library_App
                             break;
                         }
                     }
-
                 } while (intersects);
 
                 draggablePositions[i] = pos;
@@ -583,7 +618,35 @@ namespace Library_App
         private void RegionMapForm_Resize(object sender, EventArgs e)
         {
             CalculateScaleFactor();
+            CalculateIconScale(); // Пересчитываем масштаб при изменении размера окна
+            RespawnDraggableIcons(); // Перемещаем иконки с новым масштабом
             this.Invalidate();
+        }
+        private void RespawnDraggableIcons()
+        {
+            // Аналогичная логика распределения как в LoadImages()
+            int columns = this.ClientSize.Width < 1920 ? 4 : 8;
+            int iconsPerRow = columns;
+            int rowCount = (int)Math.Ceiling(draggableImages.Length / (float)iconsPerRow);
+            int spawnY;
+            if (columns==8) spawnY = this.ClientSize.Height * 3 / 5;
+            else spawnY = this.ClientSize.Height * 1 / 3;
+            int leftBound = (int)(50 * iconScale);
+            int rightBound = this.ClientSize.Width - (int)(50 * iconScale);
+
+            for (int i = 0; i < draggableImages.Length; i++)
+            {
+                int row = i / iconsPerRow;
+                int col = i % iconsPerRow;
+
+                int iconWidth = (int)(draggableImages[i].Width * iconScale);
+                int iconHeight = (int)(draggableImages[i].Height * iconScale);
+
+                int x = leftBound + col * (rightBound - leftBound) / iconsPerRow;
+                int y = spawnY + row * (iconHeight + 20);
+
+                draggablePositions[i] = new Point(x, y);
+            }
         }
 
         private void CalculateScaleFactor()
@@ -659,7 +722,7 @@ namespace Library_App
                     {
                         textX -= 80 * scaleFactor; // увеличенный сдвиг
                     }
-                    
+                    if (this.ClientSize.Width < 1900 && text == "Северо-Западный") textX += 10 * scaleFactor;
 
                     // Контур текста через GraphicsPath
                     using (var path = new System.Drawing.Drawing2D.GraphicsPath())
@@ -670,13 +733,13 @@ namespace Library_App
                     }
                 }
                 var sortedIndices = Enumerable.Range(0, draggableImages.Length)
-                .OrderBy(i => draggablePositions[i].Y) // сначала ниже, потом выше — выше будут поверх
+                .OrderBy(i => draggablePositions[i].Y)
                 .ToList();
 
                 foreach (int i in sortedIndices)
                 {
-                    int scaledWidth = (int)(draggableImages[i].Width * 0.25);
-                    int scaledHeight = (int)(draggableImages[i].Height * 0.25);
+                    int scaledWidth = (int)(draggableImages[i].Width * iconScale);
+                    int scaledHeight = (int)(draggableImages[i].Height * iconScale);
                     g.DrawImage(draggableImages[i], new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight)));
                 }
 
