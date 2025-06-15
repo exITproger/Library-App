@@ -272,20 +272,21 @@ namespace Library_App
 
         private void CalculateScaleFactor(bool initial = false)
         {
-            scaleFactor = MapScale * Math.Min(
-                (this.ClientSize.Width - 200) / 1520f,
-                (this.ClientSize.Height - 200) / 880f
-            );
+            // Рассчитываем масштаб с учетом сохранения пропорций
+            float widthScale = (this.ClientSize.Width - 200) / (float)outlineMap.Width;
+            float heightScale = (this.ClientSize.Height - 200) / (float)outlineMap.Height;
+            scaleFactor = MapScale * Math.Min(widthScale, heightScale);
 
+            // Центрируем карту по вертикали
             baseOutlinePosition = new PointF(
                 (this.ClientSize.Width - outlineMap.Width * scaleFactor) / 2,
-                Math.Max(20, this.ClientSize.Height / 15));
+                (this.ClientSize.Height - outlineMap.Height * scaleFactor) / 2); // Центр по высоте
 
             if (initial)
             {
                 CreatePuzzlePieces();
                 ShufflePieces();
-                previousScaleFactor = scaleFactor; // Инициализируем previousScaleFactor
+                previousScaleFactor = scaleFactor;
             }
             else
             {
