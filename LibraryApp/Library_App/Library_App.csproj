@@ -824,5 +824,20 @@
   <ItemGroup>
     <None Include="Resources\fon_yakuti.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralBackground1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibiriaBackground.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,7 +23,8 @@ namespace Library_App
             backgroundImage.Image = Properties.Resources.SouthBackground;
             this.Controls.Add(backgroundImage);
             InitializeComponent();
-
+            // Отправляем картинку на задний план
+            backgroundImage.SendToBack();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 
