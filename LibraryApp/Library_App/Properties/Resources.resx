@@ -124,6 +124,9 @@
   <data name="NorthCaucasusMain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NorthCaucasusMain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="volga_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\volga_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BackButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,11 +151,11 @@
   <data name="siberian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\siberian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fon_bashkiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fon_bashkiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Подсказка" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Подсказка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="northcaucasian_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\northcaucasian_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ural_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ural_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,14 +205,14 @@
   <data name="map-full" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Scarecrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Scarecrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CentralOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CentralOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NorthCaucasusOmens" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NorthCaucasusOmens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="выход" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\выход.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Russian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,6 +222,9 @@
   </data>
   <data name="komi_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\komi_main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fon_komi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fon_komi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bashkiri_traditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bashkiri_traditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -231,6 +237,9 @@
   </data>
   <data name="southern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\southern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="volga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\volga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NorthCaucasusTraditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NorthCaucasusTraditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,8 +256,8 @@
   <data name="bashkiri_omes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bashkiri_omes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="komi_clothes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\komi_clothes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Swallow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Swallow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="map-background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-background1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,9 +298,6 @@
   <data name="central_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\central_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="northwestern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\northwestern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ural" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ural.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -316,8 +322,8 @@
   <data name="NorthCaucasusClother" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NorthCaucasusClother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="volga_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volga_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="komi_clothes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\komi_clothes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SibireanCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SibireanCharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,8 +340,8 @@
   <data name="назад" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\назад.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Swallow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Swallow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="northcaucasian_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\northcaucasian_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Начать" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Начать.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -364,6 +370,9 @@
   <data name="Yakuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yakuts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fon_yakuti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fon_yakuti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dv_omes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dv_omes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -376,11 +385,11 @@
   <data name="dv_traditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dv_traditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="volga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="northwestern_w" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\northwestern_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Scarecrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Scarecrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="выход" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\выход.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fareasten_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fareasten_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -388,13 +397,19 @@
   <data name="SibireanTraditions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SibireanTraditions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fon_bashkiri" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fon_bashkiri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CentralBackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CentralBackground1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fon_komi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fon_komi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SouthBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SouthBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fon_yakuti" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fon_yakuti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NorthCaucasusBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthCaucasusBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VolgaregionBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VolgaregionBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SibiriaBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SibiriaBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

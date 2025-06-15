@@ -16,6 +16,12 @@ namespace Library_App
         private PictureBox backgroundImage;
         public TestCentralForm1()
         {
+            // Создаем PictureBox и задаем фоновое изображение
+            backgroundImage = new PictureBox();
+            backgroundImage.Dock = DockStyle.Fill;
+            backgroundImage.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundImage.Image = Properties.Resources.CentralBackground1;
+            this.Controls.Add(backgroundImage);
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized;

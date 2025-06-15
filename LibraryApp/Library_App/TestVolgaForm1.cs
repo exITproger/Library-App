@@ -15,6 +15,12 @@ namespace Library_App
         private PictureBox backgroundImage;
         public TestVolgaForm1()
         {
+            // Создаем PictureBox и задаем фоновое изображение
+            backgroundImage = new PictureBox();
+            backgroundImage.Dock = DockStyle.Fill;
+            backgroundImage.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundImage.Image = Properties.Resources.VolgaregionBackground;
+            this.Controls.Add(backgroundImage);
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized;

@@ -17,6 +17,12 @@ namespace Library_App
         private PictureBox backgroundImage;
         public TestSouthernForm2()
         {
+            // Создаем PictureBox и задаем фоновое изображение
+            backgroundImage = new PictureBox();
+            backgroundImage.Dock = DockStyle.Fill;
+            backgroundImage.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundImage.Image = Properties.Resources.SouthBackground;
+            this.Controls.Add(backgroundImage);
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized;
