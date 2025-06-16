@@ -96,7 +96,7 @@ namespace Library_App
             regionPositions = new Point[]
             {
                 new Point(50, 0),
-                new Point(111, 377),
+                new Point(112, 377),
                 new Point(214, 449),
                 new Point(0, 544),
                 new Point(69, 668),
