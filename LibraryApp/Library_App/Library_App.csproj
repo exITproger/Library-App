@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon1.ico</ApplicationIcon>
+    <ApplicationIcon>Icon2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -392,11 +392,17 @@
     <Compile Include="VolgaTraditionsForm.Designer.cs">
       <DependentUpon>VolgaTraditionsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CentralClothesForm.resx">
+      <DependentUpon>CentralClothesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CentralMainForm.resx">
       <DependentUpon>CentralMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CentralOmensForm.resx">
       <DependentUpon>CentralOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CentralTraditionsForm.resx">
+      <DependentUpon>CentralTraditionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FareastenClotherForm.resx">
       <DependentUpon>FareastenClotherForm.cs</DependentUpon>
@@ -415,6 +421,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapForm.resx">
+      <DependentUpon>MapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapHintForm.resx">
+      <DependentUpon>MapHintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NorthcaucasianClotherForm.resx">
       <DependentUpon>NorthcaucasianClotherForm.cs</DependentUpon>
@@ -472,8 +484,20 @@
     <EmbeddedResource Include="SouthernTraditionsForm.resx">
       <DependentUpon>SouthernTraditionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskFormFinal.resx">
+      <DependentUpon>TaskFormFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskRegionMapForm.resx">
+      <DependentUpon>TaskRegionMapForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestCentralForm1.resx">
       <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCentralForm2.resx">
+      <DependentUpon>TestCentralForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestFareastenForm1.resx">
       <DependentUpon>TestFareastenForm1.cs</DependentUpon>
@@ -513,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestVolgaForm1.resx">
       <DependentUpon>TestVolgaForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestVolgaForm2.resx">
+      <DependentUpon>TestVolgaForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UralClothesForm.resx">
       <DependentUpon>UralClothesForm.cs</DependentUpon>
@@ -850,6 +877,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon1.ico" />
+    <Content Include="Icon2.ico" />
+    <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

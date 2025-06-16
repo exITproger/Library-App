@@ -30,6 +30,7 @@ namespace Library_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegionMapForm));
             this.SuspendLayout();
             // 
             // RegionMapForm
@@ -38,6 +39,7 @@ namespace Library_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegionMapForm";
             this.Text = "RegionMapForm";
             this.Load += new System.EventHandler(this.RegionMapForm_Load);

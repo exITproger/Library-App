@@ -33,6 +33,7 @@ namespace Library_App
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestNorthcaucasianForm1));
             this.lblAsk1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnVar1 = new System.Windows.Forms.Button();
@@ -148,6 +149,7 @@ namespace Library_App
             this.ClientSize = new System.Drawing.Size(1117, 691);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblAsk1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TestNorthcaucasianForm1";
             this.Text = "Вопрос";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

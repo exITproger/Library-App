@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SouthernClotherForm));
             this.SuspendLayout();
             // 
             // SouthernClotherForm
@@ -37,6 +38,7 @@
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SouthernClotherForm";
             this.Text = "SouthernClotherForm";
             this.ResumeLayout(false);

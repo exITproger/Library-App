@@ -19,6 +19,7 @@ namespace Library_App
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CentralOmensForm));
             this.SuspendLayout();
             // 
             // CentralOmensForm
@@ -28,7 +29,8 @@ namespace Library_App
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CentralOmensForm";
