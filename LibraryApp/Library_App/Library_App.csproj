@@ -878,6 +878,10 @@
   <ItemGroup>
     <Content Include="Icon1.ico" />
     <Content Include="Icon2.ico" />
+    <None Include="Resources\map-background11.png" />
+    <None Include="Resources\map-background22.png" />
+    <None Include="Resources\map-background2new.png" />
+    <None Include="Resources\map-background1new.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -483,9 +483,49 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap map_background11 {
+            get {
+                object obj = ResourceManager.GetObject("map_background11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap map_background1new {
+            get {
+                object obj = ResourceManager.GetObject("map_background1new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap map_background2 {
             get {
                 object obj = ResourceManager.GetObject("map-background2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap map_background22 {
+            get {
+                object obj = ResourceManager.GetObject("map_background22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap map_background2new {
+            get {
+                object obj = ResourceManager.GetObject("map_background2new", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
