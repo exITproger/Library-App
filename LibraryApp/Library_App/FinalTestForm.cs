@@ -15,6 +15,17 @@ namespace Library_App
         private float scaleFactor = 1.0f;
         private PointF basePosition;
         private PictureBox exitPictureBox;
+        private readonly float[][] regionMargins = new float[][]
+        {
+            new float[] {0.25f, 0.6f, 0.25f, 0.1f}, // Северо-Западный
+            new float[] {0.15f, 0.15f, 0.15f, 0.15f},  // Центральный
+            new float[] {0.15f, 0.1f, 0.15f, 0.25f}, // Поволжье
+            new float[] {0.2f, 0.1f, 0.1f, 0.8f},  // Южный
+            new float[] {0.2f, 0.5f, 0.4f, 0.15f},    // Северо-Кавказский
+            new float[] {0.1f, 0.1f, 0.3f, 0.1f},     // Уральский
+            new float[] {0.3f, 0.2f, 0.05f, 0.15f},   // Сибирский
+            new float[] {0.25f, 0.2f, 0.15f, 0.2f}    // Дальневосточный
+        };
 
         private Bitmap[] draggableImages;
         private Point[] draggablePositions;
@@ -26,7 +37,7 @@ namespace Library_App
 
         private RectangleF[] regionBounds;
         private SizeF scaleFactors;
-        private float iconScale = 0.25f;
+        private float iconScale = 0.2f;
         private const int BaseScreenWidth = 2560;
 
         // Кэш для отрисованных элементов
@@ -176,7 +187,7 @@ namespace Library_App
                 draggablePositions[i] = pos;
             }
         }
-
+        
         private void InitializeRegionBounds()
         {
             regionBounds = new RectangleF[regionImages.Length];
@@ -189,7 +200,44 @@ namespace Library_App
                     regionImages[i].Height);
             }
         }
+        /*private void InitializeRegionBounds()
+        {
+            // Массив с отступами для каждого региона: Left, Top, Right, Bottom
+            float[][] regionMargins = new float[][]
+            {
+                new float[] {0.25f, 0.4f, 0.25f, 0.1f}, // Северо-Западный
+                new float[] {0.1f, 0.15f, 0.1f, 0.05f},  // Центральный
+                new float[] {0.05f, 0.05f, 0.05f, 0.15f}, // Поволжье
+                new float[] {0.2f, 0.15f, 0.15f, 0.15f},  // Южный
+                new float[] {0.1f, 0.1f, 0.1f, 0.15f},    // Северо-Кавказский
+                new float[] {0.1f, 0.1f, 0.3f, 0.1f},     // Уральский
+                new float[] {0.3f, 0.2f, 0.05f, 0.15f},   // Сибирский
+                new float[] {0.25f, 0.2f, 0.15f, 0.2f}    // Дальневосточный
+            };
 
+            regionBounds = new RectangleF[regionImages.Length];
+            for (int i = 0; i < regionImages.Length; i++)
+            {
+                float leftMargin = regionMargins[i][0];
+                float topMargin = regionMargins[i][1];
+                float rightMargin = regionMargins[i][2];
+                float bottomMargin = regionMargins[i][3];
+
+                // Рассчитываем исходные границы без учета масштаба
+                float originalX = regionPositions[i].X + regionImages[i].Width * leftMargin;
+                float originalY = regionPositions[i].Y + regionImages[i].Height * topMargin;
+                float originalWidth = regionImages[i].Width * (1 - leftMargin - rightMargin);
+                float originalHeight = regionImages[i].Height * (1 - topMargin - bottomMargin);
+
+                // Применяем масштабирование
+                float scaledX = basePosition.X + originalX * scaleFactors.Width;
+                float scaledY = basePosition.Y + originalY * scaleFactors.Height;
+                float scaledWidth = originalWidth * scaleFactors.Width;
+                float scaledHeight = originalHeight * scaleFactors.Height;
+
+                regionBounds[i] = new RectangleF(scaledX, scaledY, scaledWidth, scaledHeight);
+            }
+        }*/
         private double Distance(Point p1, Point p2)
         {
             int dx = p1.X - p2.X;
@@ -290,6 +338,25 @@ namespace Library_App
             }
         }
 
+        private RectangleF GetMarginAdjustedRegionRect(int index)
+        {
+            var margins = regionMargins[index];
+            var pos = regionPositions[index];
+            var img = regionImages[index];
+
+            float leftMargin = img.Width * margins[0];
+            float topMargin = img.Height * margins[1];
+            float rightMargin = img.Width * margins[2];
+            float bottomMargin = img.Height * margins[3];
+
+            return new RectangleF(
+                pos.X + leftMargin,
+                pos.Y + topMargin,
+                img.Width - leftMargin - rightMargin,
+                img.Height - topMargin - bottomMargin
+            );
+        }
+
         private void FinalTestForm_MouseUp(object sender, MouseEventArgs e)
         {
             if (draggingIndex == -1) return;
@@ -299,6 +366,11 @@ namespace Library_App
             Point iconPos = draggablePositions[draggingIndex];
 
             int lowerPartHeight = (int)(iconHeight * 0.15);
+            if (draggingIndex == 3 || draggingIndex == 4) // Южный и Северо-Кавказский
+            {
+                lowerPartHeight = (int)(iconHeight * 0.45);
+            }
+
             Rectangle lowerPartRect = new Rectangle(
                 iconPos.X,
                 iconPos.Y + iconHeight - lowerPartHeight,
@@ -308,22 +380,11 @@ namespace Library_App
             int pixelsInRegion = 0;
             int totalPixels = lowerPartRect.Width * lowerPartRect.Height;
 
-            // Для Южного и Северо-Кавказского регионов увеличиваем область проверки
-            if (draggingIndex == 3 || draggingIndex == 4) // 3 - Южный, 4 - Северо-Кавказский
-            {
-                lowerPartHeight = (int)(iconHeight * 0.45); // Увеличиваем область проверки
-                lowerPartRect = new Rectangle(
-                    iconPos.X,
-                    iconPos.Y + iconHeight - lowerPartHeight,
-                    iconWidth,
-                    lowerPartHeight);
+            RectangleF marginRect = GetMarginAdjustedRegionRect(draggingIndex);
 
-                totalPixels = lowerPartRect.Width * lowerPartRect.Height;
-            }
-
-            for (int px = 0; px < lowerPartRect.Width; px += 1)
+            for (int px = 0; px < lowerPartRect.Width; px++)
             {
-                for (int py = 0; py < lowerPartRect.Height; py += 1)
+                for (int py = 0; py < lowerPartRect.Height; py++)
                 {
                     int formX = lowerPartRect.X + px;
                     int formY = lowerPartRect.Y + py;
@@ -331,25 +392,21 @@ namespace Library_App
                     float mapX = (formX - basePosition.X) / scaleFactors.Width;
                     float mapY = (formY - basePosition.Y) / scaleFactors.Height;
 
-                    for (int i = 0; i < regionImages.Length; i++)
+                    // Проверяем попадание в урезанный хитбокс нужного региона
+                    if (marginRect.Contains(mapX, mapY))
                     {
-                        var regionImg = regionImages[i];
-                        var regionPos = regionPositions[i];
-
+                        // Дополнительно можно проверить пиксельную прозрачность и цвет региона для точности
+                        var regionImg = regionImages[draggingIndex];
+                        var regionPos = regionPositions[draggingIndex];
                         int localX = (int)(mapX - regionPos.X);
                         int localY = (int)(mapY - regionPos.Y);
 
                         if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
                         {
                             Color pixelColor = regionImg.GetPixel(localX, localY);
-                            if (pixelColor.A > 128 &&
-                                !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240))
+                            if (pixelColor.A > 128 && !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240))
                             {
-                                if (i == draggingIndex)
-                                {
-                                    pixelsInRegion++;
-                                }
-                                break;
+                                pixelsInRegion++;
                             }
                         }
                     }
@@ -360,27 +417,7 @@ namespace Library_App
             float centerMapX = (iconCenter.X - basePosition.X) / scaleFactors.Width;
             float centerMapY = (iconCenter.Y - basePosition.Y) / scaleFactors.Height;
 
-            bool centerInRegion = false;
-            for (int i = 0; i < regionImages.Length; i++)
-            {
-                var regionPos = regionPositions[i];
-                var regionImg = regionImages[i];
-
-                int localX = (int)(centerMapX - regionPos.X);
-                int localY = (int)(centerMapY - regionPos.Y);
-
-                if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
-                {
-                    Color pixelColor = regionImg.GetPixel(localX, localY);
-                    if (pixelColor.A > 128 &&
-                        !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240) &&
-                        i == draggingIndex)
-                    {
-                        centerInRegion = true;
-                        break;
-                    }
-                }
-            }
+            bool centerInRegion = marginRect.Contains(centerMapX, centerMapY);
 
             float threshold = 0.15f;
             if (draggingIndex == 3 || draggingIndex == 4)
