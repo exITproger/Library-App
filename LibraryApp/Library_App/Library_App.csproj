@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{891EDD0B-4EE0-43BF-93B8-3BA11BF016A8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Library_App</RootNamespace>
+    <AssemblyName>Library_App</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CentralClothesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralClothesForm.Designer.cs">
+      <DependentUpon>CentralClothesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralMainForm.Designer.cs">
+      <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralOmensForm.Designer.cs">
+      <DependentUpon>CentralOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CentralTraditionsForm.Designer.cs">
+      <DependentUpon>CentralTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FareastenClotherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FareastenClotherForm.Designer.cs">
+      <DependentUpon>FareastenClotherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FareastenMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FareastenMainForm.Designer.cs">
+      <DependentUpon>FareastenMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FareastenOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FareastenOmensForm.Designer.cs">
+      <DependentUpon>FareastenOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FareastenTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FareastenTraditionsForm.Designer.cs">
+      <DependentUpon>FareastenTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalTestForm.Designer.cs">
+      <DependentUpon>FinalTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapForm.Designer.cs">
+      <DependentUpon>MapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapHintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapHintForm.Designer.cs">
+      <DependentUpon>MapHintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthcaucasianClotherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthcaucasianClotherForm.Designer.cs">
+      <DependentUpon>NorthcaucasianClotherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthcaucasianMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthcaucasianMainForm.Designer.cs">
+      <DependentUpon>NorthcaucasianMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthcaucasianOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthcaucasianOmensForm.Designer.cs">
+      <DependentUpon>NorthcaucasianOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthcaucasianTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthcaucasianTraditionsForm.Designer.cs">
+      <DependentUpon>NorthcaucasianTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwesternClothesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthwesternClothesForm.Designer.cs">
+      <DependentUpon>NorthwesternClothesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwesternMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthwesternMainForm.Designer.cs">
+      <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwesternOmesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthwesternOmesForm.Designer.cs">
+      <DependentUpon>NorthwesternOmesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwesternTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthwesternTraditionsForm.Designer.cs">
+      <DependentUpon>NorthwesternTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RegionMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegionMapForm.Designer.cs">
+      <DependentUpon>RegionMapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiberianClotherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiberianClotherForm.Designer.cs">
+      <DependentUpon>SiberianClotherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiberianMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiberianMainForm.Designer.cs">
+      <DependentUpon>SiberianMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiberianOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiberianOmensForm.Designer.cs">
+      <DependentUpon>SiberianOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiberianTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiberianTraditionsForm.Designer.cs">
+      <DependentUpon>SiberianTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SouthernClotherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SouthernClotherForm.Designer.cs">
+      <DependentUpon>SouthernClotherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SouthernMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SouthernMainForm.Designer.cs">
+      <DependentUpon>SouthernMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SouthernOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SouthernOmensForm.Designer.cs">
+      <DependentUpon>SouthernOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SouthernTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SouthernTraditionsForm.Designer.cs">
+      <DependentUpon>SouthernTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskFormFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskFormFinal.Designer.cs">
+      <DependentUpon>TaskFormFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskRegionMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskRegionMapForm.Designer.cs">
+      <DependentUpon>TaskRegionMapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCentralForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm1.Designer.cs">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCentralForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCentralForm2.Designer.cs">
+      <DependentUpon>TestCentralForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestFareastenForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestFareastenForm1.Designer.cs">
+      <DependentUpon>TestFareastenForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestFareastenForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestFareastenForm2.Designer.cs">
+      <DependentUpon>TestFareastenForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm1.Designer.cs">
+      <DependentUpon>TestNorthcaucasianForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthcaucasianForm2.Designer.cs">
+      <DependentUpon>TestNorthcaucasianForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthwesternForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthwesternForm1.Designer.cs">
+      <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestNorthwesternForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNorthwesternForm2.Designer.cs">
+      <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSiberianForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSiberianForm1.Designer.cs">
+      <DependentUpon>TestSiberianForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSiberianForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSiberianForm2.Designer.cs">
+      <DependentUpon>TestSiberianForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSouthernForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSouthernForm1.Designer.cs">
+      <DependentUpon>TestSouthernForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestSouthernForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestSouthernForm2.Designer.cs">
+      <DependentUpon>TestSouthernForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestUralForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestUralForm1.Designer.cs">
+      <DependentUpon>TestUralForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestUralForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestUralForm2.Designer.cs">
+      <DependentUpon>TestUralForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestVolgaForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestVolgaForm1.Designer.cs">
+      <DependentUpon>TestVolgaForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestVolgaForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestVolgaForm2.Designer.cs">
+      <DependentUpon>TestVolgaForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralClothesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralClothesForm.Designer.cs">
+      <DependentUpon>UralClothesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralMainForm.Designer.cs">
+      <DependentUpon>UralMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralOmesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralOmesForm.Designer.cs">
+      <DependentUpon>UralOmesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UralTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UralTraditionsForm.Designer.cs">
+      <DependentUpon>UralTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolgaClotherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolgaClotherForm.Designer.cs">
+      <DependentUpon>VolgaClotherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolgaMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolgaMainForm.Designer.cs">
+      <DependentUpon>VolgaMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolgaOmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolgaOmensForm.Designer.cs">
+      <DependentUpon>VolgaOmensForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolgaTraditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolgaTraditionsForm.Designer.cs">
+      <DependentUpon>VolgaTraditionsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CentralMainForm.resx">
+      <DependentUpon>CentralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CentralOmensForm.resx">
+      <DependentUpon>CentralOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FareastenClotherForm.resx">
+      <DependentUpon>FareastenClotherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FareastenMainForm.resx">
+      <DependentUpon>FareastenMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FareastenOmensForm.resx">
+      <DependentUpon>FareastenOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FareastenTraditionsForm.resx">
+      <DependentUpon>FareastenTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalTestForm.resx">
+      <DependentUpon>FinalTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianClotherForm.resx">
+      <DependentUpon>NorthcaucasianClotherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianMainForm.resx">
+      <DependentUpon>NorthcaucasianMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianOmensForm.resx">
+      <DependentUpon>NorthcaucasianOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthcaucasianTraditionsForm.resx">
+      <DependentUpon>NorthcaucasianTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternClothesForm.resx">
+      <DependentUpon>NorthwesternClothesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternMainForm.resx">
+      <DependentUpon>NorthwesternMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternOmesForm.resx">
+      <DependentUpon>NorthwesternOmesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwesternTraditionsForm.resx">
+      <DependentUpon>NorthwesternTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegionMapForm.resx">
+      <DependentUpon>RegionMapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiberianClotherForm.resx">
+      <DependentUpon>SiberianClotherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiberianMainForm.resx">
+      <DependentUpon>SiberianMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiberianOmensForm.resx">
+      <DependentUpon>SiberianOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiberianTraditionsForm.resx">
+      <DependentUpon>SiberianTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SouthernClotherForm.resx">
+      <DependentUpon>SouthernClotherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SouthernMainForm.resx">
+      <DependentUpon>SouthernMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SouthernOmensForm.resx">
+      <DependentUpon>SouthernOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SouthernTraditionsForm.resx">
+      <DependentUpon>SouthernTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCentralForm1.resx">
+      <DependentUpon>TestCentralForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestFareastenForm1.resx">
+      <DependentUpon>TestFareastenForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestFareastenForm2.resx">
+      <DependentUpon>TestFareastenForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthcaucasianForm1.resx">
+      <DependentUpon>TestNorthcaucasianForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthcaucasianForm2.resx">
+      <DependentUpon>TestNorthcaucasianForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthwesternForm1.resx">
+      <DependentUpon>TestNorthwesternForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNorthwesternForm2.resx">
+      <DependentUpon>TestNorthwesternForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSiberianForm1.resx">
+      <DependentUpon>TestSiberianForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSiberianForm2.resx">
+      <DependentUpon>TestSiberianForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSouthernForm1.resx">
+      <DependentUpon>TestSouthernForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSouthernForm2.resx">
+      <DependentUpon>TestSouthernForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUralForm1.resx">
+      <DependentUpon>TestUralForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUralForm2.resx">
+      <DependentUpon>TestUralForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestVolgaForm1.resx">
+      <DependentUpon>TestVolgaForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralClothesForm.resx">
+      <DependentUpon>UralClothesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralMainForm.resx">
+      <DependentUpon>UralMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralOmesForm.resx">
+      <DependentUpon>UralOmesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UralTraditionsForm.resx">
+      <DependentUpon>UralTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolgaClotherForm.resx">
+      <DependentUpon>VolgaClotherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolgaMainForm.resx">
+      <DependentUpon>VolgaMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolgaOmensForm.resx">
+      <DependentUpon>VolgaOmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolgaTraditionsForm.resx">
+      <DependentUpon>VolgaTraditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armenians.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baranki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barrel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bashkirs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bereza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buryats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralMapForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chechens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EasterBasket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\House.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Komi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Matryoshka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mirror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Russian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samovar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scarecrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tatars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yakuts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fareasten_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siberian_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ural_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volga_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northcaucasian_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southern_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\northwestern_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\central_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\вперёд.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\выход.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\назад.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Начать.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Подсказка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пройти_тест.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пропустить.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\komi_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bashkiri_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralClother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthClother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusClother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanTraditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibireanCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_omes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv_traditions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionOmens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_bashkiri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_komi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon_yakuti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentralBackground1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SouthBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NorthCaucasusBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VolgaregionBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SibiriaBackground.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
