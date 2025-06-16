@@ -54,6 +54,7 @@ namespace Library_App
             animationTimer.Interval = 15; // 15 мс для плавности
             animationTimer.Tick += AnimationTimer_Tick;
             animationTimer.Start();
+            this.Shown += (s, e) => this.ActiveControl = null;
         }
 
         private void TestCentralForm1_Resize(object sender, EventArgs e)
