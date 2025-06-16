@@ -25,460 +25,57 @@ namespace Library_App
         private bool[] isCorrectlyPlaced;
 
         private RectangleF[] regionBounds;
-
         private SizeF scaleFactors;
+        private float iconScale = 0.25f;
+        private const int BaseScreenWidth = 2560;
 
-        private float iconScale = 0.25f; // Базовый масштаб для ширины 2560
-        private const int BaseScreenWidth = 2560; // Базовое разрешение
+        // Кэш для отрисованных элементов
+        private Bitmap cachedBackground;
+        private bool needRedrawBackground = true;
+
         public FinalTestForm()
         {
             InitializeComponent();
+            InitializeFormSettings();
+            LoadImages();
+            InitializeExitButton();
+            InitializeEventHandlers();
+        }
 
+        private void InitializeFormSettings()
+        {
             this.DoubleBuffered = true;
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
-             ControlStyles.AllPaintingInWmPaint |
-             ControlStyles.UserPaint, true);
+                     ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint, true);
             this.WindowState = FormWindowState.Maximized;
             this.Text = "Карта регионов";
             this.BackColor = Color.White;
-            LoadImages();
+        }
 
-            // Создаём кнопку выхода
-            // Создаём PictureBox для выхода вместо кнопки
-            exitPictureBox = new PictureBox();
-            exitPictureBox.Image = Properties.Resources.назад; // Предполагается, что у вас есть ресурс с иконкой
-            exitPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            exitPictureBox.Size = new Size(200, 100); // Размер иконки
-            exitPictureBox.BackColor = Color.Transparent; // Прозрачный фон
-            exitPictureBox.Location = new Point(20, 20);
-            exitPictureBox.Cursor = Cursors.Hand; // Курсор-рука при наведении
-            exitPictureBox.Click += (s, e) =>
+        private void InitializeExitButton()
+        {
+            exitPictureBox = new PictureBox
             {
-                Close();
-                /*
-                // Закрыть все формы кроме главной, если она у вас есть в списке открытых
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (!(form is MainMenuForm))
-                        form.Close();
-                }
-
-                // Проверим, открыто ли главное меню
-                var mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
-                if (mainMenu == null)
-                {
-                    mainMenu = new MainMenuForm();
-                    mainMenu.Show();
-                }
-                else
-                {
-                    mainMenu.BringToFront();
-                }
-
-                this.Close();
-                */
+                Image = Properties.Resources.назад,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(200, 100),
+                BackColor = Color.Transparent,
+                Location = new Point(20, 20),
+                Cursor = Cursors.Hand
             };
-
-            isCorrectlyPlaced = new bool[draggableImages.Length];
-            for (int i = 0; i < isCorrectlyPlaced.Length; i++)
-                isCorrectlyPlaced[i] = false;
-
+            exitPictureBox.Click += (s, e) => Close();
             this.Controls.Add(exitPictureBox);
+        }
+
+        private void InitializeEventHandlers()
+        {
             this.MouseDown += FinalTestForm_MouseDown;
             this.MouseMove += FinalTestForm_MouseMove;
             this.MouseUp += FinalTestForm_MouseUp;
-
             this.Resize += RegionMapForm_Resize;
-
-            CalculateScaleFactor();
-            // Рассчитываем масштаб при создании формы
-            CalculateIconScale();
+            this.Paint += FinalTestForm_Paint;
         }
-
-        private void CalculateIconScale()
-        {
-            // Рассчитываем масштаб пропорционально базовому разрешению
-            iconScale = 0.25f * (this.ClientSize.Width / (float)BaseScreenWidth);
-
-            // Ограничиваем масштаб минимальным и максимальным значениями
-            iconScale = Math.Max(0.15f, Math.Min(0.4f, iconScale));
-        }
-
-        private List<int> GetDrawOrderIndices()
-        {
-            return Enumerable.Range(0, draggableImages.Length)
-                .OrderBy(i => draggablePositions[i].Y + draggableImages[i].Height * 0.25f) // по нижней границе иконки
-                .ToList();
-        }
-
-
-        private void FinalTestForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            var drawOrder = GetDrawOrderIndices();
-            for (int idx = drawOrder.Count - 1; idx >= 0; idx--)
-            {
-                int i = drawOrder[idx];
-                int scaledWidth = (int)(draggableImages[i].Width * iconScale);
-                int scaledHeight = (int)(draggableImages[i].Height * iconScale);
-                var rect = new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight));
-                if (rect.Contains(e.Location))
-                {
-                    isDragging[i] = true;
-                    dragOffset = new Point(e.X - draggablePositions[i].X, e.Y - draggablePositions[i].Y);
-                    draggingIndex = i;
-                    break;
-                }
-            }
-        }
-
-
-        private void FinalTestForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (draggingIndex != -1 && isDragging[draggingIndex])
-            {
-                draggablePositions[draggingIndex] = new Point(e.X - dragOffset.X, e.Y - dragOffset.Y);
-                Cursor = Cursors.Hand;
-                this.Invalidate(); // Перерисовать
-            }
-            else
-            {
-                Cursor = Cursors.Default;
-            }
-        }
-
-
-        private void FinalTestForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (draggingIndex != -1)
-            {
-                int iconWidth = (int)(draggableImages[draggingIndex].Width * iconScale);
-                int iconHeight = (int)(draggableImages[draggingIndex].Height * iconScale);
-                Point iconPos = draggablePositions[draggingIndex];
-
-                int lowerPartHeight = (int)(iconHeight * 0.15);
-                Rectangle lowerPartRect = new Rectangle(
-                    iconPos.X,
-                    iconPos.Y + iconHeight - lowerPartHeight,
-                    iconWidth,
-                    lowerPartHeight);
-
-                int pixelsInRegion = 0;
-                int totalPixels = lowerPartRect.Width * lowerPartRect.Height;
-
-                for (int px = 0; px < lowerPartRect.Width; px++)
-                {
-                    for (int py = 0; py < lowerPartRect.Height; py++)
-                    {
-                        int formX = lowerPartRect.X + px;
-                        int formY = lowerPartRect.Y + py;
-
-                        float mapX = (formX - basePosition.X) / scaleFactors.Width;
-                        float mapY = (formY - basePosition.Y) / scaleFactors.Height;
-
-                        for (int i = 0; i < regionImages.Length; i++)
-                        {
-                            var regionImg = regionImages[i];
-                            var regionPos = regionPositions[i];
-
-                            int localX = (int)(mapX - regionPos.X);
-                            int localY = (int)(mapY - regionPos.Y);
-
-                            if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
-                            {
-                                Color pixelColor = regionImg.GetPixel(localX, localY);
-                                if (pixelColor.A > 128 &&
-                                    !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240))
-                                {
-                                    if (i == draggingIndex)
-                                    {
-                                        pixelsInRegion++;
-                                    }
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                PointF iconCenter = new PointF(iconPos.X + iconWidth / 2f, iconPos.Y + iconHeight / 2f);
-                float centerMapX = (iconCenter.X - basePosition.X) / scaleFactors.Width;
-                float centerMapY = (iconCenter.Y - basePosition.Y) / scaleFactors.Height;
-
-                bool centerInRegion = false;
-                for (int i = 0; i < regionImages.Length; i++)
-                {
-                    var regionPos = regionPositions[i];
-                    var regionImg = regionImages[i];
-
-                    int localX = (int)(centerMapX - regionPos.X);
-                    int localY = (int)(centerMapY - regionPos.Y);
-
-                    if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
-                    {
-                        Color pixelColor = regionImg.GetPixel(localX, localY);
-                        if (pixelColor.A > 128 &&
-                            !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240) &&
-                            i == draggingIndex)
-                        {
-                            centerInRegion = true;
-                            break;
-                        }
-                    }
-                }
-
-                bool currentlyCorrect = ((float)pixelsInRegion / totalPixels) >= 0.15f || centerInRegion;
-
-                // Проверяем текущее и предыдущее состояние
-                if (currentlyCorrect && !isCorrectlyPlaced[draggingIndex])
-                {
-                    correctPlacementsCount++;
-                    isCorrectlyPlaced[draggingIndex] = true;
-                    isDragging[draggingIndex] = false; // фиксируем, нельзя двигать дальше
-                }
-                else if (!currentlyCorrect && isCorrectlyPlaced[draggingIndex])
-                {
-                    correctPlacementsCount--;
-                    isCorrectlyPlaced[draggingIndex] = false;
-                    // Разрешаем снова перетаскивать
-                    isDragging[draggingIndex] = false;
-                }
-                else
-                {
-                    // Просто снимаем флаг перетаскивания, если ничего не изменилось
-                    isDragging[draggingIndex] = false;
-                }
-
-                draggingIndex = -1;
-
-                this.Invalidate(); // Обновить форму для отрисовки счётчика
-
-                // Проверяем, все ли регионы размещены правильно
-                if (correctPlacementsCount == 8)
-                {
-                    // Запускаем таймер, который откроет форму поздравления через секунду
-                    Timer timer = new Timer();
-                    timer.Interval = 1000; // 1 секунда
-                    timer.Tick += (s, args) =>
-                    {
-                        timer.Stop();
-                        ShowCongratulationsForm();
-                    };
-                    timer.Start();
-                }
-            }
-        }
-
-        private void ShowCongratulationsForm()
-        {
-            // Определяем размеры формы в зависимости от разрешения экрана
-            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
-            int formWidth, formHeight;
-
-            if (screenWidth > 3500)
-            {
-                formWidth = 2000;
-                formHeight = 1500;
-            }
-            else if (screenWidth > 2500)
-            {
-                formWidth = 1200;
-                formHeight = 900;
-            }
-            else if (screenWidth > 1900)
-            {
-                formWidth = 800;
-                formHeight = 600;
-            }
-            else
-            {
-                formWidth = 600;
-                formHeight = 400;
-            }
-
-            // Создаем форму
-            Form congratsForm = new Form()
-            {
-                Text = "Поздравляем!",
-                StartPosition = FormStartPosition.CenterScreen,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                MaximizeBox = false,
-                MinimizeBox = false,
-                ClientSize = new Size(formWidth, formHeight),
-                BackColor = Color.LightSkyBlue,
-                Padding = new Padding(20)
-            };
-
-            // Определяем размер шрифта
-            int fontSize;
-            if (formWidth > 3500)
-                fontSize = 32;
-            else if (formWidth > 2500)
-                fontSize = 28;
-            else if (formWidth > 1900)
-                fontSize = 24;
-            else if (formWidth > 1200)
-                fontSize = 20;
-            else if (formWidth > 800)
-                fontSize = 18;
-            else
-                fontSize = 14;
-
-            // Текст поздравления
-            Label label = new Label()
-            {
-                Text = "Вы успешно разместили все регионы России!",
-                Font = new Font("Arial", fontSize, FontStyle.Bold),
-                ForeColor = Color.DarkBlue,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            // Размер кнопок
-            Size buttonSize = new Size((int)(formWidth * 0.3), (int)(formHeight * 0.1));
-
-            // Кнопка "На карту регионов"
-            Button btnReturn = new Button()
-            {
-                Text = "На карту регионов",
-                DialogResult = DialogResult.Retry,
-                Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
-                BackColor = Color.LightGreen,
-                FlatStyle = FlatStyle.Flat
-            };
-
-            // Кнопка "Выйти"
-            Button btnExit = new Button()
-            {
-                Text = "Выйти",
-                DialogResult = DialogResult.Cancel,
-                Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
-                BackColor = Color.LightCoral,
-                FlatStyle = FlatStyle.Flat
-            };
-
-            // Основной контейнер
-            TableLayoutPanel mainPanel = new TableLayoutPanel()
-            {
-                Dock = DockStyle.Fill,
-                ColumnCount = 1,
-                RowCount = 3
-            };
-
-            // Настройка строк
-            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 60));
-            mainPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30));
-
-            // Контейнер для кнопок (используем Panel вместо FlowLayoutPanel для лучшей совместимости)
-            Panel buttonContainer = new Panel()
-            {
-                Dock = DockStyle.Fill
-            };
-
-            // Позиционируем кнопки вручную
-            btnReturn.Location = new Point(
-                (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
-                (buttonContainer.Height - btnReturn.Height) / 2);
-
-            btnExit.Location = new Point(
-                btnReturn.Right + formWidth / 20,
-                btnReturn.Top);
-
-            // Обработчик изменения размера для правильного позиционирования кнопок
-            buttonContainer.Resize += (sender, e) =>
-            {
-                btnReturn.Location = new Point(
-                    (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
-                    (buttonContainer.Height - btnReturn.Height) / 2);
-
-                btnExit.Location = new Point(
-                    btnReturn.Right + formWidth / 20,
-                    btnReturn.Top);
-            };
-
-            // Добавляем кнопки в контейнер
-            buttonContainer.Controls.Add(btnReturn);
-            buttonContainer.Controls.Add(btnExit);
-
-            // Добавляем элементы в основной контейнер
-            mainPanel.Controls.Add(label, 0, 0);
-            mainPanel.Controls.Add(new Panel(), 0, 1); // Разделитель
-            mainPanel.Controls.Add(buttonContainer, 0, 2);
-
-            // Добавляем основной контейнер на форму
-            congratsForm.Controls.Add(mainPanel);
-
-            // Обработка результатов
-            DialogResult result = congratsForm.ShowDialog(this);
-
-            if (result == DialogResult.Retry)
-            {
-                ReturnToRussiaMap();
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                // Закрыть все формы кроме главной (совместимый способ)
-                Form[] openForms = Application.OpenForms.Cast<Form>().ToArray();
-                foreach (Form form in openForms)
-                {
-                    if (form.GetType() != typeof(MainMenuForm))
-                        form.Close();
-                }
-
-                // Находим главное меню
-                MainMenuForm mainMenu = null;
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form is MainMenuForm)
-                    {
-                        mainMenu = (MainMenuForm)form;
-                        break;
-                    }
-                }
-
-                if (mainMenu == null)
-                {
-                    mainMenu = new MainMenuForm();
-                    mainMenu.Show();
-                }
-                else
-                {
-                    mainMenu.BringToFront();
-                }
-
-                this.Close();
-            }
-        }
-
-        private void ReturnToRussiaMap()
-        {
-            // Закрыть все формы кроме главной, если она у вас есть в списке открытых
-            foreach (Form form in Application.OpenForms)
-            {
-                if (!(form is RegionMapForm || form is MainMenuForm || form is MapForm))
-                    form.Close();
-            }
-
-            // Проверим, открыто ли главное меню
-            var open = Application.OpenForms.OfType<RegionMapForm>().FirstOrDefault();
-            if (open == null)
-            {
-                open = new RegionMapForm();
-                open.Show();
-            }
-            else
-            {
-                open.BringToFront();
-            }
-
-            this.Close();
-        }
-
-
-
 
         private void LoadImages()
         {
@@ -507,6 +104,7 @@ namespace Library_App
                 new Point(596, 79),
                 new Point(968, 110),
             };
+
             draggableImages = new Bitmap[]
             {
                 Properties.Resources.northwestern_w,
@@ -518,54 +116,36 @@ namespace Library_App
                 Properties.Resources.siberian_w,
                 Properties.Resources.fareasten_w,
             };
-            // Определяем количество столбцов в зависимости от ширины экрана
-            int columns = this.ClientSize.Width < 1920 ? 4 : 8; // Для узких экранов - 2 ряда по 4
 
-            // Вычисляем размер иконок с учетом ширины экрана
+            InitializeDraggableItems();
+            InitializeRegionBounds();
+            CalculateScaleFactor();
+            CalculateIconScale();
+        }
+
+        private void InitializeDraggableItems()
+        {
+            int columns = this.ClientSize.Width < 1920 ? 4 : 8;
             float dynamicIconScale = Math.Min(0.25f, 0.15f + (this.ClientSize.Width / 3840f));
             iconScale = dynamicIconScale;
 
-            // Область для спавна - на 3/5 высоты экрана на больших, иначе 1/3
-            int spawnY;
-            if (columns == 8) spawnY = this.ClientSize.Height * 3 / 5;
-            else spawnY = this.ClientSize.Height * 1 / 3;
+            int spawnY = columns == 8 ? this.ClientSize.Height * 3 / 5 : this.ClientSize.Height * 1 / 3;
             int leftBound = 50;
-            int rightBound = this.ClientSize.Width - 50; // Уменьшаем отступы для узких экранов
-
-            // Распределяем иконки по строкам
-            int iconsPerRow = columns;
-            int rowCount = (int)Math.Ceiling(draggableImages.Length / (float)iconsPerRow);
+            int rightBound = this.ClientSize.Width - 50;
 
             var rand = new Random();
             draggablePositions = new Point[draggableImages.Length];
-
-            for (int i = 0; i < draggableImages.Length; i++)
-            {
-                int row = i / iconsPerRow;
-                int col = i % iconsPerRow;
-
-                int iconWidth = (int)(draggableImages[i].Width * iconScale);
-                int iconHeight = (int)(draggableImages[i].Height * iconScale);
-
-                // Равномерное распределение по ширине
-                int x = leftBound + col * (rightBound - leftBound) / iconsPerRow;
-                int y = spawnY + row * (iconHeight + 20); // 20 - отступ между строками
-
-                draggablePositions[i] = new Point(x, y);
-            }
             isDragging = new bool[draggableImages.Length];
-            // Задаём минимальное расстояние между иконками
-            int minDistance = 60;
-            
-            draggablePositions = new Point[draggableImages.Length];
+            isCorrectlyPlaced = new bool[draggableImages.Length];
 
+            int minDistance = 60;
             for (int i = 0; i < draggableImages.Length; i++)
             {
                 int iconWidth = (int)(draggableImages[i].Width * iconScale);
-
                 Point pos;
                 bool intersects;
                 int attempts = 0;
+
                 do
                 {
                     attempts++;
@@ -595,42 +175,42 @@ namespace Library_App
 
                 draggablePositions[i] = pos;
             }
+        }
 
+        private void InitializeRegionBounds()
+        {
             regionBounds = new RectangleF[regionImages.Length];
-
             for (int i = 0; i < regionImages.Length; i++)
             {
-                float x = regionPositions[i].X;
-                float y = regionPositions[i].Y;
-                float w = regionImages[i].Width;
-                float h = regionImages[i].Height;
-
-                regionBounds[i] = new RectangleF(x, y, w, h); // в оригинальных координатах
+                regionBounds[i] = new RectangleF(
+                    regionPositions[i].X,
+                    regionPositions[i].Y,
+                    regionImages[i].Width,
+                    regionImages[i].Height);
             }
-
         }
+
         private double Distance(Point p1, Point p2)
         {
             int dx = p1.X - p2.X;
             int dy = p1.Y - p2.Y;
             return Math.Sqrt(dx * dx + dy * dy);
         }
+
         private void RegionMapForm_Resize(object sender, EventArgs e)
         {
             CalculateScaleFactor();
-            CalculateIconScale(); // Пересчитываем масштаб при изменении размера окна
-            RespawnDraggableIcons(); // Перемещаем иконки с новым масштабом
+            CalculateIconScale();
+            RespawnDraggableIcons();
+            needRedrawBackground = true;
             this.Invalidate();
         }
+
         private void RespawnDraggableIcons()
         {
-            // Аналогичная логика распределения как в LoadImages()
             int columns = this.ClientSize.Width < 1920 ? 4 : 8;
             int iconsPerRow = columns;
-            int rowCount = (int)Math.Ceiling(draggableImages.Length / (float)iconsPerRow);
-            int spawnY;
-            if (columns==8) spawnY = this.ClientSize.Height * 3 / 5;
-            else spawnY = this.ClientSize.Height * 1 / 3;
+            int spawnY = columns == 8 ? this.ClientSize.Height * 3 / 5 : this.ClientSize.Height * 1 / 3;
             int leftBound = (int)(50 * iconScale);
             int rightBound = this.ClientSize.Width - (int)(50 * iconScale);
 
@@ -645,14 +225,16 @@ namespace Library_App
                 int x = leftBound + col * (rightBound - leftBound) / iconsPerRow;
                 int y = spawnY + row * (iconHeight + 20);
 
-                draggablePositions[i] = new Point(x, y);
+                if (!isCorrectlyPlaced[i])
+                {
+                    draggablePositions[i] = new Point(x, y);
+                }
             }
         }
 
         private void CalculateScaleFactor()
         {
             float widthScale = this.ClientSize.Width / (float)backgroundMap.Width;
-
             scaleFactors = new SizeF(widthScale, widthScale);
 
             float scaledHeight = backgroundMap.Height * scaleFactors.Height;
@@ -661,25 +243,213 @@ namespace Library_App
             basePosition = new PointF(0, offsetY);
         }
 
-
-
-        protected override void OnPaint(PaintEventArgs e)
+        private void CalculateIconScale()
         {
-            base.OnPaint(e);
-            var g = e.Graphics;
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            iconScale = 0.25f * (this.ClientSize.Width / (float)BaseScreenWidth);
+            iconScale = Math.Max(0.15f, Math.Min(0.4f, iconScale));
+        }
 
-            // Рисуем фон — растягиваем по ширине и высоте без сохранения пропорций
+        private List<int> GetDrawOrderIndices()
+        {
+            return Enumerable.Range(0, draggableImages.Length)
+                .OrderBy(i => draggablePositions[i].Y + draggableImages[i].Height * 0.25f)
+                .ToList();
+        }
+
+        private void FinalTestForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+
+            var drawOrder = GetDrawOrderIndices();
+            for (int idx = drawOrder.Count - 1; idx >= 0; idx--)
+            {
+                int i = drawOrder[idx];
+                if (isCorrectlyPlaced[i]) continue;
+
+                int scaledWidth = (int)(draggableImages[i].Width * iconScale);
+                int scaledHeight = (int)(draggableImages[i].Height * iconScale);
+                var rect = new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight));
+
+                if (rect.Contains(e.Location))
+                {
+                    isDragging[i] = true;
+                    dragOffset = new Point(e.X - draggablePositions[i].X, e.Y - draggablePositions[i].Y);
+                    draggingIndex = i;
+                    this.Invalidate();
+                    break;
+                }
+            }
+        }
+
+        private void FinalTestForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (draggingIndex != -1 && isDragging[draggingIndex])
+            {
+                draggablePositions[draggingIndex] = new Point(e.X - dragOffset.X, e.Y - dragOffset.Y);
+                this.Invalidate();
+            }
+        }
+
+        private void FinalTestForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (draggingIndex == -1) return;
+
+            int iconWidth = (int)(draggableImages[draggingIndex].Width * iconScale);
+            int iconHeight = (int)(draggableImages[draggingIndex].Height * iconScale);
+            Point iconPos = draggablePositions[draggingIndex];
+
+            int lowerPartHeight = (int)(iconHeight * 0.15);
+            Rectangle lowerPartRect = new Rectangle(
+                iconPos.X,
+                iconPos.Y + iconHeight - lowerPartHeight,
+                iconWidth,
+                lowerPartHeight);
+
+            int pixelsInRegion = 0;
+            int totalPixels = lowerPartRect.Width * lowerPartRect.Height;
+
+            // Для Южного и Северо-Кавказского регионов увеличиваем область проверки
+            if (draggingIndex == 3 || draggingIndex == 4) // 3 - Южный, 4 - Северо-Кавказский
+            {
+                lowerPartHeight = (int)(iconHeight * 0.45); // Увеличиваем область проверки
+                lowerPartRect = new Rectangle(
+                    iconPos.X,
+                    iconPos.Y + iconHeight - lowerPartHeight,
+                    iconWidth,
+                    lowerPartHeight);
+
+                totalPixels = lowerPartRect.Width * lowerPartRect.Height;
+            }
+
+            for (int px = 0; px < lowerPartRect.Width; px += 1)
+            {
+                for (int py = 0; py < lowerPartRect.Height; py += 1)
+                {
+                    int formX = lowerPartRect.X + px;
+                    int formY = lowerPartRect.Y + py;
+
+                    float mapX = (formX - basePosition.X) / scaleFactors.Width;
+                    float mapY = (formY - basePosition.Y) / scaleFactors.Height;
+
+                    for (int i = 0; i < regionImages.Length; i++)
+                    {
+                        var regionImg = regionImages[i];
+                        var regionPos = regionPositions[i];
+
+                        int localX = (int)(mapX - regionPos.X);
+                        int localY = (int)(mapY - regionPos.Y);
+
+                        if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
+                        {
+                            Color pixelColor = regionImg.GetPixel(localX, localY);
+                            if (pixelColor.A > 128 &&
+                                !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240))
+                            {
+                                if (i == draggingIndex)
+                                {
+                                    pixelsInRegion++;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            PointF iconCenter = new PointF(iconPos.X + iconWidth / 2f, iconPos.Y + iconHeight / 2f);
+            float centerMapX = (iconCenter.X - basePosition.X) / scaleFactors.Width;
+            float centerMapY = (iconCenter.Y - basePosition.Y) / scaleFactors.Height;
+
+            bool centerInRegion = false;
+            for (int i = 0; i < regionImages.Length; i++)
+            {
+                var regionPos = regionPositions[i];
+                var regionImg = regionImages[i];
+
+                int localX = (int)(centerMapX - regionPos.X);
+                int localY = (int)(centerMapY - regionPos.Y);
+
+                if (localX >= 0 && localY >= 0 && localX < regionImg.Width && localY < regionImg.Height)
+                {
+                    Color pixelColor = regionImg.GetPixel(localX, localY);
+                    if (pixelColor.A > 128 &&
+                        !(pixelColor.R > 240 && pixelColor.G > 240 && pixelColor.B > 240) &&
+                        i == draggingIndex)
+                    {
+                        centerInRegion = true;
+                        break;
+                    }
+                }
+            }
+
+            float threshold = 0.15f;
+            if (draggingIndex == 3 || draggingIndex == 4)
+            {
+                threshold = 0.01f;
+            }
+
+            bool currentlyCorrect = ((float)pixelsInRegion / totalPixels) >= threshold || centerInRegion;
+
+            if (currentlyCorrect && !isCorrectlyPlaced[draggingIndex])
+            {
+                correctPlacementsCount++;
+                isCorrectlyPlaced[draggingIndex] = true;
+            }
+            else if (!currentlyCorrect && isCorrectlyPlaced[draggingIndex])
+            {
+                correctPlacementsCount--;
+                isCorrectlyPlaced[draggingIndex] = false;
+            }
+
+            isDragging[draggingIndex] = false;
+            draggingIndex = -1;
+            this.Invalidate();
+
+            if (correctPlacementsCount == 8)
+            {
+                Timer timer = new Timer { Interval = 1000 };
+                timer.Tick += (s, args) =>
+                {
+                    timer.Stop();
+                    ShowCongratulationsForm();
+                };
+                timer.Start();
+            }
+        }
+
+        private void FinalTestForm_Paint(object sender, PaintEventArgs e)
+        {
+            if (needRedrawBackground || cachedBackground == null)
+            {
+                cachedBackground = new Bitmap(this.ClientSize.Width, this.ClientSize.Height);
+                using (var g = Graphics.FromImage(cachedBackground))
+                {
+                    DrawBackground(g);
+                    DrawRegions(g);
+                }
+                needRedrawBackground = false;
+            }
+
+            e.Graphics.DrawImage(cachedBackground, Point.Empty);
+            DrawDraggableItems(e.Graphics);
+            DrawCounter(e.Graphics);
+        }
+
+        private void DrawBackground(Graphics g)
+        {
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             g.DrawImage(backgroundMap, basePosition.X, basePosition.Y,
                 backgroundMap.Width * scaleFactors.Width,
                 backgroundMap.Height * scaleFactors.Height);
+        }
 
+        private void DrawRegions(Graphics g)
+        {
             string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный", "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
 
             using (Font font = new Font("Arial", 16, FontStyle.Bold))
             using (Brush textBrush = new SolidBrush(Color.Aqua))
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(150, 0, 0, 0))) // полупрозрачная тень
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(150, 0, 0, 0)))
             using (Pen outlinePen = new Pen(Color.Black, 4))
             {
                 for (int i = 0; i < regionImages.Length; i++)
@@ -689,14 +459,11 @@ namespace Library_App
 
                     float x = basePosition.X + pos.X * scaleFactors.Width;
                     float y = basePosition.Y + pos.Y * scaleFactors.Height;
-
                     float w = img.Width * scaleFactors.Width;
                     float h = img.Height * scaleFactors.Height;
 
-                    // Рисуем регион
                     g.DrawImage(img, x, y, w, h);
 
-                    // Центр региона
                     float centerX = x + w / 2;
                     float centerY = y + h / 2;
 
@@ -705,68 +472,237 @@ namespace Library_App
 
                     float textX = centerX - textSize.Width / 2;
                     float textY = centerY - textSize.Height / 2;
-                    // Дополнительный сдвиг "Центральный" влево
-                    if (text == "Центральный")
-                    {
-                        textX -= 80 * scaleFactor; // увеличенный сдвиг
-                    }
-                    if (text == "Поволжье")
-                    {
-                        textX -= 50 * scaleFactor; // увеличенный сдвиг
-                    }
-                    if (text == "Северо-Западный")
-                    {
-                        textY += 100 * scaleFactor; // увеличенный сдвиг
-                    }
-                    if (text == "Дальневосточный")
-                    {
-                        textX -= 80 * scaleFactor; // увеличенный сдвиг
-                    }
+
+                    // Adjustments for specific regions
+                    if (text == "Центральный") textX -= 80 * scaleFactor;
+                    if (text == "Поволжье") textX -= 50 * scaleFactor;
+                    if (text == "Северо-Западный") textY += 100 * scaleFactor;
+                    if (text == "Дальневосточный") textX -= 80 * scaleFactor;
                     if (this.ClientSize.Width < 1900 && text == "Северо-Западный") textX += 10 * scaleFactor;
 
-                    // Контур текста через GraphicsPath
                     using (var path = new System.Drawing.Drawing2D.GraphicsPath())
                     {
-                        path.AddString(text, font.FontFamily, (int)font.Style, g.DpiY * font.Size / 72, new PointF(textX, textY), StringFormat.GenericDefault);
+                        path.AddString(text, font.FontFamily, (int)font.Style, g.DpiY * font.Size / 72,
+                            new PointF(textX, textY), StringFormat.GenericDefault);
                         g.DrawPath(outlinePen, path);
                         g.FillPath(textBrush, path);
                     }
                 }
-                var sortedIndices = Enumerable.Range(0, draggableImages.Length)
+            }
+        }
+
+        private void DrawDraggableItems(Graphics g)
+        {
+            var sortedIndices = Enumerable.Range(0, draggableImages.Length)
                 .OrderBy(i => draggablePositions[i].Y)
                 .ToList();
 
-                foreach (int i in sortedIndices)
-                {
-                    int scaledWidth = (int)(draggableImages[i].Width * iconScale);
-                    int scaledHeight = (int)(draggableImages[i].Height * iconScale);
-                    g.DrawImage(draggableImages[i], new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight)));
-                }
-
-
+            foreach (int i in sortedIndices)
+            {
+                int scaledWidth = (int)(draggableImages[i].Width * iconScale);
+                int scaledHeight = (int)(draggableImages[i].Height * iconScale);
+                g.DrawImage(draggableImages[i], new Rectangle(draggablePositions[i], new Size(scaledWidth, scaledHeight)));
             }
+        }
 
+        private void DrawCounter(Graphics g)
+        {
             using (Font font = new Font("Arial", 30, FontStyle.Bold))
             using (Brush brush = new SolidBrush(Color.Black))
             {
                 string topRightText = $"Верно расставлено: {correctPlacementsCount}";
+                var textSize = g.MeasureString(topRightText, font);
 
-                var textSize = e.Graphics.MeasureString(topRightText, font);
+                float x = this.ClientSize.Width - textSize.Width - this.ClientSize.Width / 20;
+                float y = this.ClientSize.Height / 25;
 
-                float x = this.ClientSize.Width - textSize.Width - this.ClientSize.Width / 20; // 20 доля отступ справа
-                float y = this.ClientSize.Height / 25; // 25 доля пикселей от верхнего края
+                g.DrawString(topRightText, font, brush, new PointF(x, y));
+            }
+        }
 
-                e.Graphics.DrawString(topRightText, font, brush, new PointF(x, y));
+        private void ShowCongratulationsForm()
+        {
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int formWidth, formHeight;
+
+            if (screenWidth > 3500)
+            {
+                formWidth = 2000;
+                formHeight = 1500;
+            }
+            else if (screenWidth > 2500)
+            {
+                formWidth = 1200;
+                formHeight = 900;
+            }
+            else if (screenWidth > 1900)
+            {
+                formWidth = 800;
+                formHeight = 600;
+            }
+            else
+            {
+                formWidth = 600;
+                formHeight = 400;
             }
 
+            Form congratsForm = new Form()
+            {
+                Text = "Поздравляем!",
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                ClientSize = new Size(formWidth, formHeight),
+                BackColor = Color.LightSkyBlue,
+                Padding = new Padding(20)
+            };
 
+            // Определяем размер шрифта
+            int fontSize;
+            if (formWidth > 3500)
+                fontSize = 32;
+            else if (formWidth > 2500)
+                fontSize = 28;
+            else if (formWidth > 1900)
+                fontSize = 24;
+            else if (formWidth > 1200)
+                fontSize = 20;
+            else if (formWidth > 800)
+                fontSize = 18;
+            else
+                fontSize = 14;
 
+            Label label = new Label()
+            {
+                Text = "Вы успешно разместили все регионы России!",
+                Font = new Font("Arial", fontSize, FontStyle.Bold),
+                ForeColor = Color.DarkBlue,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
+
+            Size buttonSize = new Size((int)(formWidth * 0.3), (int)(formHeight * 0.1));
+
+            Button btnReturn = new Button()
+            {
+                Text = "На карту регионов",
+                DialogResult = DialogResult.Retry,
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightGreen,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            Button btnExit = new Button()
+            {
+                Text = "Выйти",
+                DialogResult = DialogResult.Cancel,
+                Size = buttonSize,
+                Font = new Font("Arial", fontSize - 2),
+                BackColor = Color.LightCoral,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            TableLayoutPanel mainPanel = new TableLayoutPanel()
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3
+            };
+
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 60));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30));
+
+            Panel buttonContainer = new Panel() { Dock = DockStyle.Fill };
+
+            btnReturn.Location = new Point(
+                (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
+                (buttonContainer.Height - btnReturn.Height) / 2);
+
+            btnExit.Location = new Point(
+                btnReturn.Right + formWidth / 20,
+                btnReturn.Top);
+
+            buttonContainer.Resize += (sender, e) =>
+            {
+                btnReturn.Location = new Point(
+                    (buttonContainer.Width - (btnReturn.Width + btnExit.Width + formWidth / 20)) / 2,
+                    (buttonContainer.Height - btnReturn.Height) / 2);
+
+                btnExit.Location = new Point(
+                    btnReturn.Right + formWidth / 20,
+                    btnReturn.Top);
+            };
+
+            buttonContainer.Controls.Add(btnReturn);
+            buttonContainer.Controls.Add(btnExit);
+
+            mainPanel.Controls.Add(label, 0, 0);
+            mainPanel.Controls.Add(new Panel(), 0, 1);
+            mainPanel.Controls.Add(buttonContainer, 0, 2);
+
+            congratsForm.Controls.Add(mainPanel);
+
+            DialogResult result = congratsForm.ShowDialog(this);
+
+            if (result == DialogResult.Retry)
+            {
+                ReturnToRussiaMap();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                Form[] openForms = Application.OpenForms.Cast<Form>().ToArray();
+                foreach (Form form in openForms)
+                {
+                    if (form.GetType() != typeof(MainMenuForm))
+                        form.Close();
+                }
+
+                MainMenuForm mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
+                if (mainMenu == null)
+                {
+                    mainMenu = new MainMenuForm();
+                    mainMenu.Show();
+                }
+                else
+                {
+                    mainMenu.BringToFront();
+                }
+
+                this.Close();
+            }
+        }
+
+        private void ReturnToRussiaMap()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (!(form is RegionMapForm || form is MainMenuForm || form is MapForm))
+                    form.Close();
+            }
+
+            var open = Application.OpenForms.OfType<RegionMapForm>().FirstOrDefault();
+            if (open == null)
+            {
+                open = new RegionMapForm();
+                open.Show();
+            }
+            else
+            {
+                open.BringToFront();
+            }
+
+            this.Close();
         }
 
         private void FinalTestForm_Load(object sender, EventArgs e)
         {
-            ShowTaskForm(); // ← Окно появится поверх
+            ShowTaskForm();
         }
+
         private void ShowTaskForm()
         {
             using (var taskForm = new TaskFormFinal())
@@ -775,5 +711,4 @@ namespace Library_App
             }
         }
     }
-
 }
