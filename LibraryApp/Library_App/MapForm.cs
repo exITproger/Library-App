@@ -296,7 +296,7 @@ namespace Library_App
 
         private void LoadImages()
         {
-            outlineMap = Properties.Resources.map_background2new; // было map_background2
+            outlineMap = Properties.Resources.map_copy; // было map_background2
 
             districtImages = new Bitmap[]
             {

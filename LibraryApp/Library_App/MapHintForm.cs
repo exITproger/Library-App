@@ -52,7 +52,7 @@ namespace Library_App
             // === Картинка MapFull ===
             mapPictureBox = new PictureBox
             {
-                Image = Properties.Resources.map_background1new,//,было map_full
+                Image = Properties.Resources.map_full,//,было map_full
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
                 Location = new Point(0, 130),
