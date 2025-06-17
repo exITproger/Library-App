@@ -608,7 +608,7 @@ namespace Library_App
                         timer.Stop();
                         TimeSpan timeTaken = DateTime.Now - startTime;
                         //MessageBox.Show($"Поздравляем! Вы собрали карту за {timeTaken:mm\\:ss}!");
-                        await Task.Delay(3000); // Задержка 3 секунды
+                        await Task.Delay(1500); // Задержка 1,5 секунды
                         // Показ формы с кликабельными регионами
                         RegionMapForm regionMapForm = new RegionMapForm();
                         this.Hide();
