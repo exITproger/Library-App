@@ -79,8 +79,8 @@ namespace Library_App
         {
             try
             {
-                btnBack.Image = Properties.Resources.назад;
-                btnForward.Image = Properties.Resources.вперёд;
+                btnBack.Image = Properties.Resources.CentralBack;
+                btnForward.Image = Properties.Resources.CentralNext;
             }
             catch (Exception ex)
             {

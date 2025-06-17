@@ -256,10 +256,8 @@ namespace Library_App
         }
         private void ShowTaskForm()
         {
-            using (var taskForm = new TaskForm())
-            {
-                taskForm.ShowDialog(this);
-            }
+            TaskForm taskForm = new TaskForm();
+            taskForm.ShowDialog();
         }
         private void SkipButton_Click(object sender, EventArgs e)
         {

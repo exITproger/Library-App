@@ -883,6 +883,22 @@
     <None Include="Resources\map-background2new.png" />
     <None Include="Resources\map-background1new.png" />
     <None Include="Resources\map copy.png" />
+    <None Include="Resources\FarEasternNext.png" />
+    <None Include="Resources\FarEasternBack.png" />
+    <None Include="Resources\SiberianNext.png" />
+    <None Include="Resources\SiberianBack.png" />
+    <None Include="Resources\UralNext.png" />
+    <None Include="Resources\UralBack.png" />
+    <None Include="Resources\NorthCaucasusBack.png" />
+    <None Include="Resources\NorthCaucasusNext.png" />
+    <None Include="Resources\VolgaregionNext.png" />
+    <None Include="Resources\VolgaregionBack.png" />
+    <None Include="Resources\SouthNext.png" />
+    <None Include="Resources\SouthBack.png" />
+    <None Include="Resources\NorthwesternBack.png" />
+    <None Include="Resources\NorthwesternNext.png" />
+    <None Include="Resources\CentralBack.png" />
+    <None Include="Resources\CentralNext.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

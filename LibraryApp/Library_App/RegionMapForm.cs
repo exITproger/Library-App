@@ -303,14 +303,14 @@ namespace Library_App
 
             string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный", "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
 
-
             // Базовый размер шрифта, масштабируем
             float baseFontSize = 16f;
             float fontScale = (scaleFactors.Width + scaleFactors.Height) / 2f;
-            float scaledFontSize = baseFontSize * fontScale;
-            using (Brush textBrush = new SolidBrush(Color.Aqua))
-            using (Font font = new Font("Arial", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
-            using (Pen outlinePen = new Pen(Color.Black, 3 * fontScale)) // масштабируемая обвод
+            float scaledFontSize = baseFontSize * Math.Min(scaleFactors.Width, scaleFactors.Height);
+            // Ограничиваем минимальный и максимальный размер шрифта
+            scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
+            using (Brush textBrush = new SolidBrush(Color.FloralWhite))
+            using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold, GraphicsUnit.Point))
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {
@@ -354,13 +354,8 @@ namespace Library_App
                         textX -= 80 * fontScale; // увеличенный сдвиг
                     }
 
-                    // Контур текста через GraphicsPath
-                    using (var path = new System.Drawing.Drawing2D.GraphicsPath())
-                    {
-                        path.AddString(text, font.FontFamily, (int)font.Style, g.DpiY * font.Size / 72, new PointF(textX, textY), StringFormat.GenericDefault);
-                        g.DrawPath(outlinePen, path);
-                        g.FillPath(textBrush, path);
-                    }
+                    // Просто рисуем текст без обводки
+                    g.DrawString(text, font, textBrush, textX, textY);
                 }
             }
         }

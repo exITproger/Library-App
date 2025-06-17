@@ -26,7 +26,7 @@ namespace Library_App
 
             try
             {
-                this.BackgroundImage = Properties.Resources.dv_traditions  ;
+                this.BackgroundImage = Properties.Resources.dv_traditions;
                 this.BackgroundImageLayout = ImageLayout.Zoom;
             }
             catch (Exception ex)
@@ -79,8 +79,8 @@ namespace Library_App
         {
             try
             {
-                btnBack.Image = Properties.Resources.назад;
-                btnForward.Image = Properties.Resources.вперёд;
+                btnBack.Image = Properties.Resources.FarEasternBack;
+                btnForward.Image = Properties.Resources.FarEasternNext;
             }
             catch (Exception ex)
             {

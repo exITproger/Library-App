@@ -430,4 +430,52 @@
   <data name="map_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CentralBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CentralBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CentralNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CentralNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FarEasternBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FarEasternBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FarEasternNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FarEasternNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NorthCaucasusBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthCaucasusBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NorthCaucasusNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthCaucasusNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NorthwesternBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthwesternBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NorthwesternNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthwesternNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SiberianBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SiberianBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SiberianNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SiberianNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SouthBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SouthBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SouthNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SouthNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UralBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UralBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UralNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UralNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VolgaregionBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VolgaregionBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VolgaregionNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VolgaregionNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

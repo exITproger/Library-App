@@ -463,6 +463,7 @@ namespace Library_App
                 {
                     DrawBackground(g);
                     DrawRegions(g);
+
                 }
                 needRedrawBackground = false;
             }
@@ -470,6 +471,7 @@ namespace Library_App
             e.Graphics.DrawImage(cachedBackground, Point.Empty);
             DrawDraggableItems(e.Graphics);
             DrawCounter(e.Graphics);
+
         }
 
         private void DrawBackground(Graphics g)
@@ -482,48 +484,88 @@ namespace Library_App
 
         private void DrawRegions(Graphics g)
         {
-            string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный", "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
+            string[] regionNames = { "Северо-Западный", "Центральный", "Поволжье", "Южный",
+                   "Северо-Кавказский", "Уральский", "Сибирский", "Дальневосточный" };
 
-            using (Font font = new Font("Arial", 16, FontStyle.Bold))
-            using (Brush textBrush = new SolidBrush(Color.Aqua))
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(150, 0, 0, 0)))
-            using (Pen outlinePen = new Pen(Color.Black, 4))
+            // Адаптивный размер шрифта (основанный на масштабе или размере окна)
+            float baseFontSize = 16f;
+            float scaledFontSize = baseFontSize * Math.Min(scaleFactors.Width, scaleFactors.Height);
+            float fontScale = (scaleFactors.Width + scaleFactors.Height) / 2f;
+            // Ограничиваем минимальный и максимальный размер шрифта
+            scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
+
+            using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold))
+            using (Brush textBrush = new SolidBrush(Color.FloralWhite))
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {
                     var img = regionImages[i];
                     var pos = regionPositions[i];
 
+                    // Позиция и размер региона с учетом масштаба
                     float x = basePosition.X + pos.X * scaleFactors.Width;
                     float y = basePosition.Y + pos.Y * scaleFactors.Height;
                     float w = img.Width * scaleFactors.Width;
                     float h = img.Height * scaleFactors.Height;
 
+                    // Рисуем изображение региона
                     g.DrawImage(img, x, y, w, h);
 
-                    float centerX = x + w / 2;
-                    float centerY = y + h / 2;
+                    // Получаем прямоугольник с учетом отступов
+                    RectangleF regionRect = GetMarginAdjustedRegionRect(i);
+                    float regionX = basePosition.X + regionRect.X * scaleFactors.Width;
+                    float regionY = basePosition.Y + regionRect.Y * scaleFactors.Height;
+                    float regionW = regionRect.Width * scaleFactors.Width;
+                    float regionH = regionRect.Height * scaleFactors.Height;
 
                     var text = regionNames[i];
                     var textSize = g.MeasureString(text, font);
 
+                    // Центр региона с учетом отступов
+                    float centerX = regionX + regionW / 2;
+                    float centerY = regionY + regionH / 2;
+
+                    // Позиция текста (по центру региона с отступами)
                     float textX = centerX - textSize.Width / 2;
                     float textY = centerY - textSize.Height / 2;
 
-                    // Adjustments for specific regions
-                    if (text == "Центральный") textX -= 80 * scaleFactor;
-                    if (text == "Поволжье") textX -= 50 * scaleFactor;
-                    if (text == "Северо-Западный") textY += 100 * scaleFactor;
-                    if (text == "Дальневосточный") textX -= 80 * scaleFactor;
-                    if (this.ClientSize.Width < 1900 && text == "Северо-Западный") textX += 10 * scaleFactor;
-
-                    using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                    // Индивидуальные корректировки позиции для конкретных регионов
+                    switch (text)
                     {
-                        path.AddString(text, font.FontFamily, (int)font.Style, g.DpiY * font.Size / 72,
-                            new PointF(textX, textY), StringFormat.GenericDefault);
-                        g.DrawPath(outlinePen, path);
-                        g.FillPath(textBrush, path);
+                        case "Центральный":
+                            textX -= 80 * fontScale;
+                            break;
+                        case "Поволжье":
+                            textX -= 50 * fontScale;
+                            textY += 30 * fontScale;
+                            break;
+                        case "Сибирский":
+                            textX -= 50 * fontScale;
+                            textY -= 20 * fontScale;
+                            break;
+                        case "Уральский":
+                            textX += 40 * fontScale;
+                            break;
+                        case "Северо-Западный":
+                            textY -= 30 * fontScale;
+                            if (this.ClientSize.Width < 1900) textX += 5 * fontScale;
+                            break;
+                        case "Южный":
+                            textY+= 80 * fontScale;
+                            break;
+                        case "Северо-Кавказский":
+                            textY -= 30 * fontScale;
+                            break;
+                        case "Дальневосточный":
+                            textX -= 140 * fontScale;
+                            break;
+                        
                     }
+
+                    
+
+                    // Рисуем текст
+                    g.DrawString(text, font, textBrush, textX, textY);
                 }
             }
         }
@@ -544,7 +586,7 @@ namespace Library_App
 
         private void DrawCounter(Graphics g)
         {
-            using (Font font = new Font("Arial", 30, FontStyle.Bold))
+            using (Font font = new Font("Bold", 30, FontStyle.Bold))
             using (Brush brush = new SolidBrush(Color.Black))
             {
                 string topRightText = $"Верно расставлено: {correctPlacementsCount}";
@@ -613,7 +655,7 @@ namespace Library_App
             Label label = new Label()
             {
                 Text = "Вы успешно разместили все регионы России!",
-                Font = new Font("Arial", fontSize, FontStyle.Bold),
+                Font = new Font("Bold", fontSize, FontStyle.Bold),
                 ForeColor = Color.DarkBlue,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
@@ -627,7 +669,7 @@ namespace Library_App
                 Text = "На карту регионов",
                 DialogResult = DialogResult.Retry,
                 Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
+                Font = new Font("Bold", fontSize - 2),
                 BackColor = Color.LightGreen,
                 FlatStyle = FlatStyle.Flat
             };
@@ -637,7 +679,7 @@ namespace Library_App
                 Text = "Выйти",
                 DialogResult = DialogResult.Cancel,
                 Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
+                Font = new Font("Bold", fontSize - 2),
                 BackColor = Color.LightCoral,
                 FlatStyle = FlatStyle.Flat
             };

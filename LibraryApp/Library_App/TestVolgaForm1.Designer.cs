@@ -32,6 +32,7 @@ namespace Library_App
             // 
             // lblAsk1
             // 
+            this.lblAsk1.BackColor = System.Drawing.Color.Transparent;
             this.lblAsk1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAsk1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAsk1.Location = new System.Drawing.Point(0, 0);
@@ -43,14 +44,14 @@ namespace Library_App
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnVar1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnVar2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnVar3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnVar1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnVar4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnVar3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -63,7 +64,7 @@ namespace Library_App
             // 
             // btnVar1
             // 
-            this.btnVar1.BackColor = System.Drawing.Color.White;
+            this.btnVar1.BackColor = System.Drawing.Color.Transparent;
             this.btnVar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnVar1.FlatAppearance.BorderSize = 2;
@@ -80,7 +81,7 @@ namespace Library_App
             // 
             // btnVar2
             // 
-            this.btnVar2.BackColor = System.Drawing.Color.White;
+            this.btnVar2.BackColor = System.Drawing.Color.Transparent;
             this.btnVar2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnVar2.FlatAppearance.BorderSize = 2;
@@ -97,7 +98,7 @@ namespace Library_App
             // 
             // btnVar3
             // 
-            this.btnVar3.BackColor = System.Drawing.Color.White;
+            this.btnVar3.BackColor = System.Drawing.Color.Transparent;
             this.btnVar3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnVar3.FlatAppearance.BorderSize = 2;
@@ -114,7 +115,7 @@ namespace Library_App
             // 
             // btnVar4
             // 
-            this.btnVar4.BackColor = System.Drawing.Color.White;
+            this.btnVar4.BackColor = System.Drawing.Color.Transparent;
             this.btnVar4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnVar4.FlatAppearance.BorderSize = 2;

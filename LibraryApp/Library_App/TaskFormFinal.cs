@@ -1,18 +1,30 @@
 ﻿
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Library_App
 {
     public partial class TaskFormFinal : Form
     {
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool SystemParametersInfo(uint uiAction, uint uiParam, ref uint pvParam, uint fWinIni);
+
+        private const uint SPI_SETBEEP = 0x0002;
+        private const uint SPIF_SENDCHANGE = 0x0002;
+
+        private bool SetBeepEnabled(bool enable)
+        {
+            uint beepEnabled = enable ? 1u : 0u;
+            return SystemParametersInfo(SPI_SETBEEP, 0, ref beepEnabled, SPIF_SENDCHANGE);
+        }
         public TaskFormFinal()
         {
             // Получаем размеры экрана
             var screen = Screen.PrimaryScreen.WorkingArea;
             int formWidth, formHeight, fontSize;
-
+            SetBeepEnabled(false); // Отключить звук
             // Адаптация под разрешение экрана
             if (screen.Width > 3500)
             {
@@ -40,9 +52,9 @@ namespace Library_App
             }
 
             // Настройка формы
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.None;
             this.StartPosition = FormStartPosition.CenterParent;
-            this.BackColor = Color.White;
+            this.BackColor = Color.WhiteSmoke;
             this.Size = new Size(formWidth, formHeight);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

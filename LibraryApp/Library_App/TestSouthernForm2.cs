@@ -388,7 +388,7 @@ namespace Library_App
             var label = new Label()
             {
                 Text = "Выберите действие:",
-                Font = new Font("Arial", fontSize, FontStyle.Bold),
+                Font = new Font("Bold", fontSize, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 ForeColor = Color.DarkSlateBlue
@@ -412,7 +412,7 @@ namespace Library_App
                 Text = "Вернуться к округу",
                 DialogResult = DialogResult.OK,
                 Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
+                Font = new Font("Bold", fontSize - 2),
                 BackColor = Color.LightSteelBlue,
                 FlatStyle = FlatStyle.Flat
             };
@@ -427,7 +427,7 @@ namespace Library_App
                 Text = "Вернуться к карте России",
                 DialogResult = DialogResult.Cancel,
                 Size = buttonSize,
-                Font = new Font("Arial", fontSize - 2),
+                Font = new Font("Bold", fontSize - 2),
                 BackColor = Color.LightSkyBlue,
                 FlatStyle = FlatStyle.Flat
             };
