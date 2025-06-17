@@ -45,6 +45,7 @@ namespace Library_App
             }
 
             this.Close();
+            GC.Collect();
         }
         public RegionMapForm()
         {

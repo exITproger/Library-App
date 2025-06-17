@@ -250,7 +250,10 @@ namespace Library_App
             foreach (Form form in Application.OpenForms)
             {
                 if (!(form is NorthwesternMainForm || form is RegionMapForm || form is MainMenuForm || form is MapForm))
+                {
                     form.Close();
+                    GC.Collect();
+                }
             }
 
             // Проверим, открыто ли главное меню
@@ -266,6 +269,7 @@ namespace Library_App
             }
 
             this.Close();
+            GC.Collect();
         }
         private void ReturnToRussiaMap()
         {
@@ -273,7 +277,10 @@ namespace Library_App
             foreach (Form form in Application.OpenForms)
             {
                 if (!(form is RegionMapForm || form is MainMenuForm || form is MapForm))
+                {
                     form.Close();
+                    GC.Collect();
+                }
             }
 
             // Проверим, открыто ли главное меню
@@ -289,6 +296,7 @@ namespace Library_App
             }
 
             this.Close();
+            GC.Collect();
         }
 
         private void btnVar3_Click(object sender, EventArgs e)
