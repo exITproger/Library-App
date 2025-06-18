@@ -481,4 +481,22 @@
   <data name="TestCentarlBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestCentarlBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="map_with" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map_with.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="выход_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\выход_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Начать_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Начать_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Подсказка_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Подсказка_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="пройти_тест_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\пройти_тест_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="пропустить_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\пропустить_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -900,6 +900,12 @@
     <None Include="Resources\CentralBack.png" />
     <None Include="Resources\CentralNext.png" />
     <None Include="Resources\TestCentarlBackground.png" />
+    <None Include="Resources\map_with.png" />
+    <None Include="Resources\выход_copy.png" />
+    <None Include="Resources\Начать_copy.png" />
+    <None Include="Resources\Подсказка_copy.png" />
+    <None Include="Resources\пройти_тест_copy.png" />
+    <None Include="Resources\пропустить_copy.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

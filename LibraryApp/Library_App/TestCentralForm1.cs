@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Library_App
@@ -11,7 +12,7 @@ namespace Library_App
         private Timer animationTimer;
         private Dictionary<Button, AnimationState> buttonStates = new Dictionary<Button, AnimationState>();
         // Цвета для анимации (изменяй под себя)
-        private Color normalColor = SystemColors.Control;
+        private Color normalColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(0)))), ((int)(((byte)(13)))));
         private Color hoverColor = Color.LightBlue;
         private PictureBox backgroundImage;
         public TestCentralForm1()
@@ -28,7 +29,42 @@ namespace Library_App
             backgroundImage.SendToBack();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            lblAsk1.Paint += (sender, e) =>
+            {
+                int borderWidth = 5; // Толщина рамки
+                Color borderColor = ColorTranslator.FromHtml("#5b0207"); // Цвет рамки
 
+                ControlPaint.DrawBorder(
+                    e.Graphics,
+                    lblAsk1.ClientRectangle,
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Верх
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Право
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Низ
+                    borderColor,
+                    0, ButtonBorderStyle.Solid // Лево
+                );
+            };
+            tableLayoutPanel1.Paint += (sender, e) =>
+            {
+                int borderWidth = 5; // Толщина рамки
+                Color borderColor = ColorTranslator.FromHtml("#5b0207"); // Цвет рамки
+
+                ControlPaint.DrawBorder(
+                    e.Graphics,
+                    tableLayoutPanel1.ClientRectangle,
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Верх
+                    borderColor,
+                    0, ButtonBorderStyle.Solid, // Право
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Низ
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid // Лево
+                );
+            };
             this.Resize += TestCentralForm1_Resize;
 
             // Меняем заголовок: фиксируем высоту и dock top
@@ -45,9 +81,26 @@ namespace Library_App
             {
                 buttonStates[btn] = new AnimationState() { CurrentColor = normalColor, TargetColor = normalColor };
                 btn.BackColor = normalColor;
+                btn.Paint += (sender, e) =>
+                {
+                    int borderWidth = 5; // Толщина рамки
+                    Color borderColor = ColorTranslator.FromHtml("#5b0207"); // Цвет рамки
 
-                btn.MouseEnter += Btn_MouseEnter;
-                btn.MouseLeave += Btn_MouseLeave;
+                    ControlPaint.DrawBorder(
+                        e.Graphics,
+                        btn.ClientRectangle,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid
+                    );
+                };
+                //btn.MouseEnter += Btn_MouseEnter;
+                //btn.MouseLeave += Btn_MouseLeave;
             }
 
             animationTimer = new Timer();
@@ -68,7 +121,7 @@ namespace Library_App
             lblAsk1.TextAlign = ContentAlignment.MiddleCenter;
             lblAsk1.Height = 80;
             float headerFontSize = Math.Min(lblAsk1.Height * 0.7f, 24f);
-            lblAsk1.Font = new Font("Microsoft Sans Serif", headerFontSize, FontStyle.Bold);
+            lblAsk1.Font = new Font("Bold", headerFontSize, FontStyle.Bold);
 
             // Вычисляем ширину таблицы пропорционально ширине окна
             int targetWidth = (int)(this.ClientSize.Width * 1200f / 2560f);

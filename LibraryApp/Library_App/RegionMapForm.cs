@@ -65,7 +65,7 @@ namespace Library_App
 
             // Кнопка выхода
             exitButton = new PictureBox();
-            exitButton.Image = Properties.Resources.выход;
+            exitButton.Image = Properties.Resources.выход_copy;
             exitButton.SizeMode = PictureBoxSizeMode.StretchImage;
             exitButton.BackColor = Color.Transparent;
             exitButton.Cursor = Cursors.Hand;
@@ -73,7 +73,7 @@ namespace Library_App
 
             // Новая кнопка в правом верхнем углу
             rightTopButton = new PictureBox();
-            rightTopButton.Image = Properties.Resources.пройти_тест; 
+            rightTopButton.Image = Properties.Resources.пройти_тест_copy; 
             rightTopButton.SizeMode = PictureBoxSizeMode.StretchImage;
             rightTopButton.BackColor = Color.Transparent;
             rightTopButton.Cursor = Cursors.Hand;
@@ -309,7 +309,7 @@ namespace Library_App
             float scaledFontSize = baseFontSize * Math.Min(scaleFactors.Width, scaleFactors.Height);
             // Ограничиваем минимальный и максимальный размер шрифта
             scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
-            using (Brush textBrush = new SolidBrush(Color.FloralWhite))
+            using (Brush textBrush = new SolidBrush(Color.Black))
             using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold, GraphicsUnit.Point))
             {
                 for (int i = 0; i < regionImages.Length; i++)

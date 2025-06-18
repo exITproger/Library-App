@@ -121,8 +121,8 @@ namespace Library_App
 
             // Создаём кнопки с изображениями из ресурсов (нужно добавить эти картинки в ресурсы)
             btnBack = CreateImageButton(Properties.Resources.назад);   // например, стрелка назад
-            btnHint = CreateImageButton(Properties.Resources.Подсказка);    // иконка подсказки
-            btnSkip = CreateImageButton(Properties.Resources.пропустить);    // иконка пропустить
+            btnHint = CreateImageButton(Properties.Resources.Подсказка_copy);    // иконка подсказки
+            btnSkip = CreateImageButton(Properties.Resources.пропустить_copy);    // иконка пропустить
 
             btnBack.Click += (s, e) => this.Close();
             btnHint.Click += HintButton_Click;

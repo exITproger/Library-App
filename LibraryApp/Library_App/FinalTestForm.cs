@@ -37,7 +37,7 @@ namespace Library_App
 
         private RectangleF[] regionBounds;
         private SizeF scaleFactors;
-        private float iconScale = 0.2f;
+        private float iconScale = 0.2f ;
         private const int BaseScreenWidth = 2560;
 
         // Кэш для отрисованных элементов
@@ -294,7 +294,7 @@ namespace Library_App
         private void CalculateIconScale()
         {
             iconScale = 0.25f * (this.ClientSize.Width / (float)BaseScreenWidth);
-            iconScale = Math.Max(0.15f, Math.Min(0.4f, iconScale));
+            iconScale = Math.Max(0.15f, Math.Min(0.3f, iconScale));
         }
 
         private List<int> GetDrawOrderIndices()
@@ -495,7 +495,7 @@ namespace Library_App
             scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
 
             using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold))
-            using (Brush textBrush = new SolidBrush(Color.FloralWhite))
+            using (Brush textBrush = new SolidBrush(Color.Black))
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {
