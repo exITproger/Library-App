@@ -293,8 +293,8 @@ namespace Library_App
 
         private void CalculateIconScale()
         {
-            iconScale = 0.25f * (this.ClientSize.Width / (float)BaseScreenWidth);
-            iconScale = Math.Max(0.15f, Math.Min(0.3f, iconScale));
+            iconScale = 0.2f * (this.ClientSize.Width / (float)BaseScreenWidth);
+            iconScale = Math.Max(0.1f, Math.Min(0.2f, iconScale));
         }
 
         private List<int> GetDrawOrderIndices()
