@@ -16,6 +16,7 @@ namespace Library_App
         private PictureBox backgroundImage;
         public TestCentralForm1()
         {
+            DoubleBuffered = true;
             // Создаем PictureBox и задаем фоновое изображение
             backgroundImage = new PictureBox();
             backgroundImage.Dock = DockStyle.Fill;

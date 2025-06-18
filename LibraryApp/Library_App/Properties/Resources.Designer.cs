@@ -1033,6 +1033,16 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TestCentarlBackground {
+            get {
+                object obj = ResourceManager.GetObject("TestCentarlBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ural {
             get {
                 object obj = ResourceManager.GetObject("ural", resourceCulture);
