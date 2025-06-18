@@ -23,16 +23,16 @@ namespace Library_App
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestVolgaForm1));
             this.lblAsk1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnVar1 = new System.Windows.Forms.Button();
             this.btnVar2 = new System.Windows.Forms.Button();
-            this.btnVar3 = new System.Windows.Forms.Button();
+            this.btnVar1 = new System.Windows.Forms.Button();
             this.btnVar4 = new System.Windows.Forms.Button();
+            this.btnVar3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAsk1
             // 
-            this.lblAsk1.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsk1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(30)))));
             this.lblAsk1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAsk1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAsk1.Location = new System.Drawing.Point(0, 0);
@@ -44,7 +44,7 @@ namespace Library_App
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(30)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -62,29 +62,12 @@ namespace Library_App
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1117, 591);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // btnVar1
-            // 
-            this.btnVar1.BackColor = System.Drawing.Color.Transparent;
-            this.btnVar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar1.FlatAppearance.BorderSize = 2;
-            this.btnVar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar1.Font = new System.Drawing.Font("Segoe UI", 22F);
-            this.btnVar1.Location = new System.Drawing.Point(30, 30);
-            this.btnVar1.Margin = new System.Windows.Forms.Padding(10);
-            this.btnVar1.Name = "btnVar1";
-            this.btnVar1.Size = new System.Drawing.Size(518, 255);
-            this.btnVar1.TabIndex = 0;
-            this.btnVar1.Text = "Праздник Сабантуй с борьбой";
-            this.btnVar1.UseVisualStyleBackColor = false;
-            this.btnVar1.Click += new System.EventHandler(this.btnVar1_Click);
-            // 
             // btnVar2
             // 
-            this.btnVar2.BackColor = System.Drawing.Color.Transparent;
+            this.btnVar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar2.FlatAppearance.BorderSize = 2;
+            this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(62)))));
+            this.btnVar2.FlatAppearance.BorderSize = 5;
             this.btnVar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar2.Font = new System.Drawing.Font("Segoe UI", 22F);
             this.btnVar2.Location = new System.Drawing.Point(30, 305);
@@ -96,29 +79,29 @@ namespace Library_App
             this.btnVar2.UseVisualStyleBackColor = false;
             this.btnVar2.Click += new System.EventHandler(this.btnVar2_Click);
             // 
-            // btnVar3
+            // btnVar1
             // 
-            this.btnVar3.BackColor = System.Drawing.Color.Transparent;
-            this.btnVar3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar3.FlatAppearance.BorderSize = 2;
-            this.btnVar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar3.Font = new System.Drawing.Font("Segoe UI", 22F);
-            this.btnVar3.Location = new System.Drawing.Point(568, 30);
-            this.btnVar3.Margin = new System.Windows.Forms.Padding(10);
-            this.btnVar3.Name = "btnVar3";
-            this.btnVar3.Size = new System.Drawing.Size(519, 255);
-            this.btnVar3.TabIndex = 2;
-            this.btnVar3.Text = "Праздник Масленица";
-            this.btnVar3.UseVisualStyleBackColor = false;
-            this.btnVar3.Click += new System.EventHandler(this.btnVar3_Click);
+            this.btnVar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(62)))));
+            this.btnVar1.FlatAppearance.BorderSize = 5;
+            this.btnVar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVar1.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar1.Location = new System.Drawing.Point(30, 30);
+            this.btnVar1.Margin = new System.Windows.Forms.Padding(10);
+            this.btnVar1.Name = "btnVar1";
+            this.btnVar1.Size = new System.Drawing.Size(518, 255);
+            this.btnVar1.TabIndex = 0;
+            this.btnVar1.Text = "Праздник Сабантуй с борьбой";
+            this.btnVar1.UseVisualStyleBackColor = false;
+            this.btnVar1.Click += new System.EventHandler(this.btnVar1_Click);
             // 
             // btnVar4
             // 
-            this.btnVar4.BackColor = System.Drawing.Color.Transparent;
+            this.btnVar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVar4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar4.FlatAppearance.BorderSize = 2;
+            this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(62)))));
+            this.btnVar4.FlatAppearance.BorderSize = 5;
             this.btnVar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar4.Font = new System.Drawing.Font("Segoe UI", 22F);
             this.btnVar4.Location = new System.Drawing.Point(568, 305);
@@ -129,6 +112,23 @@ namespace Library_App
             this.btnVar4.Text = "Праздник Ураза-Байрам";
             this.btnVar4.UseVisualStyleBackColor = false;
             this.btnVar4.Click += new System.EventHandler(this.btnVar4_Click);
+            // 
+            // btnVar3
+            // 
+            this.btnVar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(62)))));
+            this.btnVar3.FlatAppearance.BorderSize = 5;
+            this.btnVar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVar3.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar3.Location = new System.Drawing.Point(568, 30);
+            this.btnVar3.Margin = new System.Windows.Forms.Padding(10);
+            this.btnVar3.Name = "btnVar3";
+            this.btnVar3.Size = new System.Drawing.Size(519, 255);
+            this.btnVar3.TabIndex = 2;
+            this.btnVar3.Text = "Праздник Масленица";
+            this.btnVar3.UseVisualStyleBackColor = false;
+            this.btnVar3.Click += new System.EventHandler(this.btnVar3_Click);
             // 
             // TestVolgaForm1
             // 

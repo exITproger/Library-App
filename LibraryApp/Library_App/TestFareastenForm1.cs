@@ -11,7 +11,7 @@ namespace Library_App
         private Timer animationTimer;
         private Dictionary<Button, AnimationState> buttonStates = new Dictionary<Button, AnimationState>();
         // Цвета для анимации (изменяй под себя)
-        private Color normalColor = SystemColors.Control;
+        private Color normalColor = ColorTranslator.FromHtml("#ffffff");
         private Color hoverColor = Color.LightBlue;
         private PictureBox backgroundImage;
         public TestFareastenForm1()
@@ -27,7 +27,42 @@ namespace Library_App
             backgroundImage.SendToBack();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            lblAsk1.Paint += (sender, e) =>
+            {
+                int borderWidth = 5; // Толщина рамки
+                Color borderColor = ColorTranslator.FromHtml("#74421f"); // Цвет рамки
 
+                ControlPaint.DrawBorder(
+                    e.Graphics,
+                    lblAsk1.ClientRectangle,
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Верх
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Право
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Низ
+                    borderColor,
+                    0, ButtonBorderStyle.Solid // Лево
+                );
+            };
+            tableLayoutPanel1.Paint += (sender, e) =>
+            {
+                int borderWidth = 5; // Толщина рамки
+                Color borderColor = ColorTranslator.FromHtml("#74421f"); // Цвет рамки
+
+                ControlPaint.DrawBorder(
+                    e.Graphics,
+                    tableLayoutPanel1.ClientRectangle,
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Верх
+                    borderColor,
+                    0, ButtonBorderStyle.Solid, // Право
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid, // Низ
+                    borderColor,
+                    borderWidth, ButtonBorderStyle.Solid // Лево
+                );
+            };
             this.Resize += TestCentralForm1_Resize;
 
             // Меняем заголовок: фиксируем высоту и dock top
@@ -44,9 +79,26 @@ namespace Library_App
             {
                 buttonStates[btn] = new AnimationState() { CurrentColor = normalColor, TargetColor = normalColor };
                 btn.BackColor = normalColor;
+                btn.Paint += (sender, e) =>
+                {
+                    int borderWidth = 5; // Толщина рамки
+                    Color borderColor = ColorTranslator.FromHtml("#74421f"); // Цвет рамки
 
-                btn.MouseEnter += Btn_MouseEnter;
-                btn.MouseLeave += Btn_MouseLeave;
+                    ControlPaint.DrawBorder(
+                        e.Graphics,
+                        btn.ClientRectangle,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid,
+                        borderColor,
+                        borderWidth, ButtonBorderStyle.Solid
+                    );
+                };
+                //btn.MouseEnter += Btn_MouseEnter;
+                //btn.MouseLeave += Btn_MouseLeave;
             }
 
             animationTimer = new Timer();

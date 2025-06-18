@@ -34,8 +34,10 @@ namespace Library_App
             // 
             // lblAsk1
             // 
+            this.lblAsk1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(96)))), ((int)(((byte)(0)))));
             this.lblAsk1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAsk1.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAsk1.ForeColor = System.Drawing.Color.White;
             this.lblAsk1.Location = new System.Drawing.Point(0, 0);
             this.lblAsk1.Name = "lblAsk1";
             this.lblAsk1.Size = new System.Drawing.Size(1523, 100);
@@ -45,7 +47,7 @@ namespace Library_App
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(96)))), ((int)(((byte)(0)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -65,12 +67,13 @@ namespace Library_App
             // 
             // btnVar1
             // 
-            this.btnVar1.BackColor = System.Drawing.Color.White;
+            this.btnVar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnVar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar1.FlatAppearance.BorderSize = 2;
+            this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar1.FlatAppearance.BorderSize = 5;
             this.btnVar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar1.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar1.ForeColor = System.Drawing.Color.White;
             this.btnVar1.Location = new System.Drawing.Point(30, 30);
             this.btnVar1.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar1.Name = "btnVar1";
@@ -82,12 +85,13 @@ namespace Library_App
             // 
             // btnVar2
             // 
-            this.btnVar2.BackColor = System.Drawing.Color.White;
+            this.btnVar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnVar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar2.FlatAppearance.BorderSize = 2;
+            this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar2.FlatAppearance.BorderSize = 5;
             this.btnVar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar2.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar2.ForeColor = System.Drawing.Color.White;
             this.btnVar2.Location = new System.Drawing.Point(30, 403);
             this.btnVar2.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar2.Name = "btnVar2";
@@ -99,12 +103,13 @@ namespace Library_App
             // 
             // btnVar3
             // 
-            this.btnVar3.BackColor = System.Drawing.Color.White;
+            this.btnVar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnVar3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar3.FlatAppearance.BorderSize = 2;
+            this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar3.FlatAppearance.BorderSize = 5;
             this.btnVar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar3.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar3.ForeColor = System.Drawing.Color.White;
             this.btnVar3.Location = new System.Drawing.Point(771, 30);
             this.btnVar3.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar3.Name = "btnVar3";
@@ -116,12 +121,13 @@ namespace Library_App
             // 
             // btnVar4
             // 
-            this.btnVar4.BackColor = System.Drawing.Color.White;
+            this.btnVar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnVar4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnVar4.FlatAppearance.BorderSize = 2;
+            this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnVar4.FlatAppearance.BorderSize = 5;
             this.btnVar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVar4.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar4.ForeColor = System.Drawing.Color.White;
             this.btnVar4.Location = new System.Drawing.Point(771, 403);
             this.btnVar4.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar4.Name = "btnVar4";
