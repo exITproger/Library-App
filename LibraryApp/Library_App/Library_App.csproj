@@ -774,9 +774,6 @@
     <None Include="Resources\bashkiri_traditions.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CentralTraditions.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\CentralOmens.png" />
   </ItemGroup>
   <ItemGroup>
@@ -820,9 +817,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\VolgaregionMain.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SibireanOmens.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SibireanTraditions.png" />
@@ -906,6 +900,8 @@
     <None Include="Resources\Подсказка_copy.png" />
     <None Include="Resources\пройти_тест_copy.png" />
     <None Include="Resources\пропустить_copy.png" />
+    <None Include="Resources\CentralTraditions.png" />
+    <None Include="Resources\SibireanOmens.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
