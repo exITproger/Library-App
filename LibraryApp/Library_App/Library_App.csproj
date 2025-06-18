@@ -902,6 +902,8 @@
     <None Include="Resources\пропустить_copy.png" />
     <None Include="Resources\CentralTraditions.png" />
     <None Include="Resources\SibireanOmens.png" />
+    <None Include="Resources\fon.png" />
+    <None Include="Resources\aaa.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

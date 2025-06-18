@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace Library_App
 {
     public partial class MainMenuForm : Form
     {
-        private PictureBox btnStart; // Изменено на PictureBox для лучшего контроля изображения
+        private PictureBox btnStart;
         private PictureBox btnExit;
         private Size originalImageSize = new Size(1509, 520);
         private float buttonWidthRatio = 800f / 2560f;
@@ -23,53 +22,10 @@ namespace Library_App
 
         private void InitializeUI()
         {
-            /*
-            // Градиентный фон
-            this.Paint += (s, e) =>
-            {
-                using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                    this.ClientRectangle,
-                    Color.FromArgb(70, 130, 180),
-                    Color.FromArgb(135, 206, 250),
-                    45f))
-                {
-                    e.Graphics.FillRectangle(brush, this.ClientRectangle);
-                }
-            };
-            */
-            this.Paint += (s, e) =>
-            {
-                // Градиент от темно-синего к синему (но темнее кнопок)
-                using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                    this.ClientRectangle,
-                    Color.FromArgb(10, 40, 80),     // Глубокий темно-синий
-                    Color.FromArgb(30, 70, 120),    // Средний синий (но темнее кнопок)
-                    45f))
-                {
-                    e.Graphics.FillRectangle(brush, this.ClientRectangle);
-                }
+            // Устанавливаем фон формы
+            this.BackgroundImage = Properties.Resources.aaa;
+            this.BackgroundImageLayout = ImageLayout.Zoom; // Сохраняем пропорции
 
-                // Легкая текстура для глубины (не перегружает фон)
-                using (var texture = new HatchBrush(
-                    System.Drawing.Drawing2D.HatchStyle.Percent10,
-                    Color.FromArgb(20, Color.Black),
-                    Color.Transparent))
-                {
-                    e.Graphics.FillRectangle(texture, this.ClientRectangle);
-                }
-
-                // Дополнительное затемнение по краям для эффекта "углубления"
-                using (var path = new System.Drawing.Drawing2D.GraphicsPath())
-                {
-                    path.AddRectangle(this.ClientRectangle);
-                    using (var pgb = new System.Drawing.Drawing2D.PathGradientBrush(path))
-                    {
-                        pgb.CenterColor = Color.FromArgb(0, 0, 0, 0);
-                        pgb.SurroundColors = new Color[] { Color.FromArgb(40, 0, 0, 0) };
-                        e.Graphics.FillRectangle(pgb, this.ClientRectangle);
-                    }
-                }
-            };
             // Рассчитываем начальный размер кнопок
             CalculateButtonSize();
 
@@ -100,6 +56,7 @@ namespace Library_App
                 CalculateButtonSize();
                 UpdateButtonSizes();
                 UpdateButtonPositions();
+                this.Invalidate(); // Обновляем фон
             };
         }
 
@@ -108,7 +65,7 @@ namespace Library_App
             var button = new PictureBox
             {
                 Image = image,
-                SizeMode = PictureBoxSizeMode.Zoom, // Ключевое изменение - Zoom вместо Stretch
+                SizeMode = PictureBoxSizeMode.Zoom,
                 BackColor = Color.Transparent,
                 Size = currentButtonSize,
                 Cursor = Cursors.Hand
