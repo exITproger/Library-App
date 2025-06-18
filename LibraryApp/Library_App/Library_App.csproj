@@ -899,6 +899,8 @@
     <None Include="Resources\NorthwesternNext.png" />
     <None Include="Resources\CentralBack.png" />
     <None Include="Resources\CentralNext.png" />
+    <None Include="Resources\gr_mark.png" />
+    <None Include="Resources\re_mark.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

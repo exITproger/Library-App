@@ -9,6 +9,7 @@ namespace Library_App
     public partial class RegionMapForm : Form
     {
         private Bitmap backgroundMap;
+        private Bitmap reMarkImage;
         private Bitmap[] regionImages;
         private Point[] regionPositions;
         private float scaleFactor = 1.0f;
@@ -242,6 +243,7 @@ namespace Library_App
         private void LoadImages()
         {
             backgroundMap = Properties.Resources.map_background2;
+            reMarkImage = Properties.Resources.re_mark;
 
             regionImages = new Bitmap[]
             {
@@ -352,6 +354,18 @@ namespace Library_App
                     if (text == "Дальневосточный")
                     {
                         textX -= 80 * fontScale; // увеличенный сдвиг
+                    }
+
+                    // Рисуем метку
+                    if (reMarkImage != null)
+                    {
+                        float markWidth = textSize.Width * 0.8f;
+                        float markHeight = markWidth * (reMarkImage.Height / (float)reMarkImage.Width);
+
+                        float markX = textX + (textSize.Width - markWidth) / 2;
+                        float markY = textY - markHeight - 5; // 5 пикселей отступа между меткой и текстом
+
+                        g.DrawImage(reMarkImage, markX, markY, markWidth, markHeight);
                     }
 
                     // Просто рисуем текст без обводки

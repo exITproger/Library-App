@@ -10,8 +10,9 @@
 
 namespace Library_App.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
     /// </summary>
@@ -23,7 +24,6 @@ namespace Library_App.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -59,7 +59,14 @@ namespace Library_App.Properties {
                 resourceCulture = value;
             }
         }
-        
+
+        internal static System.Drawing.Bitmap re_mark {
+            get {
+                object obj = ResourceManager.GetObject("re_mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
