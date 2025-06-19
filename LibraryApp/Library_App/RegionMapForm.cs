@@ -310,7 +310,7 @@ namespace Library_App
             // Ограничиваем минимальный и максимальный размер шрифта
             scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
             using (Brush textBrush = new SolidBrush(Color.Black))
-            using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold, GraphicsUnit.Point))
+            using (Font font = new Font("Comic Sans MS", scaledFontSize, FontStyle.Bold, GraphicsUnit.Point))
             {
                 for (int i = 0; i < regionImages.Length; i++)
                 {

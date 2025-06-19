@@ -69,7 +69,7 @@ namespace Library_App
             Label label = new Label()
             {
                 Text = "Соберите карту России,\nразместив все округа на правильные места.",
-                Font = new Font("Arial", fontSize, FontStyle.Regular),
+                Font = new Font("Comic Sans MS", fontSize, FontStyle.Regular),
                 AutoSize = false,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
@@ -80,7 +80,7 @@ namespace Library_App
             Button okButton = new Button()
             {
                 Text = "OK",
-                Font = new Font("Arial", fontSize - 2, FontStyle.Bold),
+                Font = new Font("Comic Sans MS", fontSize - 2, FontStyle.Bold),
                 Dock = DockStyle.Bottom,
                 Height = (int)(formHeight * 0.15),
                 BackColor = Color.LightSteelBlue,

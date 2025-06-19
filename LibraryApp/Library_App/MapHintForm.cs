@@ -29,7 +29,7 @@ namespace Library_App
             // === Таймер Label ===
             timerLabel = new Label
             {
-                Font = new Font("Arial", 24, FontStyle.Bold),
+                Font = new Font("Comic Sans MS", 24, FontStyle.Bold),
                 ForeColor = Color.DarkRed,
                 AutoSize = true,
                 Location = new Point(20, 20)

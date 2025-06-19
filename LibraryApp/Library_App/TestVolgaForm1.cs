@@ -116,7 +116,7 @@ namespace Library_App
             lblAsk1.TextAlign = ContentAlignment.MiddleCenter;
             lblAsk1.Height = 80;
             float headerFontSize = Math.Min(lblAsk1.Height * 0.7f, 24f);
-            lblAsk1.Font = new Font("Microsoft Sans Serif", headerFontSize, FontStyle.Bold);
+            lblAsk1.Font = new Font("Comic Sans MS", headerFontSize, FontStyle.Bold);
 
             // Вычисляем ширину таблицы пропорционально ширине окна
             int targetWidth = (int)(this.ClientSize.Width * 1200f / 2560f);
@@ -154,12 +154,12 @@ namespace Library_App
                 {
                     while (fontSize > 6f)
                     {
-                        using (Font testFont = new Font("Microsoft Sans Serif", fontSize))
+                        using (Font testFont = new Font("Comic Sans MS", fontSize))
                         {
                             SizeF textSize = g.MeasureString(btn.Text, testFont, cellWidth);
                             if (textSize.Height <= cellHeight * 0.9f)
                             {
-                                btn.Font = new Font("Microsoft Sans Serif", fontSize);
+                                btn.Font = new Font("Comic Sans MS", fontSize);
                                 break;
                             }
                         }

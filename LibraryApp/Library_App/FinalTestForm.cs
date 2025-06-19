@@ -494,7 +494,7 @@ namespace Library_App
             // Ограничиваем минимальный и максимальный размер шрифта
             scaledFontSize = Math.Max(10f, Math.Min(24f, scaledFontSize));
 
-            using (Font font = new Font("Bold", scaledFontSize, FontStyle.Bold))
+            using (Font font = new Font("Comic Sans MS", scaledFontSize, FontStyle.Bold))
             using (Brush textBrush = new SolidBrush(Color.Black))
             {
                 for (int i = 0; i < regionImages.Length; i++)
@@ -586,7 +586,7 @@ namespace Library_App
 
         private void DrawCounter(Graphics g)
         {
-            using (Font font = new Font("Bold", 30, FontStyle.Bold))
+            using (Font font = new Font("Comic Sans MS", 30, FontStyle.Bold))
             using (Brush brush = new SolidBrush(Color.Black))
             {
                 string topRightText = $"Верно расставлено: {correctPlacementsCount}";
@@ -655,7 +655,7 @@ namespace Library_App
             Label label = new Label()
             {
                 Text = "Вы успешно разместили все регионы России!",
-                Font = new Font("Bold", fontSize, FontStyle.Bold),
+                Font = new Font("Comic Sans MS", fontSize, FontStyle.Bold),
                 ForeColor = Color.DarkBlue,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
@@ -669,7 +669,7 @@ namespace Library_App
                 Text = "На карту регионов",
                 DialogResult = DialogResult.Retry,
                 Size = buttonSize,
-                Font = new Font("Bold", fontSize - 2),
+                Font = new Font("Comic Sans MS", fontSize - 2),
                 BackColor = Color.LightGreen,
                 FlatStyle = FlatStyle.Flat
             };
@@ -679,7 +679,7 @@ namespace Library_App
                 Text = "Выйти",
                 DialogResult = DialogResult.Cancel,
                 Size = buttonSize,
-                Font = new Font("Bold", fontSize - 2),
+                Font = new Font("Comic Sans MS", fontSize - 2),
                 BackColor = Color.LightCoral,
                 FlatStyle = FlatStyle.Flat
             };

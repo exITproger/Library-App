@@ -78,7 +78,7 @@ namespace Library_App
             // === КНОПКА НАЗАД ===
             backButton = new Button();
             backButton.Text = "← Назад";
-            backButton.Font = new Font("Arial", 30, FontStyle.Bold);
+            backButton.Font = new Font("Comic Sans MS", 30, FontStyle.Bold);
             backButton.BackColor = Color.LightGray;
             backButton.Location = new Point(20, 20);
             backButton.AutoSize = true;
@@ -88,7 +88,7 @@ namespace Library_App
             // === КНОПКА ПОДСКАЗКА ===
             Button hintButton = new Button();
             hintButton.Text = "Подсказка";
-            hintButton.Font = new Font("Arial", 25, FontStyle.Regular);
+            hintButton.Font = new Font("Comic Sans MS", 25, FontStyle.Regular);
             hintButton.BackColor = Color.LightGray;
             hintButton.AutoSize = true;
             hintButton.Location = new Point(20, backButton.Bottom + 20);
@@ -98,7 +98,7 @@ namespace Library_App
             // === КНОПКА "ПРОПУСТИТЬ" ===
             Button skipButton = new Button();
             skipButton.Text = "Пропустить";
-            skipButton.Font = new Font("Arial", 25, FontStyle.Regular);
+            skipButton.Font = new Font("Comic Sans MS", 25, FontStyle.Regular);
             skipButton.BackColor = Color.LightGray;
             skipButton.AutoSize = true;
             skipButton.Location = new Point(20, hintButton.Bottom + 20);
@@ -491,7 +491,7 @@ namespace Library_App
                 float baseFontSize = 16f;
                 float scaledFontSize = baseFontSize * scaleFactor;
 
-                using (Font font = new Font("Segoe UI", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
+                using (Font font = new Font("Comic Sans MS", scaledFontSize, FontStyle.Bold, GraphicsUnit.Pixel))
                 {
                     SizeF textSize = g.MeasureString(label, font);
 
@@ -518,7 +518,7 @@ namespace Library_App
             TimeSpan timeTaken = DateTime.Now - startTime;
             string timeInfo = $"Время: {timeTaken:mm\\:ss}";
 
-            var font = new Font("Arial", 16 * scaleFactor);
+            var font = new Font("Comic Sans MS", 16 * scaleFactor);
             SizeF infoSize = g.MeasureString(info, font);
 
             float panelWidth = infoSize.Width + 40;
@@ -531,7 +531,7 @@ namespace Library_App
             g.DrawRectangle(Pens.Gray, x, y, panelWidth, panelHeight);
 
             g.DrawString(info, font, Brushes.Black, x + 20, y + 10);
-            g.DrawString(timeInfo, new Font("Arial", 14 * scaleFactor), Brushes.DarkBlue, x + 20, y + 10 + infoSize.Height + 5);
+            g.DrawString(timeInfo, new Font("Comic Sans MS", 14 * scaleFactor), Brushes.DarkBlue, x + 20, y + 10 + infoSize.Height + 5);
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {

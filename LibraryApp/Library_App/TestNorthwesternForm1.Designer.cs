@@ -47,7 +47,7 @@ namespace Library_App
             // 
             this.lblAsk1.BackColor = ColorTranslator.FromHtml("#eff7fc");
             this.lblAsk1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAsk1.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAsk1.Font = new System.Drawing.Font("Comic Sans MS", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAsk1.Location = new System.Drawing.Point(0, 0);
             this.lblAsk1.Name = "lblAsk1";
             this.lblAsk1.Size = new System.Drawing.Size(1117, 100);
@@ -82,7 +82,7 @@ namespace Library_App
             this.btnVar1.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#1997d4");
             this.btnVar1.FlatAppearance.BorderSize = 5;
             this.btnVar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar1.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnVar1.Font = new System.Drawing.Font("Comic Sans MS", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnVar1.Location = new System.Drawing.Point(30, 30);
             this.btnVar1.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar1.Name = "btnVar1";
@@ -99,7 +99,7 @@ namespace Library_App
             this.btnVar2.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#1997d4");
             this.btnVar2.FlatAppearance.BorderSize = 5;
             this.btnVar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar2.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnVar2.Font = new System.Drawing.Font("Comic Sans MS", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnVar2.Location = new System.Drawing.Point(30, 305);
             this.btnVar2.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar2.Name = "btnVar2";
@@ -116,7 +116,7 @@ namespace Library_App
             this.btnVar3.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#1997d4");
             this.btnVar3.FlatAppearance.BorderSize = 5;
             this.btnVar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar3.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnVar3.Font = new System.Drawing.Font("Comic Sans MS", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnVar3.Location = new System.Drawing.Point(568, 30);
             this.btnVar3.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar3.Name = "btnVar3";
@@ -133,7 +133,7 @@ namespace Library_App
             this.btnVar4.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#1997d4");
             this.btnVar4.FlatAppearance.BorderSize = 5;
             this.btnVar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar4.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnVar4.Font = new System.Drawing.Font("Comic Sans MS", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnVar4.Location = new System.Drawing.Point(568, 305);
             this.btnVar4.Margin = new System.Windows.Forms.Padding(10);
             this.btnVar4.Name = "btnVar4";

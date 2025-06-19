@@ -36,7 +36,7 @@ namespace Library_App
             // 
             this.lblAsk1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(5)))));
             this.lblAsk1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAsk1.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAsk1.Font = new System.Drawing.Font("Comic Sans MS", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAsk1.ForeColor = System.Drawing.Color.White;
             this.lblAsk1.Location = new System.Drawing.Point(0, 0);
             this.lblAsk1.Name = "lblAsk1";
@@ -72,7 +72,7 @@ namespace Library_App
             this.btnVar1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVar1.FlatAppearance.BorderSize = 5;
             this.btnVar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar1.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar1.Font = new System.Drawing.Font("Comic Sans MS", 22F);
             this.btnVar1.ForeColor = System.Drawing.Color.White;
             this.btnVar1.Location = new System.Drawing.Point(30, 30);
             this.btnVar1.Margin = new System.Windows.Forms.Padding(10);
@@ -90,7 +90,7 @@ namespace Library_App
             this.btnVar2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVar2.FlatAppearance.BorderSize = 5;
             this.btnVar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar2.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar2.Font = new System.Drawing.Font("Comic Sans MS", 22F);
             this.btnVar2.ForeColor = System.Drawing.Color.White;
             this.btnVar2.Location = new System.Drawing.Point(30, 403);
             this.btnVar2.Margin = new System.Windows.Forms.Padding(10);
@@ -108,7 +108,7 @@ namespace Library_App
             this.btnVar3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVar3.FlatAppearance.BorderSize = 5;
             this.btnVar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar3.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar3.Font = new System.Drawing.Font("Comic Sans MS", 22F);
             this.btnVar3.ForeColor = System.Drawing.Color.White;
             this.btnVar3.Location = new System.Drawing.Point(771, 30);
             this.btnVar3.Margin = new System.Windows.Forms.Padding(10);
@@ -126,7 +126,7 @@ namespace Library_App
             this.btnVar4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVar4.FlatAppearance.BorderSize = 5;
             this.btnVar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVar4.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.btnVar4.Font = new System.Drawing.Font("Comic Sans MS", 22F);
             this.btnVar4.ForeColor = System.Drawing.Color.White;
             this.btnVar4.Location = new System.Drawing.Point(771, 403);
             this.btnVar4.Margin = new System.Windows.Forms.Padding(10);
