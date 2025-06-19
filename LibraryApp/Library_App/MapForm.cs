@@ -120,9 +120,9 @@ namespace Library_App
             CalculateButtonSize();
 
             // Создаём кнопки с изображениями из ресурсов (нужно добавить эти картинки в ресурсы)
-            btnBack = CreateImageButton(Properties.Resources.назад);   // например, стрелка назад
-            btnHint = CreateImageButton(Properties.Resources.Подсказка_copy);    // иконка подсказки
-            btnSkip = CreateImageButton(Properties.Resources.пропустить_copy);    // иконка пропустить
+            btnBack = CreateImageButton(Properties.Resources.назад_new);   // например, стрелка назад
+            btnHint = CreateImageButton(Properties.Resources.Подсказка_new);    // иконка подсказки
+            btnSkip = CreateImageButton(Properties.Resources.Пропустить_new);    // иконка пропустить
 
             btnBack.Click += (s, e) => this.Close();
             btnHint.Click += HintButton_Click;

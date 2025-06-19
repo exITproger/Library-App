@@ -64,7 +64,7 @@ namespace Library_App
             // Метка с инструкцией
             Label label = new Label()
             {
-                Text = "Нажимай на регион,\nчтобы узнать про него подробнее.",
+                Text = "Нажимай на регион,\nчтобы узнать про него подробнее.\n \nНе забудь пройти тест для\n проверки знаний",
                 Font = new Font("Arial", fontSize, FontStyle.Regular),
                 AutoSize = false,
                 TextAlign = ContentAlignment.MiddleCenter,

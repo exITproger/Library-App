@@ -275,7 +275,7 @@ namespace Library_App
 
         private void lblVar4_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar4, Color.Red);
+            SetButtonColor(btnVar4, Color.MediumVioletRed);
         }
 
         // Общий метод установки цвета с обновлением анимации
@@ -291,17 +291,17 @@ namespace Library_App
 
         private void lblVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Red);
+            SetButtonColor(btnVar3, Color.MediumVioletRed);
         }
 
         private void lblVar1_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar1, Color.Red);
+            SetButtonColor(btnVar1, Color.MediumVioletRed);
         }
 
         private async void lblVar2_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar2, Color.Green);
+            SetButtonColor(btnVar2, Color.GreenYellow);
 
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);

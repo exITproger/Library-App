@@ -65,7 +65,7 @@ namespace Library_App
 
             // Кнопка выхода
             exitButton = new PictureBox();
-            exitButton.Image = Properties.Resources.выход_copy;
+            exitButton.Image = Properties.Resources.Выход_new;
             exitButton.SizeMode = PictureBoxSizeMode.StretchImage;
             exitButton.BackColor = Color.Transparent;
             exitButton.Cursor = Cursors.Hand;
@@ -73,7 +73,7 @@ namespace Library_App
 
             // Новая кнопка в правом верхнем углу
             rightTopButton = new PictureBox();
-            rightTopButton.Image = Properties.Resources.пройти_тест_copy; 
+            rightTopButton.Image = Properties.Resources.Пройти_тест_new; 
             rightTopButton.SizeMode = PictureBoxSizeMode.StretchImage;
             rightTopButton.BackColor = Color.Transparent;
             rightTopButton.Cursor = Cursors.Hand;

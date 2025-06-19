@@ -272,7 +272,7 @@ namespace Library_App
         }
         private async void btnVar1_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar1, Color.Green);
+            SetButtonColor(btnVar1, Color.GreenYellow);
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);
 
@@ -294,7 +294,7 @@ namespace Library_App
 
         private  void btnVar2_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar2, Color.Red);
+            SetButtonColor(btnVar2, Color.MediumVioletRed);
         }
         private void ReturnToDistrict()
         {
@@ -353,12 +353,12 @@ namespace Library_App
 
         private void btnVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Red);
+            SetButtonColor(btnVar3, Color.MediumVioletRed);
         }
 
         private void btnVar4_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar4, Color.Red);
+            SetButtonColor(btnVar4, Color.MediumVioletRed);
         }
 
         // Общий метод установки цвета с обновлением анимации

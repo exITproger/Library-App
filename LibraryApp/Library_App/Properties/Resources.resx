@@ -505,4 +505,25 @@
   <data name="fon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Выход_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Выход_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="дом_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\дом_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="назад_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\назад_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Начать_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Начать_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Подсказка_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Подсказка_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Пройти_тест_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Пройти_тест_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Пропустить_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Пропустить_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -9,6 +9,7 @@ namespace Library_App
 {
     public partial class TestCentralForm1 : Form
     {
+
         private Timer animationTimer;
         private Dictionary<Button, AnimationState> buttonStates = new Dictionary<Button, AnimationState>();
         // Цвета для анимации (изменяй под себя)
@@ -276,7 +277,7 @@ namespace Library_App
 
         private void lblVar4_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar4, Color.Red);
+            SetButtonColor(btnVar4, Color.MediumVioletRed);
         }
 
         // Общий метод установки цвета с обновлением анимации
@@ -292,7 +293,7 @@ namespace Library_App
 
         private async void lblVar3_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar3, Color.Green);
+            SetButtonColor(btnVar3, Color.GreenYellow);
 
             // Задержка 1.0 секунды (1000 миллисекунд)
             await System.Threading.Tasks.Task.Delay(1000);
@@ -303,12 +304,12 @@ namespace Library_App
 
         private void lblVar1_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar1, Color.Red);
+            SetButtonColor(btnVar1, Color.MediumVioletRed);
         }
 
         private void lblVar2_Click(object sender, EventArgs e)
         {
-            SetButtonColor(btnVar2, Color.Red);
+            SetButtonColor(btnVar2, Color.MediumVioletRed);
         }
     }
 

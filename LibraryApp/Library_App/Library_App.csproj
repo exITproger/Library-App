@@ -904,6 +904,13 @@
     <None Include="Resources\SibireanOmens.png" />
     <None Include="Resources\fon.png" />
     <None Include="Resources\aaa.png" />
+    <None Include="Resources\Выход_new.png" />
+    <None Include="Resources\дом_new.png" />
+    <None Include="Resources\назад_new.png" />
+    <None Include="Resources\Начать_new.png" />
+    <None Include="Resources\Подсказка_new.png" />
+    <None Include="Resources\Пройти_тест_new.png" />
+    <None Include="Resources\Пропустить_new.png" />
     <Content Include="rus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

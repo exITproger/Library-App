@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Library_App
@@ -8,12 +9,14 @@ namespace Library_App
     {
         private PictureBox btnBack;
         private PictureBox btnForward;
-
+        private PictureBox btnExit;
         private const int DesignWidth = 1920;
         private const int DesignHeight = 1080;
         private readonly Point btnBackOriginalLocation = new Point(50, 50);
         private readonly Point btnForwardOriginalLocation = new Point(1720, 50);
+        private readonly Point btnExitOriginalLocation = new Point(885, 990);
         private readonly Size btnOriginalSize = new Size(150, 150);
+        private readonly Size size = new Size(70, 70);
 
         public SiberianOmensForm()
         {
@@ -68,19 +71,31 @@ namespace Library_App
             };
 
             btnForward.Click += BtnForward_Click;
-
+            btnExit = new PictureBox
+            {
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Size = size,
+                Location = btnExitOriginalLocation,
+                BackColor = Color.Transparent,
+                BackgroundImageLayout = ImageLayout.None,
+                Cursor = Cursors.Hand
+            };
+            btnExit.Click += BtnExit_Click;
             this.Controls.Add(btnBack);
             this.Controls.Add(btnForward);
+            this.Controls.Add(btnExit);
             btnBack.BringToFront();
             btnForward.BringToFront();
+            btnExit.BringToFront();
         }
 
         private void LoadButtonImages()
         {
             try
             {
-                btnBack.Image = Properties.Resources.SiberianBack;
-                btnForward.Image = Properties.Resources.SiberianNext;
+                btnBack.Image = Properties.Resources.CentralBack;
+                btnForward.Image = Properties.Resources.CentralNext;
+                btnExit.Image = Properties.Resources.дом_new;
             }
             catch (Exception ex)
             {
@@ -104,6 +119,7 @@ namespace Library_App
         {
             UpdateSingleButtonPosition(btnBack, btnBackOriginalLocation, scale);
             UpdateSingleButtonPosition(btnForward, btnForwardOriginalLocation, scale);
+            UpdateSingleButtonPosition(btnExit, btnExitOriginalLocation, scale);
         }
 
         private void UpdateSingleButtonPosition(PictureBox button, Point originalLocation, float scale)
@@ -111,14 +127,40 @@ namespace Library_App
             if (button == null) return;
 
             int newWidth = (int)(btnOriginalSize.Width * scale);
-            int newHeight = (int)(btnOriginalSize.Height * scale);
+            int newHeight = 0;
+            if (button != btnExit)
+            {
+                newHeight = (int)(btnOriginalSize.Height * scale);
+            }
+            else { newHeight = (int)(size.Height * scale); }
             button.Size = new Size(newWidth, newHeight);
 
             int newX = (int)(originalLocation.X * scale);
             int newY = (int)(originalLocation.Y * scale);
             button.Location = new Point(newX, newY);
         }
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (!(form is MainMenuForm))
+                    form.Close();
+            }
 
+            var mainMenu = Application.OpenForms.OfType<MainMenuForm>().FirstOrDefault();
+            if (mainMenu == null)
+            {
+                mainMenu = new MainMenuForm();
+                mainMenu.Show();
+            }
+            else
+            {
+                mainMenu.BringToFront();
+            }
+
+            this.Close();
+            GC.Collect();
+        }
         private void Form_Load(object sender, EventArgs e)
         {
             LoadButtonImages();
@@ -139,10 +181,9 @@ namespace Library_App
         private void BtnForward_Click(object sender, EventArgs e)
         {
             // Действие для кнопки "Вперед"
-            SiberianTraditionsForm open = new SiberianTraditionsForm();
+            SiberianTraditionsForm centralTraditionsForm = new SiberianTraditionsForm();
 
-            open.ShowDialog();
-
+            centralTraditionsForm.ShowDialog();
         }
     }
 }

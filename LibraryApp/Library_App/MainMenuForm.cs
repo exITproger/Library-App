@@ -30,7 +30,7 @@ namespace Library_App
             CalculateButtonSize();
 
             // Кнопка "Начать"
-            btnStart = CreateImageButton(Properties.Resources.Начать_copy);
+            btnStart = CreateImageButton(Properties.Resources.Начать_new);
             btnStart.Click += (s, e) =>
             {
                 MapForm mapForm = new MapForm();
@@ -40,7 +40,7 @@ namespace Library_App
             };
 
             // Кнопка "Выход"
-            btnExit = CreateImageButton(Properties.Resources.выход_copy);
+            btnExit = CreateImageButton(Properties.Resources.Выход_new);
             btnExit.Click += (s, e) => Application.Exit();
 
             // Размещаем кнопки

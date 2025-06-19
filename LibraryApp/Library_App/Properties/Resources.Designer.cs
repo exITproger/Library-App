@@ -1263,9 +1263,39 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Выход_new {
+            get {
+                object obj = ResourceManager.GetObject("Выход_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap дом_new {
+            get {
+                object obj = ResourceManager.GetObject("дом_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap назад {
             get {
                 object obj = ResourceManager.GetObject("назад", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap назад_new {
+            get {
+                object obj = ResourceManager.GetObject("назад_new", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1293,6 +1323,16 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Начать_new {
+            get {
+                object obj = ResourceManager.GetObject("Начать_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Подсказка {
             get {
                 object obj = ResourceManager.GetObject("Подсказка", resourceCulture);
@@ -1306,6 +1346,16 @@ namespace Library_App.Properties {
         internal static System.Drawing.Bitmap Подсказка_copy {
             get {
                 object obj = ResourceManager.GetObject("Подсказка_copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Подсказка_new {
+            get {
+                object obj = ResourceManager.GetObject("Подсказка_new", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1333,6 +1383,16 @@ namespace Library_App.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Пройти_тест_new {
+            get {
+                object obj = ResourceManager.GetObject("Пройти_тест_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap пропустить {
             get {
                 object obj = ResourceManager.GetObject("пропустить", resourceCulture);
@@ -1346,6 +1406,16 @@ namespace Library_App.Properties {
         internal static System.Drawing.Bitmap пропустить_copy {
             get {
                 object obj = ResourceManager.GetObject("пропустить_copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Пропустить_new {
+            get {
+                object obj = ResourceManager.GetObject("Пропустить_new", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
